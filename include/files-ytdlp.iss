@@ -7,7 +7,7 @@ Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                             
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.exe";                                              DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Components: "YTDLP"; Flags: ignoreversion;
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";                           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "YTDLP"; Flags: ignoreversion; 
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";                          DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "YTDLP"; Flags: ignoreversion;
-;;;;;
+;
 Source: "src\Extension\Data\yt-dlp_win\_internal\_asyncio.pyd";                                  DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\_internal"; Components: "YTDLP"; Flags: ignoreversion;
 Source: "src\Extension\Data\yt-dlp_win\_internal\_brotli.cp310-win_amd64.pyd";                   DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\_internal"; Components: "YTDLP"; Flags: ignoreversion;
 Source: "src\Extension\Data\yt-dlp_win\_internal\_bz2.pyd";                                      DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\_internal"; Components: "YTDLP"; Flags: ignoreversion;

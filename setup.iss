@@ -3,7 +3,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6319"
+#define MyAppVersion "3.9.6329"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -20,7 +20,7 @@ AppPublisher                       = {#MyAppPublisher}
 AppPublisherURL                    = {#MyAppURL}
 AppSupportURL                      = {#MyAppURL}
 AppUpdatesURL                      = {#MyAppURL}
-DefaultDirName                     = {localappdata}\{#MyAppName}
+DefaultDirName                     = {userappdata}\{#MyAppName}
 DefaultGroupName                   = {#MyAppName}
 AppCopyright                       = Copyright © {#MyAppPublisher} 2014-2025
 AllowNoIcons                       = yes
@@ -42,7 +42,7 @@ DisableProgramGroupPage            = yes
 UsePreviousLanguage                = no
 UsePreviousPrivileges              = no
 PrivilegesRequired                 = admin
-PrivilegesRequiredOverridesAllowed = dialog
+PrivilegesRequiredOverridesAllowed = 
 UsedUserAreasWarning               = yes
 VersionInfoVersion                 = {#MyAppVersion}.0
 SetupLogging                       = yes
@@ -178,6 +178,12 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #2.ico";        D
 Source: "src\Extension\Media\PlayParse\yt-dlp_default.ini";                    DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio1.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio2.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
+; YTDLP
+; Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion;
+; Source: "src\Extension\Data\yt-dlp_win\yt-dlp.exe";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion;
+; Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion; 
+; Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion;
+; Source: "{tmp}\yt-dlp_win.7z";                                                 DestDir: "{tmp}";                                                Components: "YTDLP"; Flags: deleteafterinstall
 ; Icaros
 Source: "{tmp}\Icaros.exe";                                                    DestDir: "{tmp}";                                                Components: "icaros"; Flags: external deleteafterinstall
 Source: "InstallDir\uninstall_Icaros.bat";                                     DestDir: "{app}";                                                Components: "icaros"; Flags: ignoreversion
@@ -283,6 +289,8 @@ Type: files;          Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
 [Run]
 ; Wypakuj Module64.7z do katalogu PotPlayer
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Components: "program"; Flags: runhidden runascurrentuser; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult
+; Wypakuj yt-dlp_win.7z do katalogu yt-dlp_win
+; Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\yt-dlp_win.7z"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP"; Flags: runhidden runascurrentuser; StatusMsg: "{cm:msg_extYTDLP}"; Check: CheckYTDLPResult
 ; Importuj ustawienia PotPlayer
 Filename: "{sys}\regedit.exe"; Parameters: "/s ""{tmp}\pot64_settings.reg"""; Description: "{cm:msg_confpot}"; StatusMsg: "{cm:msg_confpot}"; Flags: shellexec runhidden
 ; Instaluj Icaros
@@ -487,8 +495,8 @@ begin
   
   if Result then
   begin
-    Log('PotPlayer installation started. Waiting 35 seconds...');
-    Sleep(35000);
+    Log('PotPlayer installation started. Waiting 60 seconds...');
+    Sleep(60000);
     if IsPotPlayerInstalled then
     begin
       Log('PotPlayer installation verified successfully.');
@@ -588,6 +596,28 @@ begin
   end;
 end;
 
+// function CheckYTDLPResult: Boolean;
+// var
+//   ResultCode: Integer;
+// begin
+//   Log('Extracting yt-dlp_win.7z...');
+//   Result := Exec(ExpandConstant('{tmp}\7za.exe'),
+//     'x "' + ExpandConstant('{tmp}\yt-dlp_win.7z') + '" -o"' + ExpandConstant('{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win') + '" * -r -aoa',
+//     '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  
+//   if ResultCode = 0 then
+//   begin
+//     Log('Extraction successful.');
+//     Result := True;
+//   end
+//   else
+//   begin
+//     MsgBox('Błąd rozpakowywania yt-dlp_win.7z. Kod: ' + IntToStr(ResultCode), mbError, MB_OK);
+//     Log('7za failed with code: ' + IntToStr(ResultCode));
+//     Result := False;
+//   end;
+// end;
+
 function OnDownloadProgress(const Url, FileName: String; const Progress, ProgressMax: Int64): Boolean;
 begin
   Log(Format('Downloading %s: %d / %d bytes', [FileName, Progress, ProgressMax]));
@@ -616,7 +646,7 @@ begin
 
     if PotPlayerDownloadNeeded then
     begin
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/250625/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'E290A654AFBE4554B45568BC536E2B0DC47D9E9CBE47B22337757100FDCCB265');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '8C5C57351098050868449B863166D641487BE9CB629218A9DABD8BCC8C10FC17');
       HasDownloads := True;
     end;
 
@@ -689,6 +719,7 @@ begin
   TempFiles[1] := ExpandConstant('{tmp}\Icaros.exe');
   TempFiles[2] := ExpandConstant('{tmp}\madVR_v0.9.17.exe');
   TempFiles[3] := ExpandConstant('{tmp}\PotPlayerSetup64.exe');
+  // Tempfiles[4] := ExpandConstant('{tmp}\yt-dlp_win.7z');
   for I := 0 to GetArrayLength(TempFiles) - 1 do
     if FileExists(TempFiles[I]) then
     begin

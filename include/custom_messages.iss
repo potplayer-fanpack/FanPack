@@ -28,6 +28,7 @@ pl.msg_regLAVS=Rejestrowanie w systemie LAVSplitter.ax
 pl.cm_regXySub=Rejestrowanie XySubFilter.dll
 pl.msg_regMpcVR=Rejestrowanie MpcVideoRenderer64.ax
 pl.msg_extracting=Wypakowywanie Module64.7z
+pl.msg_extYTDLP=Wypakowywanie yt-dlp_win.7z
 pl.msg_version_exists=
 pl.msg_update_prompt=
 ;pl.msg_delsetpot=Usuwanie ustawieñ PotPlayer...
