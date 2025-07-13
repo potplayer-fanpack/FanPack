@@ -3,6 +3,224 @@ Historia wersji PotPlayer
 
 
 ----------------------------------------------------------
+[250711]
+----------------------------------------------------------
++ Dodano funkcję generowania napisów z audio w czasie rzeczywistym
+
+- Naprawiono problem z zawieszaniem się ekranu podczas korzystania z WMV3/VC1 IDCT DXVA
+
+----------------------------------------------------------
+[250625]
+----------------------------------------------------------
++ Dodano funkcję umożliwiającą wybór metody mapowania tonów HDR
++ Dodano funkcję VAD do Whisper
+
+- Naprawiono błąd, który występował w niektórych sytuacjach
+- Naprawiono błąd, który powodował, że niektóre teksty MP3 nie mogły być wyświetlane
+- Naprawiono błąd, w wyniku którego niektóre tła napisów były ucinane
+- Naprawiono błąd, który powodował, że obracanie niektórych obrazów nie było obsługiwane
+- Ulepszono funkcję odtwarzania uszkodzonych plików MKV
+
+----------------------------------------------------------
+[250512]
+----------------------------------------------------------
++ Dodano możliwość zmiany obsługi czcionki napisów
+
+- Ulepszono obsługę opcji dodatkowych Whisper
+- Ulepszono przetwarzanie HDR D3D11 H/W
+- Naprawiono problem powodujący w pewnych warunkach pojawianie się czarnego ekranu
+
+----------------------------------------------------------
+[250313]
+----------------------------------------------------------
+- Naprawiono problem, w wyniku którego niektóre komputery przestawały odtwarzać wideo HEVC 10-bit
+- Naprawiono problem, w wyniku którego Whisper Faster nie działał na procesorach graficznych NVIDIA serii 5000
+- Naprawiono problem, w wyniku którego niektóre napisy ASS/SSA nie działały prawidłowo
+
+----------------------------------------------------------
+[250226]
+----------------------------------------------------------
++ Dodano możliwość generowania napisów ASS/SSA przy użyciu libass
++ Dodano Faster-Whisper-XXL do silnika Whisper
++ Dodano możliwość aktualizacji silnika Whisper
++ Dodano możliwość zapisywania napisów o tej samej nazwie co wideo podczas tworzenia napisów z audio
+
+- Naprawiono błąd powodujący, że kolor ekranu był nieprawidłowy w niektórych sytuacjach podczas przechwytywania wideo
+- Naprawiono problem powodujący wycieki pamięci w niektórych sytuacjach
+- Naprawiono problem powodujący, że niektóre napisy ASS/SSA miały dziwne kolory
+- Poprawiono prędkość renderowania napisów ASS/SSA
+
+----------------------------------------------------------
+[241211]
+----------------------------------------------------------
++ Dodano możliwość generowania napisów z głosu przy użyciu funkcji Whisper
++ Dodano możliwość otwierania audio z wykorzystaniem opcji wiersza polecenia
++ Dodano możliwość ustawienia luminancji monitora na HDR 2084
+
+- Naprawiono błąd, który powodował, że niektóre teksty MP3 nie były wyświetlane
+- Naprawiono błąd, który uniemożliwiał odtwarzanie plików graficznych WEBP
+- Naprawiono spowolnione odtwarzanie niektórych plików MPEG TS
+- Naprawiono błąd powodujący wyświetlanie niektórych plików na czarno podczas odtwarzania
+
+----------------------------------------------------------
+[241015]
+----------------------------------------------------------
++ Dodano możliwość dostosowania prędkości odtwarzania po naciśnięciu przycisku myszki
+
+- Naprawiono błąd, w wyniku którego czasy odtwarzania niektórych plików MPEG TS były nieprawidłowe
+- Naprawiono błąd, który powodował migotanie ekranu podczas odtwarzania niektórych plików MPEG TS
+- Naprawiono błąd, który powodował nieprawidłowe wyświetlanie niektórych napisów ASS/SSA
+- Naprawiono błąd, który powodował nieprawidłowe działanie podczas odtwarzania bardzo długich plików
+
+----------------------------------------------------------
+[240827]
+----------------------------------------------------------
++ Dodano WEBP do przechwytywania wideo
++ Dodano możliwość ustawienia sekundowego lub krótszego opóźnienia dla filtrów źródła obrazu
++ Dodano funkcję automatycznego uruchamiania przy starcie systemu
+
+- Naprawiono błąd, w wyniku którego ustawienia rozmiaru ikony skrótu nie były odzwierciedlane
+- Naprawiono błąd powodujący, że w niektórych sytuacjach ustawienie 'Nie dodawaj duplikatów plików' było resetowane
+- Naprawiono błąd, w wyniku którego niektóre kodeki były podczas odtwarzania rozpoznawane jako wideo z przeplotem
+- Naprawiono błąd powstający podczas dekodowania przy użyciu libVPX 8/9
+- Naprawiono błąd powodujący nieprawidłowe działanie nawigacji podczas przesyłania strumieniowego MP4
+- Naprawiono błąd powodujący powolne przeglądanie niektórych plików FLV
+- Poprawiono szybkość wyświetlania napisów
+
+----------------------------------------------------------
+[240618]
+----------------------------------------------------------
++ Dodano możliwość ustawienia czcionki dla informacji o odtwarzaniu (OSD)
++ Dodano możliwość nadawania nazw albumom w warunkach automatycznego wyboru konfiguracji
++ Dodano możliwość przejścia do poprzedniej/następnej sekcji na liście powtarzania sekcji
++ Dodano możliwość nie czekania na synchronizację pionową
++ Dodano funkcję sterowania multimediami systemowymi
+
+- Zmodyfikowano skórkę WindowFrame, aby była ładniejsza
+- Zmodyfikowano format napisów wyświetlanych w nazwie wbudowanych napisów
+- Naprawiono problem, w wyniku którego kroki przechodzenia po klatkach nie działały poprawnie we wbudowanym rendererze wideo
+
+----------------------------------------------------------
+[240509]
+----------------------------------------------------------
++ Dodano możliwość odtwarzania Dolby Vision HDR
+
+- Naprawiono błąd, który powodował, że niektóre pliki MP4 nie były wyświetlane podczas odtwarzania
+- Poprawiono stabilność wbudowanego renderera D3D9
+- Naprawiono błąd, w wyniku którego pliki skompresowane nie mogły być poprawnie odtwarzane
+- Naprawiono błąd powodujący uszkodzenie ekranu przy nawigacji podczas odtwarzania niektórych plików MPEG 2 z DXVA
+
+----------------------------------------------------------
+[240305]
+----------------------------------------------------------
++ Dodano funkcję NVIDIA RTX Video HDR
++ Dodano do list odtwarzania możliwość przenoszenia plików
+
+- Naprawiono błąd, który uniemożliwiał odtwarzanie uszkodzonych plików WAV
+- Naprawiono błąd, który powodował uszkodzenie obrazu podczas odtwarzania niektórych kodeków MPEG4
+- Naprawiono błąd, w wyniku którego obraz nie pojawiał się podczas odtwarzania niektórych treści wideo w formacie WMV
+- Naprawiono błąd, w wyniku którego niektóre protokoły SRT nie działały
+- Naprawiono błąd występujący podczas odtwarzania niektórych plików TS
+- Naprawiono problem polegający na tym, że odtwarzanie niektórych kodeków VP8/9 powodowało błąd w niektórych sytuacjach
+
+----------------------------------------------------------
+[231220]
+----------------------------------------------------------
++ Dodano możliwość wyboru urządzenia wyjściowego dla TTS
+
+- Naprawiono błąd występujący podczas odtwarzania MPEG 1/2 z DXVA na starszych układach GPU
+- Dodano możliwość wklejenia listy odtwarzania poniżej wybranego elementu
+- Naprawiono błąd występujący podczas odtwarzania niektórych plików MKV
+- Naprawiono błąd, w wyniku którego nawigacja nie była możliwa podczas odtwarzania niektórych plików
+
+----------------------------------------------------------
+[231102]
+----------------------------------------------------------
++ Dodano możliwość wyświetlania wielu linii w Przeglądarce napisów
++ Dodano możliwość odtwarzania kodeka wideo NOTCHLC 
+
+- Wprowadzono modyfikację, aby, jeśli to możliwe, zastosować korekcję kolorów HDR podczas przechwytywania wideo
+- Naprawiono błąd, w wyniku którego funkcja DTS pass-through nie działała na niektórych systemach
+- Naprawiono błąd, który powodował nakładanie się osadzonych napisów podczas odtwarzania plików bez przerw
+- Naprawiono błąd, który powodował, że zakończenie odtwarzania nie następowało w przypadku użycia funkcji usuwania powiązanego pliku po zakończeniu odtwarzania
+- Naprawiono błąd, który powodował zawieszanie się podczas odtwarzania HEVC z DXVA na starych procesorach graficznych Intel
+- Naprawiono błąd, który powodował, że po użyciu przeszukiwania nie można było odtworzyć niektórych plików wideo MKV
+
+----------------------------------------------------------
+[230830]
+----------------------------------------------------------
+- Zastosowano poprawkę umożliwiającą zachowanie właściwości napisów podczas ich tłumaczenia, jeśli to możliwe
+- Naprawiono problem polegający na nieprawidłowej obsłudze proporcji podczas odtwarzania niektórych plików wideo ze zmienionymi proporcjami
+- Naprawiono błąd występujący podczas użycia wbudowanego renderera D3D11, który powodował ucinanie ekranu podczas przełączania między monitorami o różnych rozdzielczościach
+- Naprawiono błąd, który powodował awarie w niektórych sytuacjach
+- Poprawiono stabilność wbudowanego renderera wideo
+
+----------------------------------------------------------
+[230705]
+----------------------------------------------------------
++ Dodano możliwość tłumaczenia napisów niezależnie od wybranych języków
++ Dodano obsługę kodeka g726 do formatu MP4
++ Dodano obsługę napisów ARIB
+
+- Poprawiono płynność przewijania list odtwarzania za pomocą touchpada
+- Ulepszono odtwarzanie MP4 podczas pobierania
+- Ulepszono odtwarzanie nieprzetworzonych (raw) plików av1
+
+----------------------------------------------------------
+[230523]
+----------------------------------------------------------
+- Naprawiono problem powodujący brak synchronizacji podczas odtwarzania z kodekiem mjpeg
+- Naprawiono problem powodujący błąd podczas odtwarzania z określonym kodekiem MPEG 2
+- Naprawiono problem powodujący, że ekran tytułowy nie pojawiał się podczas odtwarzania niektórych płyt DVD
+- Naprawiono problem powodujący zniekształcenia obrazu podczas korzystania z niektórych H264 DXVA
+
+----------------------------------------------------------
+[230405]
+----------------------------------------------------------
++ Dodano funkcję GPU Super Resolution do wbudowanego renderera wideo D3D11 
+
+- Naprawiono błąd powodujący, że wizualizacja audio nie działała, gdy głos był tylko w prawym kanale
+- Naprawiono problem powodujący dziwne przechwytywanie podczas przechwytywania z napisami przy użyciu renderera wideo D3D11
+- Naprawiono problem powodujący w niektórych sytuacjach brak dźwięku podczas odtwarzania uszkodzonego wideo
+- Naprawiono problem powodujący nie pojawianie się dźwięku w niektórych kodekach flac
+
+----------------------------------------------------------
+[230207]
+----------------------------------------------------------
++ Dodano format WEBP do przechwytywania wideo
+
+- Wprowadzono modyfikacje powodujące trochę szybsze uruchamianie się odtwarzacza podczas pierwszego uruchomienia
+- Naprawiono problem powodujący, że niektóre uszkodzone pliki FLAC nie mogły być odtwarzane
+- Naprawiono problem powolnego odtwarzania podczas odtwarzania niektórych plików FTP/HTTP
+- Naprawiono problem powodujący nieprawidłowe przetwarzanie czasu odtwarzania podczas odtwarzania niektórych plików MP4
+
+----------------------------------------------------------
+[221215]
+----------------------------------------------------------
+- Naprawiono błąd powodujący problemy z odtwarzaniem niektórych plików AV1
+- Naprawiono błąd powodujący spadek jakości podczas odtwarzania wideo z przeplotem innym niż i420p
+- Naprawiono błąd powodujący spadek prędkości podczas odtwarzania z niektórymi urządzeniami WaveOut
+- Naprawiono błąd powodujący brak możliwości wyboru napisów przy zbyt wielu plikach z napisami
+- Naprawiono błąd powodujący, że niektóre czasy odtwarzania plików flv były obliczane niepoprawnie
+- Naprawiono błąd powodujący brak możliwości przetwarzania spacji w niektórych japońskich napisach
+- Naprawiono błąd powodujący brak możliwości odczytu niektórych kanałów RSS
+
+----------------------------------------------------------
+[221102]
+----------------------------------------------------------
+- Naprawiono błąd występujący w niektórych systemach
+- Naprawiono błąd powodujący zniekształcenie ekranu podczas robienia zrzutu
+- Usprawniono funkcję odtwarzania DASH/HLS
+
+----------------------------------------------------------
+[220831]
+----------------------------------------------------------
+- Naprawiono problem polegający na tym, że podczas odtwarzania niektórych plików MP4 nie było dźwięku
+- Naprawiono błąd, który występował podczas odtwarzania niektórych plików
+- Naprawiono problem ze spowolnionym odtwarzaniem przy pierwszym odtwarzaniu
+- Poprawiono stabilność podczas odtwarzania z DXVA
+
+----------------------------------------------------------
 [220706]
 ----------------------------------------------------------
 + Dodano możliwość zapisywania tłumaczenia podczas zapisywania napisów

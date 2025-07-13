@@ -1,0 +1,9 @@
+[UninstallRun]
+Filename: "reg"; Parameters: "IMPORT delete_potplayer_hkcu.reg /reg:64"; WorkingDir: "{app}"; StatusMsg: "{cm:msg_delsetpot}"; Flags: shellexec runhidden runascurrentuser
+Filename: "reg"; Parameters: "IMPORT delete_lav_hkcu.reg /reg:64";       WorkingDir: "{app}"; StatusMsg: "{cm:msg_delsetpot}"; Flags: shellexec runhidden runascurrentuser
+Filename: "reg"; Parameters: "IMPORT delete_mpc_hkcu.reg /reg:64";       WorkingDir: "{app}"; StatusMsg: "{cm:msg_delsetpot}"; Flags: shellexec runhidden runascurrentuser
+Filename: "reg"; Parameters: "IMPORT delete_gabest_hkcu.reg /reg:64";    WorkingDir: "{app}"; StatusMsg: "{cm:msg_delsetpot}"; Flags: shellexec runhidden runascurrentuser
+;
+Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\AviSynth\*.*"" (MOVE /Y ""{app}\AviSynth\*.*"" ""{autopf}\DAUM\PotPlayer\AviSynth"")"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PxShader\*.*"" (MOVE /Y ""{app}\PxShader\*.*"" ""{autopf}\DAUM\PotPlayer\PxShader"")"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PotPlayerMini64.exe"" (MOVE /Y ""{app}\PotPlayerMini64.exe"" ""{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe"")"; Flags: runhidden

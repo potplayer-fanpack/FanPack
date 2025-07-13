@@ -3,19 +3,6 @@
 	Copyright github.com/23rd, 2018-2020.
 */
 
-//	string GetTitle() 									-> get title for UI
-//	string GetVersion									-> get version for manage
-//	string GetDesc()									-> get detail information
-//	string GetLoginTitle()								-> get title for login dialog
-//	string GetLoginDesc()								-> get desc for login dialog
-//	string ServerCheck(string User, string Pass) 		-> server check
-//	string ServerLogin(string User, string Pass) 		-> login
-//	void ServerLogout() 								-> logout
-// 	bool PlayitemCheck(const string &in)				-> check playitem
-//	array<dictionary> PlayitemParse(const string &in)	-> parse playitem
-// 	bool PlaylistCheck(const string &in)				-> check playlist
-//	array<dictionary> PlaylistParse(const string &in)	-> parse playlist
-
 string GetTitle() {
 	return "Twitch";
 }
@@ -28,13 +15,17 @@ string GetDesc() {
 	return "https://twitch.tv/";
 }
 
+string GetStatus() {
+	return GetTitle();
+}
+
 string getReg() {
 	return "([-a-zA-Z0-9_]+)";
 }
 
 string getApiBase() {
 	if (!IsTwitch) {
-		return "https://potplayer.herokuapp.com";
+		return "https://api.twitch.tv";
 	}
 	return "https://api.twitch.tv";
 }
@@ -106,7 +97,7 @@ Config ReadConfigFile() {
 	config.oauthToken = config.parse("oauthToken=oauth:");
 	config.useOwnCredentials = config.isTrue("useOwnCredentials");
 	// This ClientID is used only for getting the m3u8 playlist.
-	config.clientID_M3U8 = "jzkbprff40iqj646a697cyrvl0zt2m6";
+	config.clientID_M3U8 = "ue6666qo983tsx6so1t0vnawi233wa";
 	return config;
 }
 
@@ -316,7 +307,7 @@ string ClipsParse(const string &in path, dictionary &MetaData, array<dictionary>
 		clipId = HostRegExpParse(path, "/clip/" + getReg());
 	}
 
-	JsonValue clipRoot = SendGraphQLRequest(ClipsBodyRequest(clipId))["clip"];
+	JsonValue clipRoot = SendGraphQLRequest(ClipsBodyRequest(clipId))[""]; // ["clip"];
 	string srcBestUrl = "";
 	if (!clipRoot.isObject()) {
 		return "";
@@ -355,10 +346,10 @@ string ClipsParse(const string &in path, dictionary &MetaData, array<dictionary>
 	createdAt.replace("T", " ");
 	createdAt.replace("Z", " ");
 
-	MetaData["title"] = titleClip;
-	MetaData["content"] = titleClip + " | " + game + " | " + displayName + " | " + createdAt;
-	MetaData["viewCount"] = views;
-	MetaData["author"] = creatorName;
+	//MetaData["title"] = titleClip;
+	//MetaData["content"] = titleClip + " | " + game + " | " + displayName + " | " + createdAt;
+	//MetaData["viewCount"] = views;
+	//MetaData["author"] = creatorName;
 
 	return srcBestUrl;
 }
@@ -383,8 +374,8 @@ string PlayitemParse(const string &in path, dictionary &MetaData, array<dictiona
 		vodId = HostRegExpParse(path, "twitch.tv/videos/([0-9]+)");
 	}
 	HostPrintUTF8(vodId);
-// 	https://usher.ttvnw.net/vod/
-//  https://api.twitch.tv/api/vods/
+	//	https://usher.ttvnw.net/vod/
+	//	https://api.twitch.tv/api/vods/
 
 	// Parameter p should be random number.
 	string m3u8Api = (isVod
@@ -479,10 +470,17 @@ string PlayitemParse(const string &in path, dictionary &MetaData, array<dictiona
 		}
 	}
 
+	//MetaData["title"] = titleStream + (ConfigData.gameInTitle ? game : "");
+	//MetaData["content"] = "— " + titleStream + (ConfigData.gameInContent ? game : "");
+	//MetaData["viewCount"] = views;
+	//MetaData["author"] = displayName;
 
-	MetaData["title"] = titleStream + (ConfigData.gameInTitle ? game : "");
-	MetaData["content"] = "— " + titleStream + (ConfigData.gameInContent ? game : "");
-	MetaData["viewCount"] = views;
-	MetaData["author"] = displayName;
+	if (!isVod) {
+	MetaData["author"] = nickname;
+	MetaData["webUrl"] = "https://www.twitch.tv/" + nickname; }
+	else {
+	MetaData["author"] = "Video - " + vodId;
+	MetaData["webUrl"] = "https://www.twitch.tv/videos/" + vodId; }
+
 	return sourceQualityUrl;
 }

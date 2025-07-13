@@ -1,0 +1,1 @@
+Get-FileHash C:\Users\Adam\Downloads\PotPlayerSetup64.exe -A SHA256
