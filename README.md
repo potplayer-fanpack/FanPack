@@ -1,32 +1,32 @@
-# FanPack-Lite
+# FanPack64
 Polish
 ========
 
-FanPack64 Lite, czyli autorski pakiet konfiguracyjny oparty na wbudowanych filtrach / dekoderach.  
+FanPack64, czyli autorski pakiet konfiguracyjny oparty na wbudowanych filtrach / dekoderach.  
 Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i zaczynasz oglądać filmy.
 
 ## Spis zawartości
 * [Narzędzia innych firm](#narzędzia-innych-firm)
 * [Wymagania systemowe](#wymagania-systemowe)
 * [Plik PotPlayerMini(64)](#plik-potplayermini64)
-* [Aktualizacje](#aktualizacje)
 * [Uwagi](#uwagi)
 * [Licencja](#licencja)
 
 ## Narzędzia innych firm
-- [_Icaros_](http://shark007.net/tools.html) z zgodnie z licencją "Icaros License.txt" - Copyright (c) 2010-2023, Tabibito Technology
-- [_madVR_](http://forum.doom9.org/showthread.php?t=146228) [specjalnie przygotowany plik instalacyjny] zgodnie z licencją "license.txt" - Copyright (c) 2009-2023 Mathias Rauen
+- [_OpenCodec64_](https://cafe.daum.net/pot-tool) zgodnie z licencją "GNU LGPL"
 - Biblioteki [_AviSynth[64]+_](https://github.com/pinterf/AviSynthPlus/releases) zgodnie z licencją "GNU GPL"
 - Biblioteki [_SVPflow[64]_](http://www.svp-team.com/wiki/Plugins:_SVPFlow) zgodnie z licencją "GNU GPL" - Copyright (c) 2023 SVP-Team.com
 - Skrypty do AviSynth64+ i SVPflow64 - Copyright (c) 2018-2022 zub35 i 7sh3
-- [_Rozszerzenie do Twich.tv_](https://github.com/23rd/PotPlayerExtentions) - Copyright (c) 2018-2022 23rd
+- [_Standalone filters MPC-BE_](https://sourceforge.net/projects/mpcbe/) zgodnie z licencją "GNU LGPL"
+- [_MPC Video Renderer_](https://github.com/Aleksoid1978/VideoRenderer) zgodnie z licencją "GNU LGPL" - Copyright (c) 2018-2025 Alex Marsev
+- [_Sanear Audio Renderer_](https://github.com/alexmarsev/sanear) zgodnie z licencją "GNU LGPL" - Copyright (c) 2015 Alex Marsev
+- [_madVR_](http://forum.doom9.org/showthread.php?t=146228) [specjalnie przygotowany plik instalacyjny] zgodnie z licencją "license.txt" - Copyright (c) 2009-2023 Mathias Rauen
+- [_LAV Filters_](https://github.com/Nevcairiel/LAVFilters) zgodnie z licencją GPL-2.0 - Copyright (c) 2010-2025, Nevcairiel
+- [_Icaros_](http://shark007.net/tools.html) zgodnie z licencją "Icaros License.txt" - Copyright (c) 2010-2023, Tabibito Technology
+- [_yt-dlp_](https://github.com/yt-dlp/yt-dlp) i skrypt do pobierania wideo na licencji Public Domain, Copyright (c) 2012-2025, yt-dlp
+- [_PotPlayer-Extension_yt-dlp_](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) do przetwarzanie przesyłania strumieniowego za pomocą yt-dlp (playlisty z YT), Copyright (c) 2025, hgcat-360
 - Biblioteki LibTorrent - Copyright (c) 2003-2020, Arvid Norberg
 - [_Rozszerzenie do sieci Torrent_](http://cafe.daum.net/pot-tool/N88T/137) - Pobrane z czatu PotPlayer
-- [_MPC Video Renderer_](https://github.com/Aleksoid1978/VideoRenderer) zgodnie z licencją "GNU LGPL" - Copyright (c) 2018-2023 Aleksoid1978
-- [_Sanear Audio Renderer_](https://github.com/alexmarsev/sanear) zgodnie z licencją "GNU LGPL" - Copyright (c) 2015 Alex Marsev
-- [_TorrServer_](https://github.com/YouROK/TorrServer) zgodnie z licencją - Copyright (c) 2023 YouROK
-- [_TorrServer launcher_](https://github.com/Noperkot/TSL) zgodnie z licencją, Copyright (c) 2023 Noperkot
-
 
 Wszystkie znaki towarowe i prawa autorskie są własnością ich odpowiednich właścicieli.
   
@@ -35,25 +35,17 @@ Wszystkie znaki towarowe i prawa autorskie są własnością ich odpowiednich w�
 - [_DirectX End-User Runtimes_](https://www.microsoft.com/en-us/download/confirmation.aspx?id=8109) (June 2010)
 - [_Visual C++ Redistributable_](https://www.microsoft.com/pl-PL/download/details.aspx?id=48145) for Visual Studio 2015
 
-## Plik PotPlayerMini(64)
+## Plik PotPlayerMini64
 Można wybrać do instalacji specjalną wersję tego pliku ze zmienioną ikoną: 
-- okrągła, niebieska z białym trójkątem w środku 
-- okrągła, żółta z białym trójkątem w środku
+- okrągła, niebieska z białym trójkątem w środku.
+Podczas deinstalacji FanPacka przywracany jest oryginalny plik.
 
 Plik został przygotowany za pomocą [_PotPlayer Icon Replacer_](https://potplayer.daum.net/forum/viewtopic.php?f=11&t=3585#p6954) Copyright (c) 2018-2019 V@no
-
-## Aktualizacje
-Skompilowane aktualizacje można znaleźć pod adresem http://www.potplayerclub.pl
 
 ## Uwagi
 W razie problemów proszę najpierw spróbować znaleźć rozwiązanie samodzielnie:
 - przejrzeć ustawienia PotPlayera,
-- zainstalować najnowszą wersję beta odtwarzacza,
-- zaznajomić się z odpowiedziami i poradnikami na stronie.
-
-Zgłaszanie błędów i propozycji oraz pomocy
-
-http://www.potplayerclub.pl/kontakt.php
+- zainstalować najnowszą wersję beta odtwarzacza.
 
 ## Licencja
 Ten projekt jest open source i dostępny w ramach [Licencji](./InstallDir/License.txt).
@@ -66,7 +58,7 @@ Przyjemności z oglądania filmów!
 Adam Malich
 
 
-Copyright (c) 2014-2023 www.potplayerclub.pl
+Copyright (c) 2014-2025 [potplayer-fanpack](https://github.com/potplayer-fanpack/FanPack)
 
 
 English
@@ -79,25 +71,25 @@ Everything is set up, you install the package, launch the player and start watch
 * [3rd Party Tools](#3rd-party-tools)
 * [System requirements](#system-requirements)
 * [PotPlayerMini(64) file](#potplayermini64-file)
-* [Updates](#updates)
 * [Notes](#notes)
 * [License](#license)
 
 ## 3rd Party Tools
-- [_Icaros_](http://shark007.net/tools.html) according to the "Icaros License.txt" license - Copyright (c) 2010-2023, Tabibito Technology
-- [_madVR_](http://forum.doom9.org/showthread.php?t=146228) [the specially prepared installation file] according to the "license.txt" license - Copyright (c) 2009-2023 Mathias Rauen
+- [_OpenCodec64_](https://cafe.daum.net/pot-tool) according to the "GNU GPL"
 - Libraries [_AviSynth[64]+_](https://github.com/pinterf/AviSynthPlus/releases) according to the "GNU GPL" license
 - Libraries [_SVPflow[64]_](http://www.svp-team.com/wiki/Plugins:_SVPFlow) according to the "GNU GPL" license - Copyright (c) 2023 SVP-Team.com
 - Scripts for AviSynth64+ i SVPflow64 - Copyright (c) 2018-2022 zub35 and 7sh3
-- [_Extension to Twich.tv_](https://github.com/23rd/PotPlayerExtentions) - Copyright (c) 2018-2022 23rd
+- [_Standalone filters MPC-BE_](https://sourceforge.net/projects/mpcbe/) according to the "GNU GPL" license"
+- [_MPC Video Renderer_](https://github.com/Aleksoid1978/VideoRenderer) according to the "GNU GPL" license - Copyright (c) 2018-2025 Alex Marsev
+- [_Sanear Audio Renderer_](https://github.com/alexmarsev/sanear) according to the "GNU GPL" license - Copyright (c) 2015 Alex Marsev
+- [_madVR_](http://forum.doom9.org/showthread.php?t=146228) [the specially prepared installation file] according to the "license.txt" license - Copyright (c) 2009-2023 Mathias Rauen
+- [_LAV Filters_](https://github.com/Nevcairiel/LAVFilters) according to the GPL-2.0 license - Copyright (c) 2010-2025, Nevcairiel
+- [_Icaros_](http://shark007.net/tools.html) according to the "Icaros License.txt" license - Copyright (c) 2010-2025, Tabibito Technology
+- [_yt-dlp_](https://github.com/yt-dlp/yt-dlp) and a script to download video under a Public Domain license, Copyright (c) 2012-2025, yt-dlp
+- [_PotPlayer-Extension_yt-dlp_](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) for processing streaming via yt-dlp (playlists from YT), Copyright (c) 2025, hgcat-360
 - Libraries LibTorrent - Copyright (c) 2003-2020, Arvid Norberg
 - [_Extension to the network Torrent_](http://cafe.daum.net/pot-tool/N88T/137) - downloaded from the PotPlayer chat room
-- [_MPC Video Renderer_](https://github.com/Aleksoid1978/VideoRenderer) according to the "GNU LGPL" license - Copyright (c) 2018-2023 Aleksoid1978
-- [_Sanear Audio Renderer_](https://github.com/alexmarsev/sanear) according to the "GNU LGPL" license - Copyright (c) 2015 Alex Marsev
-- [_TorrServer_](https://github.com/YouROK/TorrServer) according to the license - Copyright (c) 2023 YouROK
-- [_TorrServer launcher_](https://github.com/Noperkot/TSL) according to the license - Copyright (c) 2023 Noperkot
-
-
+  
 All trademarks and copyrights are the property of their respective owners.
   
 ## System requirements
@@ -107,23 +99,15 @@ All trademarks and copyrights are the property of their respective owners.
 
 ## PotPlayerMini(64) file
 You can choose to install a special version of this file with a modified icon: 
-- round, blue with a white triangle in the centre 
-- round, yellow with a white triangle in the centre
+- round, blue with a white triangle in the centre.
+When uninstalling FanPack, the original file is restored.
 
 The file was prepared using [_PotPlayer Icon Replacer_](https://potplayer.daum.net/forum/viewtopic.php?f=11&t=3585#p6954) Copyright (c) 2018-2019 V@no
-
-## Updates
-The compiled updates can be found under http://www.potplayerclub.pl
 
 ## Notes
 If you have problems, please try to find a solution yourself first:
 - review the PotPlayer settings,
-- install the latest beta version of the player,
-- familiarise yourself with the answers and guides on the website.
-
-Reporting of errors and suggestions and assistance
-
-http://www.potplayerclub.pl/kontakt.php
+- install the latest beta version of the player.
 
 ## License
 This project is open source and available under [License](./InstallDir/License.txt).
@@ -136,4 +120,4 @@ Enjoy the movies!
 Adam Malich
 
 
-Copyright (c) 2014-2023 www.potplayerclub.pl
+Copyright (c) 2014-2025 [potplayer-fanpack](https://github.com/potplayer-fanpack/FanPack)
