@@ -1,8 +1,21 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 13.07.2025 +
++ Data kompilacji - 22.07.2025 +
 ++++++++++++++++++++++++++++++++
 
+
+Wersja 3.9 build 6370
+=====================================
+* Instalator wykrywa brak zainstalowanego odtwarzacza i proponuje 
+  jego instalacjê. Inaczej instalacja FanPacka nie powiedzie siê.
+
++ Dodano MPC Video Renderer v0.9.9.2400
++ Dodano MPC-BE Standalone Filters v1.8.5
+= Zaktualizowano FFmpeg i FFprobe do wersji 2025-07-21 esentials
+= Zaktualizowano yt-dlp do wersji v2025.07.21
+= Zaktualizowano Icaros do wersji v3.3.4 Beta 1
+= Zaktualizowano LAVFilters do wersji v0.80
+= Zmodernizowano instalator
 
 Wersja 3.9 build 6319
 =====================================

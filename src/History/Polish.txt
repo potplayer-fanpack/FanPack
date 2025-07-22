@@ -3,7 +3,7 @@ Historia wersji PotPlayer
 
 
 ----------------------------------------------------------
-[250711]
+[250717]
 ----------------------------------------------------------
 + Dodano funkcję generowania napisów z audio w czasie rzeczywistym
 

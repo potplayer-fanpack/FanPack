@@ -49,6 +49,10 @@ Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i 
   Copyright (c) 2012-2025, yt-dlp
   https://github.com/yt-dlp/yt-dlp
 
+- FFmpeg i FFprobe z pakietu "FFmpeg Builds binaries for Windows" do pobierania wideo ze skryptem yt-dlp
+  na licencji Public Domain
+  https://www.gyan.dev/ffmpeg/builds/#git-master-builds
+
 - Rozszerzenie do przetwarzanie przesyłania strumieniowego za pomocą yt-dlp (playlisty z YT)
   Copyright (c) 2025, hgcat-360
   https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp
