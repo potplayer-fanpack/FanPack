@@ -3,7 +3,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6370"
+#define MyAppVersion "3.9.6395"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -20,7 +20,7 @@ AppPublisher                       = {#MyAppPublisher}
 AppPublisherURL                    = {#MyAppURL}
 AppSupportURL                      = {#MyAppURL}
 AppUpdatesURL                      = {#MyAppURL}
-DefaultDirName                     = {userappdata}\{#MyAppName}
+DefaultDirName                     = {autopf}\{#MyAppName}
 DefaultGroupName                   = {#MyAppName}
 AppCopyright                       = Copyright © {#MyAppPublisher} 2014-2025
 AllowNoIcons                       = yes
@@ -41,7 +41,7 @@ DisableDirPage                     = yes
 DisableProgramGroupPage            = yes
 UsePreviousLanguage                = no
 UsePreviousPrivileges              = no
-;PrivilegesRequired                 = admin
+PrivilegesRequired                 = admin
 PrivilegesRequiredOverridesAllowed = 
 UsedUserAreasWarning               = yes
 VersionInfoVersion                 = {#MyAppVersion}.0
@@ -53,7 +53,7 @@ Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 22.07.2025
+BeveledLabel= 26.07.2025
 
 [Tasks]
 ; Integracja
@@ -118,6 +118,17 @@ Name: "EXT";                  Description: "{cm:comp_ext}";          Types: cust
 Name: "EXT/torrent";          Description: "{cm:comp_ext_torrent}";  Types: tweak full custom
 Name: "EXT/ytdlp";            Description: "{cm:comp_ext_ytdlp}";    Types: tweak full custom
 Name: "icaros";               Description: "{cm:comp_icaros}";       Types: custom; Check: not IsIcarosInstalled; ExtraDiskSpaceRequired: 13201408
+
+[Icons]
+Name: "{group}\Addons Mozilla PotPlayer YouTube.url"; Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Tasks: "addon\1"
+Name: "{group}\Addons Chrome PotPlayer YouTube.url";  Filename: "https://chrome.google.com/webstore/search/potplayer";                     Tasks: "addon\2"
+Name: "{group}\CzytajTo";                             Filename: "{app}\CzytajTo.txt"
+Name: "{group}\Licencja";                             Filename: "{app}\Licencja.txt"
+Name: "{group}\Reset madVR";                          Filename: "{autopf}\madVR\restore default settings.bat";
+Name: "{group}\FanPack64 w sieci";                    Filename: "{#MyAppURL}"
+Name: "{group}\{cm:UninstallProgram,{#MyBrandName}}"; Filename: "{uninstallexe}"
+Name: "{group}\Download Video";                       Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
+Name: "{userdesktop}\Download Video";                 Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
 
 [Files]
 ; Core program files
@@ -185,9 +196,6 @@ Source: "src\Logos\Girls.jpg";                                                 D
 Source: "src\Logos\Logo1.png";                                                 DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
 Source: "src\Logos\Logo2.png";                                                 DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
 Source: "src\Logos\PotPlayer2.png";                                            DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion
-; madVR
-Source: "{tmp}\madVR_v0.9.17.exe";                                             DestDir: "{tmp}";                                                Components: "program"; Flags: deleteafterinstall
-Source: "InstallDir\delete madVR.bat";                                         DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 ; AviSynth and SVPflow
 Source: "src\AviSynth\CPU-1-Low.avs";                                          DestDir: "{autopf}\DAUM\PotPlayer\AviSynth";                     Components: "program"; Flags: ignoreversion
 Source: "src\AviSynth\CPU-2-Medium.avs";                                       DestDir: "{autopf}\DAUM\PotPlayer\AviSynth";                     Components: "program"; Flags: ignoreversion
@@ -201,10 +209,10 @@ Source: "src\svpflow1.dll";                                                    D
 Source: "src\svpflow2.dll";                                                    DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion
 Source: "src\vcruntime140.dll";                                                DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion
 Source: "src\svp.avs";                                                         DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion
+; madVR
+Source: "{tmp}\madVR.7z";                                                      DestDir: "{tmp}";                                                Components: "program"; Flags: deleteafterinstall
+Source: "InstallDir\delete madVR.bat";                                         DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 ; YTDLP
-; Source: "src\Extension\Data\yt-dlp_win\yt-dlp.exe";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
-; Source: "src\Extension\Data\yt-dlp_win\ffmpeg.exe";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
-; Source: "src\Extension\Data\yt-dlp_win\ffprobe.exe";                           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp with metadata.bat";              DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
@@ -240,8 +248,7 @@ Source: "src\Module\MI\MediaInfo.exe";                                         D
 Source: "src\Module\MI\MediaInfo.dll";                                         DestDir: "{autopf}\DAUM\PotPlayer\Module\MI";                    Tasks: "minfo"; Flags: ignoreversion
 ; Sanear
 Source: "src\Module\sanear64.ax";                                              DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Tasks: "renaudio\sanear"; Flags: regserver noregerror ignoreversion
-Source: "7za.exe";                                                             DestDir: "{tmp}";                                                                 Flags: deleteafterinstall
-;#include "include/files-ytdlp.iss"
+Source: "7za.exe";                                                             DestDir: "{tmp}"; Flags: deleteafterinstall
 
 [Registry]
 Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Uninstall\FanPack64_is1"; ValueName: "DisplayVersion"; ValueType: string; ValueData: "{#MyAppVersion}"; Flags: uninsdeletevalue
@@ -255,49 +262,24 @@ Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\FFmpeg4"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
 
 [Run]
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Components: "program"; Flags: runhidden runascurrentuser; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\yt-dlp_win.zip"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP"; Flags: runhidden runascurrentuser; StatusMsg: "{cm:msg_extYTDLP}"; Check: CheckYTDLPResult
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP\FFmpeg"; Flags: runhidden runascurrentuser; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult
-Filename: "{sys}\regedit.exe"; Parameters: "/s ""{tmp}\pot64_settings.reg"""; Description: "{cm:msg_confpot}"; StatusMsg: "{cm:msg_confpot}"; Flags: shellexec runhidden
-Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Components: "icaros"
-Filename: "{tmp}\madVR_v0.9.17.exe"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_madVR}"; StatusMsg: "{cm:msg_install_madVR}"
-Filename: "{sys}\regsvr32.exe"; Parameters: "/s ""{autopf}\DAUM\PotPlayer\Module\LAV\LAVVideo.ax"""; StatusMsg: "{cm:msg_regLAVV}"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/s ""{autopf}\DAUM\PotPlayer\Module\LAV\LAVAudio.ax"""; StatusMsg: "{cm:msg_regLAVA}"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/s ""{autopf}\DAUM\PotPlayer\Module\LAV\LAVSplitter.ax"""; StatusMsg: "{cm:msg_regLAVS}"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/s ""{autopf}\DAUM\PotPlayer\Module\XySubFilter\XySubFilter.dll""";  StatusMsg: "{cm:cm_regXySub}"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/s ""{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcVideoRenderer64.ax"""; StatusMsg: "{cm:msg_regMpcVR}"; Flags: shellexec runhidden
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{app}\Module"" * -r -aoa"; Components: "program"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult and FileExists(ExpandConstant('{tmp}\Module64.7z'))
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\yt-dlp_win.zip"" -o""{app}\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP"; Flags: runhidden; StatusMsg: "{cm:msg_extYTDLP}"; Check: CheckYTDLPResult and FileExists(ExpandConstant('{tmp}\yt-dlp_win.zip'))
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{app}\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP\FFmpeg and YTDLP"; Flags: runhidden; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult and FileExists(ExpandConstant('{tmp}\ffmpeg.7z'))
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extmadVR}"; Check: CheckmadVRResult and FileExists(ExpandConstant('{tmp}\madVR.7z'))
+Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Components: "icaros"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe'))
+Filename: "{sys}\regedit.exe"; Parameters: "/s ""{tmp}\pot64_settings.reg"""; Description: "{cm:msg_confpot}"; StatusMsg: "{cm:msg_confpot}"; Flags: shellexec runhidden; Check: FileExists(ExpandConstant('{tmp}\pot64_settings.reg'))
 Filename: "{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe"; Description: "{cm:LaunchProgram}"; Flags: postinstall skipifsilent nowait
 Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Description: "{cm:tsk_addon_1}"; Tasks: "addon\1"; Flags: postinstall ShellExec
 Filename: "https://chrome.google.com/webstore/search/potplayer"; Description: "{cm:tsk_addon_2}"; Tasks: "addon\2"; Flags: postinstall ShellExec
 
-[Icons]
-Name: "{group}\Addons Mozilla PotPlayer YouTube.url"; Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Tasks: "addon\1"
-Name: "{group}\Addons Chrome PotPlayer YouTube.url";  Filename: "https://chrome.google.com/webstore/search/potplayer";                     Tasks: "addon\2"
-Name: "{group}\CzytajTo";                             Filename: "{app}\CzytajTo.txt"
-Name: "{group}\Licencja";                             Filename: "{app}\Licencja.txt"
-Name: "{group}\Reset madVR";                          Filename: "{userappdata}\madVR\restore default settings.bat"
-Name: "{group}\FanPack64 w sieci";                    Filename: "{#MyAppURL}"
-Name: "{group}\{cm:UninstallProgram,{#MyBrandName}}"; Filename: "{uninstallexe}"
-Name: "{group}\Download Video";                       Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
-Name: "{userdesktop}\Download Video";                 Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
-
 [UninstallRun]
-Filename: "delete madVR.bat"; WorkingDir: "{app}"; RunOnceId: "DelService"; Flags: shellexec runhidden
-Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; WorkingDir: {app}\reg;  Flags: waituntilterminated runhidden runascurrentuser shellexec
-Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\AviSynth\*.*"" (MOVE /Y ""{app}\AviSynth\*.*"" ""{autopf}\DAUM\PotPlayer\AviSynth"")"; Flags: runhidden
-Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PxShader\*.*"" (MOVE /Y ""{app}\PxShader\*.*"" ""{autopf}\DAUM\PotPlayer\PxShader"")"; Flags: runhidden
-Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PotPlayerMini64.exe"" (MOVE /Y ""{app}\PotPlayerMini64.exe"" ""{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe"")"; Flags: runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/u ""{autopf}\DAUM\PotPlayer\Module\sanear64.ax"""; RunOnceId: "DelService"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/u ""{autopf}\DAUM\PotPlayer\Module\LAV\LAVVideo.ax"""; RunOnceId: "DelService"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/u ""{autopf}\DAUM\PotPlayer\Module\LAV\LAVAudio.ax"""; RunOnceId: "DelService"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/u ""{autopf}\DAUM\PotPlayer\Module\LAV\LAVSplitter.ax"""; RunOnceId: "DelService"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/u ""{autopf}\DAUM\PotPlayer\Module\XySubFilter\XySubFilter.dll"""; RunOnceId: "DelService"; Flags: shellexec runhidden
-Filename: "{sys}\regsvr32.exe"; Parameters: "/u ""{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcVideoRenderer64.ax"""; RunOnceId: "DelService"; Flags: shellexec runhidden
+Filename: "{app}\delete madVR.bat"; WorkingDir: "{app}"; RunOnceId: "DelService"; Flags: shellexec runhidden; Check: FileExists(ExpandConstant('{app}\delete madVR.bat'))
+Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; WorkingDir: "{app}\reg"; Flags: waituntilterminated runhidden shellexec
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\MI"
-Type: filesandordirs; Name: "{localappdata}\madVR"
+Type: filesandordirs; Name: "{autopf}\madVR"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\LAV"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\MPC-BE"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\XySubFilter"
@@ -342,8 +324,8 @@ Type: files;          Name: "{app}\FanPack.url"
 Type: files;          Name: "{app}\home.url"
 Type: files;          Name: "{app}\Addons Mozilla PotPlayer YouTube.url"
 Type: files;          Name: "{app}\Addons Chrome PotPlayer YouTube.url"
-Type: files;          Name: "{localappdata}\madVR\settings.bin"
-Type: files;          Name: "{localappdata}\madVR\settings.bak"
+Type: files;          Name: "{autopf}\madVR\settings.bin"
+Type: files;          Name: "{autopf}\madVR\settings.bak"
 Type: files;          Name: "{userappdata}\PotPlayerMini64\Playlist\AceTV.dpl"
 Type: files;          Name: "{userappdata}\PotPlayerMini64\Playlist\FilmPolski.dpl"
 Type: files;          Name: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl"
@@ -352,6 +334,58 @@ Type: files;          Name: "{userappdata}\PotPlayerMini64\Playlist\CzarnoBiałe
 Type: files;          Name: "{userappdata}\PotPlayerMini64\Extension\Media\PlayParse\yt-dlp.ini"
 
 [Code]
+var
+  ResultCode: Integer;
+
+procedure RegisterFilter(const FilePath: String);
+begin
+  if FileExists(ExpandConstant(FilePath)) then
+  begin
+    if not Exec(
+      ExpandConstant('{sys}\regsvr32.exe'),
+      '/s "' + ExpandConstant(FilePath) + '"',
+      '',
+      SW_HIDE,
+      ewWaitUntilTerminated,
+      ResultCode
+    ) then
+    begin
+      MsgBox('Nie udało się zarejestrować filtra: ' + FilePath, mbError, MB_OK);
+    end;
+  end;
+end;
+
+procedure UnregisterFilter(const FilePath: String);
+begin
+  if FileExists(ExpandConstant(FilePath)) then
+  begin
+    Exec(
+      ExpandConstant('{sys}\regsvr32.exe'),
+      '/u /s "' + ExpandConstant(FilePath) + '"',
+      '',
+      SW_HIDE,
+      ewWaitUntilTerminated,
+      ResultCode
+    );
+    // Ciche wyrejestrowanie bez komunikatów
+  end;
+end;
+
+procedure MoveFolderIfExists(const SourceDir, DestDir: String);
+begin
+  if DirExists(ExpandConstant(SourceDir)) then
+  begin
+    Exec(
+      ExpandConstant('cmd.exe'),
+      '/C MOVE /Y "' + ExpandConstant(SourceDir) + '\*.*" "' + ExpandConstant(DestDir) + '"',
+      '',
+      SW_HIDE,
+      ewWaitUntilTerminated,
+      ResultCode
+    );
+  end;
+end;
+
 function BoolToString(Value: Boolean): String;
 begin
   if Value then
@@ -454,8 +488,8 @@ begin
   
   if Result then
   begin
-    Log('PotPlayer installation started. Waiting 50 seconds...');
-    Sleep(50000);
+    Log('PotPlayer installation started. Waiting 45 seconds...');
+    Sleep(45000);
     if IsPotPlayerInstalled then
     begin
       Log('PotPlayer installation verified successfully.');
@@ -599,6 +633,28 @@ end;
    end;
  end;
  
+   function CheckmadVRResult: Boolean;
+ var
+   ResultCode: Integer;
+ begin
+   Log('Extracting madVR.7z...');
+   Result := Exec(ExpandConstant('{tmp}\7za.exe'),
+     'x "' + ExpandConstant('{tmp}\madVR.7z') + '" -o"' + ExpandConstant('{autopf}\madVR') + '" * -r -aoa',
+     '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  
+   if ResultCode = 0 then
+   begin
+     Log('Extraction successful.');
+     Result := True;
+   end
+   else
+   begin
+     MsgBox('Błąd rozpakowywania madVR.7z. Kod: ' + IntToStr(ResultCode), mbError, MB_OK);
+     Log('7za failed with code: ' + IntToStr(ResultCode));
+     Result := False;
+   end;
+ end;
+ 
 function OnDownloadProgress(const Url, FileName: String; const Progress, ProgressMax: Int64): Boolean;
 begin
   Log(Format('Downloading %s: %d / %d bytes', [FileName, Progress, ProgressMax]));
@@ -627,7 +683,7 @@ begin
 
     if PotPlayerDownloadNeeded then
     begin
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '1608E8BDEF3276D88661B7046C6CDD3004F7609BEB7566116C7F5C82D15D6E83');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '2C1AB6F3737D79E50424B0939C26F83180A01B7773537E80806DD4C96DD5DE6D');
       HasDownloads := True;
     end;
 
@@ -704,7 +760,7 @@ begin
   Log('Deleting temp files...');
   TempFiles[0] := ExpandConstant('{tmp}\Module64.7z');
   TempFiles[1] := ExpandConstant('{tmp}\Icaros.exe');
-  TempFiles[2] := ExpandConstant('{tmp}\madVR_v0.9.17.exe');
+  TempFiles[2] := ExpandConstant('{tmp}\madVR.7z');
   TempFiles[3] := ExpandConstant('{tmp}\PotPlayerSetup64.exe');
   Tempfiles[4] := ExpandConstant('{tmp}\yt-dlp_win.zip');
   Tempfiles[4] := ExpandConstant('{tmp}\ffmpeg.7z');
@@ -725,7 +781,45 @@ procedure CurStepChanged(CurStep: TSetupStep);
 begin
   if CurStep = ssPostInstall then
   begin
+
+    // Rejestracja filtrów po instalacji
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVVideo.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVAudio.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVSplitter.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcVideoRenderer64.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpaDecFilter.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcAudioRenderer.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MPCVideoDec.ax');
+    RegisterFilter('{autopf}\DAUM\PotPlayer\Module\XySubFilter\XySubFilter.dll');
+    if Is64BitInstallMode then
+      RegisterFilter('{autopf}\madVR\madVR64.ax')
+    else
+      RegisterFilter('{autopf}\madVR\madVR.ax');
     // Odświeżenie pulpitu
     SHChangeNotify($8000000, $1000, 0, 0);
+  end;
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+  if CurUninstallStep = usUninstall then
+  begin
+    // Wyrejestrowanie filtrów podczas deinstalacji
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\sanear64.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVVideo.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVAudio.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVSplitter.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\XySubFilter\XySubFilter.dll');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcVideoRenderer64.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpaDecFilter.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcAudioRenderer.ax');
+    UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MPCVideoDec.ax');
+    if Is64BitInstallMode and FileExists(ExpandConstant('{autopf}\madVR\madVR64.ax')) then
+      UnregisterFilter('{autopf}\madVR\madVR64.ax')
+    else if FileExists(ExpandConstant('{autopf}\madVR\madVR.ax')) then
+      UnregisterFilter('{autopf}\madVR\madVR.ax');
+    // Przenoszenie folderów AviSynth i PxShader
+    MoveFolderIfExists('{app}\AviSynth', '{autopf}\DAUM\PotPlayer\AviSynth');
+    MoveFolderIfExists('{app}\PxShader', '{autopf}\DAUM\PotPlayer\PxShader');
   end;
 end;

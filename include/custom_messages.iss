@@ -17,19 +17,13 @@
 ; Polish
 pl.langid=00001045
 pl.LaunchProgram=Uruchom odtwarzacz PotPlayer
-pl.msg_install_madVR=Trwa instalacja madVR. Proszê czekaæ...
 pl.msg_install_icaros=Trwa instalacja Icaros. Proszê czekaæ...
-pl.msg_un_madVR=Deinstalacja madVR.
 pl.msg_downvideos=Pobieranie wideo z linku w schowku
 pl.msg_confpot=Konfiguracja PotPlayer...
-pl.msg_regLAVV=Rejestrowanie w systemie LAVVideo.ax
-pl.msg_regLAVA=Rejestrowanie w systemie LAVAudio.ax
-pl.msg_regLAVS=Rejestrowanie w systemie LAVSplitter.ax
-pl.cm_regXySub=Rejestrowanie XySubFilter.dll
-pl.msg_regMpcVR=Rejestrowanie MpcVideoRenderer64.ax
 pl.msg_extracting=Wypakowywanie Module64.7z
 pl.msg_extYTDLP=Wypakowywanie yt-dlp_win.zip
 pl.msg_extFFmpeg=Wypakowywanie ffmpeg.7z
+pl.msg_extmadVR=Wypakowywanie madVR.7z
 ;
 pl.tsk_group1=Integracja:
 pl.tsk_opendef_navig=Otwórz "Mened¿er plików" - *zalecane do wyœwietlania na TV
@@ -90,4 +84,3 @@ pl.comp_EXT=Dodatkowe rozszerzenia
 pl.comp_ext_torrent=Ext LibTorrent - ogl¹danie wideo z trackerów sieci Torrent
 pl.comp_ext_ytdlp=Ext yt-dlp - odtwarzanie playlist wideo/muzyki z YouTube
 pl.comp_icaros=Icaros - wyœwietlanie miniatur plików multimedialnych w Eksploratorze Windows
-

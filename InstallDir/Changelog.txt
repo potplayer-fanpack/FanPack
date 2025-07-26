@@ -1,10 +1,16 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 22.07.2025 +
++ Data kompilacji - 26.07.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6370
+Wersja 3.9 build 6395
+=====================================
+= Ulepszono przenoszenie plików
+= Ulepszono rejestrowanie i wyrejestrowywanie filtrów
+= Dalsze prace nad skryptem instalatora
+
+Wersja 3.9 build 6329
 =====================================
 * Instalator wykrywa brak zainstalowanego odtwarzacza i proponuje 
   jego instalacjê. Inaczej instalacja FanPacka nie powiedzie siê.
