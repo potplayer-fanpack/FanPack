@@ -33,7 +33,7 @@ Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i 
   Copyright (c) 2015 Alex Marsev
   https://github.com/alexmarsev/sanear
 
-- madVR (specjalnie przygotowany plik instalacyjny) zgodnie z licencją "license.txt"
+- madVR zgodnie z licencją "license.txt"
   Copyright (c) 2009-2019, Mathias Rauen
   http://forum.doom9.org/showthread.php?t=146228
 

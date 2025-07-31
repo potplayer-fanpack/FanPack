@@ -3,7 +3,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6395"
+#define MyAppVersion "3.9.6417"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -53,14 +53,15 @@ Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 26.07.2025
+BeveledLabel= 31.07.2025
 
 [Tasks]
+Name: desktopicon;            Description: "{cm:tsk_desktopicon}";                
+Name: "minfo";                Description: "{cm:tsk_minfo}";                      Flags: unchecked
+Name: "addon";                Description: "{cm:tsk_addon}";                      Flags: unchecked
+Name: "addon\1";              Description: "{cm:tsk_addon_1}";                    Flags: exclusive unchecked
+Name: "addon\2";              Description: "{cm:tsk_addon_2}";                    Flags: exclusive unchecked
 ; Integracja
-Name: "minfo";                Description: "{cm:tsk_minfo}";                      GroupDescription: "{cm:tsk_group1}"; Flags: unchecked
-Name: "addon";                Description: "{cm:tsk_addon}";                      GroupDescription: "{cm:tsk_group1}"; Flags: unchecked
-Name: "addon\1";              Description: "{cm:tsk_addon_1}";                    GroupDescription: "{cm:tsk_group1}"; Flags: exclusive unchecked
-Name: "addon\2";              Description: "{cm:tsk_addon_2}";                    GroupDescription: "{cm:tsk_group1}"; Flags: exclusive unchecked
 Name: "navig";                Description: "{cm:tsk_opendef_navig}";              GroupDescription: "{cm:tsk_group1}"; Flags: unchecked
 Name: "navig\a";              Description: "{cm:tsk_opendef_navig_a}";            GroupDescription: "{cm:tsk_group1}"; Flags: exclusive unchecked
 Name: "navig\b";              Description: "{cm:tsk_opendef_navig_b}";            GroupDescription: "{cm:tsk_group1}"; Flags: exclusive unchecked
@@ -81,8 +82,11 @@ Name: "savegalery";           Description: "{cm:tsk_savegalery}";               
 Name: "dispasthumb";          Description: "{cm:tsk_dispasthumb}";                GroupDescription: "{cm:tsk_group2}"
 Name: "loadurl";              Description: "{cm:tsk_loadurl}";                    GroupDescription: "{cm:tsk_group2}"
 Name: "rememberlist";         Description: "{cm:tsk_rememberlist}";               GroupDescription: "{cm:tsk_group2}"
+Name: "subsave";              Description: "{cm:tsk_subsave}";                    GroupDescription: "{cm:tsk_group2}"
+Name: "interlinia";           Description: "{cm:tsk_interlinia}";                 GroupDescription: "{cm:tsk_group2}"
 ; Dodatkowe ustawienia audio
 Name: "extaudio";             Description: "{cm:tsk_extaudio}";                   GroupDescription: "{cm:tsk_group3}"; Flags: unchecked
+Name: "audsave";              Description: "{cm:tsk_audsave}";                    GroupDescription: "{cm:tsk_group3}"
 Name: "renaudio";             Description: "{cm:tsk_renaudio}";                   GroupDescription: "{cm:tsk_group3}"; Flags: unchecked
 Name: "renaudio\auto";        Description: "{cm:tsk_renaudio_auto}";              GroupDescription: "{cm:tsk_group3}"; Flags: exclusive
 Name: "renaudio\directsound"; Description: "{cm:tsk_renaudio_directsound}";       GroupDescription: "{cm:tsk_group3}"; Flags: exclusive unchecked
@@ -119,6 +123,7 @@ Name: "EXT/torrent";          Description: "{cm:comp_ext_torrent}";  Types: twea
 Name: "EXT/ytdlp";            Description: "{cm:comp_ext_ytdlp}";    Types: tweak full custom
 Name: "icaros";               Description: "{cm:comp_icaros}";       Types: custom; Check: not IsIcarosInstalled; ExtraDiskSpaceRequired: 13201408
 
+
 [Icons]
 Name: "{group}\Addons Mozilla PotPlayer YouTube.url"; Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Tasks: "addon\1"
 Name: "{group}\Addons Chrome PotPlayer YouTube.url";  Filename: "https://chrome.google.com/webstore/search/potplayer";                     Tasks: "addon\2"
@@ -128,7 +133,7 @@ Name: "{group}\Reset madVR";                          Filename: "{autopf}\madVR\
 Name: "{group}\FanPack64 w sieci";                    Filename: "{#MyAppURL}"
 Name: "{group}\{cm:UninstallProgram,{#MyBrandName}}"; Filename: "{uninstallexe}"
 Name: "{group}\Download Video";                       Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
-Name: "{userdesktop}\Download Video";                 Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
+Name: "{autodesktop}\Download Video";                 Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"; Tasks: "desktopicon"
 
 [Files]
 ; Core program files
@@ -254,27 +259,58 @@ Source: "7za.exe";                                                             D
 Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Uninstall\FanPack64_is1"; ValueName: "DisplayVersion"; ValueType: string; ValueData: "{#MyAppVersion}"; Flags: uninsdeletevalue
 #include "include/files-registry.iss"
 
+
+
 [InstallDelete]
+;----------------- Usuwanie plików z folderów PotPlayer  -----------------
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\AviSynth\*"
+
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\PxShader\*"
+
+;----------------- Usuwanie zbędnych folderów poinstalacyjnych -----------------
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Html"
+
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\FFmpeg4"
-Type: files;          Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
+
+;----------------- Usuwanie zbędnych plików poinstalacyjnych -----------------
+Type: files; Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
+
+
 
 [Run]
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{app}\Module"" * -r -aoa"; Components: "program"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult and FileExists(ExpandConstant('{tmp}\Module64.7z'))
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\yt-dlp_win.zip"" -o""{app}\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP"; Flags: runhidden; StatusMsg: "{cm:msg_extYTDLP}"; Check: CheckYTDLPResult and FileExists(ExpandConstant('{tmp}\yt-dlp_win.zip'))
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{app}\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP\FFmpeg and YTDLP"; Flags: runhidden; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult and FileExists(ExpandConstant('{tmp}\ffmpeg.7z'))
+;----------------- Rozpakowywanie archiwów 7z -----------------
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Components: "program"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult and FileExists(ExpandConstant('{tmp}\Module64.7z'))
+
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\yt-dlp_win.zip"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP"; Flags: runhidden; StatusMsg: "{cm:msg_extYTDLP}"; Check: CheckYTDLPResult and FileExists(ExpandConstant('{tmp}\yt-dlp_win.zip'))
+
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP\FFmpeg"; Flags: runhidden; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult and FileExists(ExpandConstant('{tmp}\ffmpeg.7z'))
+
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extmadVR}"; Check: CheckmadVRResult and FileExists(ExpandConstant('{tmp}\madVR.7z'))
+
+;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Components: "icaros"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe'))
+
+;----------------- Import rejestru -----------------
 Filename: "{sys}\regedit.exe"; Parameters: "/s ""{tmp}\pot64_settings.reg"""; Description: "{cm:msg_confpot}"; StatusMsg: "{cm:msg_confpot}"; Flags: shellexec runhidden; Check: FileExists(ExpandConstant('{tmp}\pot64_settings.reg'))
+
+;----------------- Uruchomienie PotPlayer po instalacji -----------------
 Filename: "{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe"; Description: "{cm:LaunchProgram}"; Flags: postinstall skipifsilent nowait
+
+;----------------- Otwarcie dodatków przeglądarki -----------------
 Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Description: "{cm:tsk_addon_1}"; Tasks: "addon\1"; Flags: postinstall ShellExec
+
 Filename: "https://chrome.google.com/webstore/search/potplayer"; Description: "{cm:tsk_addon_2}"; Tasks: "addon\2"; Flags: postinstall ShellExec
 
+
+
 [UninstallRun]
+;----------------- Usuwanie madVR (bat) -----------------
 Filename: "{app}\delete madVR.bat"; WorkingDir: "{app}"; RunOnceId: "DelService"; Flags: shellexec runhidden; Check: FileExists(ExpandConstant('{app}\delete madVR.bat'))
+
+;----------------- Usuwanie wpisów rejestru -----------------
 Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; WorkingDir: "{app}\reg"; Flags: waituntilterminated runhidden shellexec
+
+
 
 [UninstallDelete]
 Type: filesandordirs; Name: "{app}"
@@ -333,6 +369,7 @@ Type: files;          Name: "{userappdata}\PotPlayerMini64\Playlist\YouTube.dpl"
 Type: files;          Name: "{userappdata}\PotPlayerMini64\Playlist\CzarnoBiałe.dpl"
 Type: files;          Name: "{userappdata}\PotPlayerMini64\Extension\Media\PlayParse\yt-dlp.ini"
 
+
 [Code]
 var
   ResultCode: Integer;
@@ -372,9 +409,12 @@ begin
 end;
 
 procedure MoveFolderIfExists(const SourceDir, DestDir: String);
+var
+  ResultCode: Integer;
 begin
   if DirExists(ExpandConstant(SourceDir)) then
   begin
+    Log('Moving directory: ' + ExpandConstant(SourceDir) + ' → ' + ExpandConstant(DestDir));
     Exec(
       ExpandConstant('cmd.exe'),
       '/C MOVE /Y "' + ExpandConstant(SourceDir) + '\*.*" "' + ExpandConstant(DestDir) + '"',
@@ -383,7 +423,29 @@ begin
       ewWaitUntilTerminated,
       ResultCode
     );
-  end;
+  end
+  else
+    Log('Source directory not found: ' + ExpandConstant(SourceDir)); 
+end;
+
+procedure MoveFileIfExists(const SourceFile, DestFile: String);
+var
+  ResultCode: Integer;
+begin
+  if FileExists(ExpandConstant(SourceFile)) then
+  begin
+    Log('Moving file: ' + ExpandConstant(SourceFile) + ' → ' + ExpandConstant(DestFile));
+    Exec(
+      ExpandConstant('cmd.exe'),
+      '/C MOVE /Y "' + ExpandConstant(SourceFile) + '" "' + ExpandConstant(DestFile) + '"',
+      '',
+      SW_HIDE,
+      ewWaitUntilTerminated,
+      ResultCode
+    );
+  end
+  else
+    Log('Source file not found: ' + ExpandConstant(SourceFile));
 end;
 
 function BoolToString(Value: Boolean): String;
@@ -631,7 +693,7 @@ end;
      Log('7za failed with code: ' + IntToStr(ResultCode));
      Result := False;
    end;
- end;
+ end; 
  
    function CheckmadVRResult: Boolean;
  var
@@ -754,7 +816,7 @@ end;
 
 procedure DeleteTempFiles;
 var
-  TempFiles: array[0..3] of String;
+  TempFiles: array[0..5] of String;
   I: Integer;
 begin
   Log('Deleting temp files...');
@@ -763,7 +825,7 @@ begin
   TempFiles[2] := ExpandConstant('{tmp}\madVR.7z');
   TempFiles[3] := ExpandConstant('{tmp}\PotPlayerSetup64.exe');
   Tempfiles[4] := ExpandConstant('{tmp}\yt-dlp_win.zip');
-  Tempfiles[4] := ExpandConstant('{tmp}\ffmpeg.7z');
+  Tempfiles[5] := ExpandConstant('{tmp}\ffmpeg.7z');
   for I := 0 to GetArrayLength(TempFiles) - 1 do
     if FileExists(TempFiles[I]) then
     begin
@@ -821,5 +883,7 @@ begin
     // Przenoszenie folderów AviSynth i PxShader
     MoveFolderIfExists('{app}\AviSynth', '{autopf}\DAUM\PotPlayer\AviSynth');
     MoveFolderIfExists('{app}\PxShader', '{autopf}\DAUM\PotPlayer\PxShader');
+    // Przenoszenie pliku PotPlayerMini64.exe
+    MoveFileIfExists('{app}\PotPlayerMini64.exe', '{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe');
   end;
 end;

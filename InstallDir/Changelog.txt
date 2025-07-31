@@ -1,11 +1,19 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 26.07.2025 +
++ Data kompilacji - 31.07.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6395
+Wersja 3.9 build 6417
 =====================================
+* Przy pierwszym uruchomieniu profilu Smooth Video uruchamiane jest demo 
+  pokazuj¹ce jak dzia³a skrypt (obszar obrazu dzielony jest na dwie czêœci; 
+  po lewej "Source" po prawej "Smooth"), potem mo¿na dobraæ skrypt do swoich preferencji
+
+= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-07-28
+= Zaktualizowano komponenty AviSynth+ (r2772-MT)
+= Zaktualizowano MediaInfo do wersji 25.07
+= Naprawiono nie wykrywanie skryptu SVP
 = Ulepszono przenoszenie plików
 = Ulepszono rejestrowanie i wyrejestrowywanie filtrów
 = Dalsze prace nad skryptem instalatora
