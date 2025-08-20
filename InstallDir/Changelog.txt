@@ -1,8 +1,17 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 31.07.2025 +
++ Data kompilacji - 20.08.2025 +
 ++++++++++++++++++++++++++++++++
 
+
+Wersja 3.9 build 6457
+=====================================
+= Zaktualizowano skrypt PotPlayer-Extension_yt-dlp do wersji v250819
+= Zaktualizowano yt-dlp do wersji v2025.08.20
+= Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.6
+= Zaktualizowano MPC Video Renderer do wersji v0.9.11.2400
+= Zaktualizowano 7za.exe do wersji 25.01
+= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-08-18
 
 Wersja 3.9 build 6417
 =====================================

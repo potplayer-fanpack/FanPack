@@ -3,7 +3,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6417"
+#define MyAppVersion "3.9.6457"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -53,7 +53,7 @@ Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 31.07.2025
+BeveledLabel= 20.08.2025
 
 [Tasks]
 Name: desktopicon;            Description: "{cm:tsk_desktopicon}";                
@@ -116,7 +116,7 @@ Name: "custom";               Description: "{cm:comp_custom}"; Flags: iscustom
 
 [Components]
 Name: "program";              Description: "{cm:comp_program}";      Types: tweak full compact custom; Flags: fixed
-Name: "YTDLP";                Description: "{cm:comp_YTDLP}";        Types: tweak full custom; ExtraDiskSpaceRequired: 18018304
+Name: "YTDLP";                Description: "{cm:comp_YTDLP}";        Types: tweak full custom; ExtraDiskSpaceRequired: 28631040
 Name: "YTDLP\FFmpeg";         Description: "{cm:comp_YTDLP_FFmpeg}"; Types: tweak full custom
 Name: "EXT";                  Description: "{cm:comp_ext}";          Types: custom
 Name: "EXT/torrent";          Description: "{cm:comp_ext_torrent}";  Types: tweak full custom
@@ -745,7 +745,7 @@ begin
 
     if PotPlayerDownloadNeeded then
     begin
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '2C1AB6F3737D79E50424B0939C26F83180A01B7773537E80806DD4C96DD5DE6D');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'D0208F9875B61427ED07154F183BA465B006E5AE49F3F7C27648243DCA893A13');
       HasDownloads := True;
     end;
 
@@ -757,7 +757,7 @@ begin
     
     if WizardIsComponentSelected('YTDLP') then
     begin
-      DownloadPage.Add('https://github.com/yt-dlp/yt-dlp/releases/download/2025.07.21/yt-dlp_win.zip', 'yt-dlp_win.zip', 'cd42048eb3bbcef8bf886dcfffeaab517de081d06ca4a32e8375d120bd48e348');
+      DownloadPage.Add('https://github.com/yt-dlp/yt-dlp/releases/download/2025.08.20/yt-dlp_win.zip', 'yt-dlp_win.zip', 'c094de3a1690a89895794e9cf7171d8b682df433b4818013aaf1548b61d8f211');
       HasDownloads := True;
     end;
 
