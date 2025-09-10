@@ -3,7 +3,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6457"
+#define MyAppVersion "3.9.6468"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -46,6 +46,7 @@ PrivilegesRequiredOverridesAllowed =
 UsedUserAreasWarning               = yes
 VersionInfoVersion                 = {#MyAppVersion}.0
 SetupLogging                       = yes
+ArchiveExtraction                  = full
 
 [Languages]
 Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
@@ -53,7 +54,7 @@ Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 20.08.2025
+BeveledLabel= 10.09.2025
 
 [Tasks]
 Name: desktopicon;            Description: "{cm:tsk_desktopicon}";                
@@ -116,12 +117,12 @@ Name: "custom";               Description: "{cm:comp_custom}"; Flags: iscustom
 
 [Components]
 Name: "program";              Description: "{cm:comp_program}";      Types: tweak full compact custom; Flags: fixed
-Name: "YTDLP";                Description: "{cm:comp_YTDLP}";        Types: tweak full custom; ExtraDiskSpaceRequired: 28631040
+Name: "YTDLP";                Description: "{cm:comp_YTDLP}";        Types: tweak full custom; ExtraDiskSpaceRequired: 18_247_680
 Name: "YTDLP\FFmpeg";         Description: "{cm:comp_YTDLP_FFmpeg}"; Types: tweak full custom
 Name: "EXT";                  Description: "{cm:comp_ext}";          Types: custom
 Name: "EXT/torrent";          Description: "{cm:comp_ext_torrent}";  Types: tweak full custom
 Name: "EXT/ytdlp";            Description: "{cm:comp_ext_ytdlp}";    Types: tweak full custom
-Name: "icaros";               Description: "{cm:comp_icaros}";       Types: custom; Check: not IsIcarosInstalled; ExtraDiskSpaceRequired: 13201408
+Name: "icaros";               Description: "{cm:comp_icaros}";       Types: custom; Check: not IsIcarosInstalled; ExtraDiskSpaceRequired: 13_201_408
 
 
 [Icons]
@@ -134,6 +135,7 @@ Name: "{group}\FanPack64 w sieci";                    Filename: "{#MyAppURL}"
 Name: "{group}\{cm:UninstallProgram,{#MyBrandName}}"; Filename: "{uninstallexe}"
 Name: "{group}\Download Video";                       Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
 Name: "{autodesktop}\Download Video";                 Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"; Tasks: "desktopicon"
+
 
 [Files]
 ; Core program files
@@ -217,20 +219,21 @@ Source: "src\svp.avs";                                                         D
 ; madVR
 Source: "{tmp}\madVR.7z";                                                      DestDir: "{tmp}";                                                Components: "program"; Flags: deleteafterinstall
 Source: "InstallDir\delete madVR.bat";                                         DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
-; YTDLP
+; Extension YTDLP
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp with metadata.bat";              DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
-Source: "{tmp}\yt-dlp_win.zip";                                                DestDir: "{tmp}";                                                Components: "YTDLP"; Flags: external deleteafterinstall
 Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "YTDLP\FFmpeg"; Flags: deleteafterinstall
-; LibTorrent Extension
+Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.09.05/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "c7091de67fe88a01a9340c758c68e95e1156a22f476a602c5df12d303c81d22a"; \
+ExternalSize: 18_247_680; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
+; Extension LibTorrent
 Source: "src\Extension\Lib\TorrentReader64.dll";                               DestDir: "{autopf}\DAUM\PotPlayer\Extension\Lib";                Components: "EXT/torrent"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - LibTorrent.as";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/torrent"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - LibTorrent.ico";       DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/torrent"; Flags: ignoreversion
 Source: "src\Extension\Media\SourceReader\MediaSourceReader - LibTorrent.as";  DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\SourceReader"; Components: "EXT/torrent"; Flags: ignoreversion
 Source: "src\Extension\Media\SourceReader\MediaSourceReader - LibTorrent.ico"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\SourceReader"; Components: "EXT/torrent"; Flags: ignoreversion
-; yt-dlp playlist/playitem
+; Extension yt-dlp playlist/playitem
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion 
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #1.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
@@ -239,7 +242,8 @@ Source: "src\Extension\Media\PlayParse\yt-dlp_default.ini";                    D
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio1.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio2.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT/ytdlp"; Flags: ignoreversion
 ; Icaros
-Source: "{tmp}\Icaros.exe";                                                    DestDir: "{tmp}";                                                Components: "icaros"; Flags: external deleteafterinstall
+Source: "https://github.com/Xanashi/Icaros/releases/download/v3.3.4b1/Icaros_v3.3.4_b1.exe"; DestName: "Icaros.exe"; DestDir: "{tmp}"; Hash: "608ff4b0508f31e3d85810141cbb56b57304a385fc26cce8a9b4b2ad95c99c64"; \
+ExternalSize: 13_201_408; Components: "icaros"; Flags: external download ignoreversion
 Source: "InstallDir\uninstall_Icaros.bat";                                     DestDir: "{app}";                                                Components: "icaros"; Flags: ignoreversion
 Source: "InstallDir\reg\delete_icaros.reg";                                    DestDir: "{app}\reg";                                            Components: "icaros"; Flags: ignoreversion
 ; Samoaktualizujące listy odtwarzania
@@ -254,7 +258,8 @@ Source: "src\Module\MI\MediaInfo.dll";                                         D
 ; Sanear
 Source: "src\Module\sanear64.ax";                                              DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Tasks: "renaudio\sanear"; Flags: regserver noregerror ignoreversion
 Source: "7za.exe";                                                             DestDir: "{tmp}"; Flags: deleteafterinstall
-
+   
+   
 [Registry]
 Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Uninstall\FanPack64_is1"; ValueName: "DisplayVersion"; ValueType: string; ValueData: "{#MyAppVersion}"; Flags: uninsdeletevalue
 #include "include/files-registry.iss"
@@ -280,8 +285,6 @@ Type: files; Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
 [Run]
 ;----------------- Rozpakowywanie archiwów 7z -----------------
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Components: "program"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult and FileExists(ExpandConstant('{tmp}\Module64.7z'))
-
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\yt-dlp_win.zip"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP"; Flags: runhidden; StatusMsg: "{cm:msg_extYTDLP}"; Check: CheckYTDLPResult and FileExists(ExpandConstant('{tmp}\yt-dlp_win.zip'))
 
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Components: "YTDLP\FFmpeg"; Flags: runhidden; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult and FileExists(ExpandConstant('{tmp}\ffmpeg.7z'))
 
@@ -651,28 +654,6 @@ begin
   end;
 end;
 
- function CheckYTDLPResult: Boolean;
- var
-   ResultCode: Integer;
- begin
-   Log('Extracting yt-dlp_win.zip...');
-   Result := Exec(ExpandConstant('{tmp}\7za.exe'),
-     'x "' + ExpandConstant('{tmp}\yt-dlp_win.zip') + '" -o"' + ExpandConstant('{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win') + '" * -r -aoa',
-     '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-  
-   if ResultCode = 0 then
-   begin
-     Log('Extraction successful.');
-     Result := True;
-   end
-   else
-   begin
-     MsgBox('Błąd rozpakowywania yt-dlp_win.zip. Kod: ' + IntToStr(ResultCode), mbError, MB_OK);
-     Log('7za failed with code: ' + IntToStr(ResultCode));
-     Result := False;
-   end;
- end;
-
   function CheckFFmpegResult: Boolean;
  var
    ResultCode: Integer;
@@ -734,7 +715,7 @@ end;
 
 function NextButtonClick(CurPageID: Integer): Boolean;
 var
-  ResultCode: Integer;
+  // ResultCode: Integer;
   HasDownloads: Boolean;
 begin
   if CurPageID = wpReady then
@@ -745,19 +726,7 @@ begin
 
     if PotPlayerDownloadNeeded then
     begin
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/beta/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'D0208F9875B61427ED07154F183BA465B006E5AE49F3F7C27648243DCA893A13');
-      HasDownloads := True;
-    end;
-
-    if WizardIsComponentSelected('icaros') then
-    begin
-      DownloadPage.Add('https://github.com/Xanashi/Icaros/releases/download/v3.3.4b1/Icaros_v3.3.4_b1.exe', 'Icaros.exe', '608ff4b0508f31e3d85810141cbb56b57304a385fc26cce8a9b4b2ad95c99c64');
-      HasDownloads := True;
-    end;
-    
-    if WizardIsComponentSelected('YTDLP') then
-    begin
-      DownloadPage.Add('https://github.com/yt-dlp/yt-dlp/releases/download/2025.08.20/yt-dlp_win.zip', 'yt-dlp_win.zip', 'c094de3a1690a89895794e9cf7171d8b682df433b4818013aaf1548b61d8f211');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/250909/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'CE0CCDB5A9DAB389E01920A440377A62E5087B4DF8D113E2F5B91B357D09ACCA');
       HasDownloads := True;
     end;
 
