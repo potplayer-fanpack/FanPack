@@ -64,6 +64,19 @@ Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i 
   Pobrane z czatu PotPlayer
   http://cafe.daum.net/pot-tool/N88T/137
 
+- Rozszerzenie Twitch do strumieniowania gier komputerowych oraz rozgrywek sportu elektronicznego
+  https://github.com/TwitchPotPlayer/TwitchPotPlayer
+
+- TorrentServer.Matrix na licencji GPL-3.0
+  Copyright (c) 2018-2025, YouROK
+  https://github.com/YouROK/TorrServer
+
+- TorrServer Launcher na licencji MIT
+  Copyright (c) 2021-2024, Noperkot
+  https://github.com/Noperkot/TSL
+
+
+
 Wszystkie znaki towarowe i prawa autorskie są własnością ich odpowiednich właścicieli.
 
 

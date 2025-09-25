@@ -1,4 +1,4 @@
-LICENCJA DLA FanPack-Lite
+LICENCJA DLA FanPack
 
 UMOWA LICENCYJNA I ODPOWIEDZIALONOŚĆ
 Program ten jest całkowicie darmowy. Możesz z nim zrobić co tylko zechcesz, ograniczeniem może być tylko Twoje sumienie.
@@ -10,4 +10,4 @@ Pliki instalacyjne stosowane w moich instalatorach są własnością ich autoró
 
 
 Copyright © 2014-2025 Adam Malich
-https://github.com/potplayer-fanpack/FanPack_Lite
+https://github.com/potplayer-fanpack

@@ -1,18 +1,23 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 10.09.2025 +
++ Data kompilacji - 25.09.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6468
+Wersja 3.9 build 6707
 =====================================
-= Zaktualizowano skrypt PotPlayer-Extension_yt-dlp do wersji v250907
-= Zaktualizowano yt-dlp do wersji v2025.09.05
-= Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.6
-= Zaktualizowano MPC Video Renderer do wersji v0.9.11.2400
+* Uproszczenie pobierania zewnêtrznych plików za pomoc¹ implementacji natywnego skryptu (z Inno Setup)
+
++ Dodano TorrServer.Matrix.136 + TorrServer Launcher v1.8.1 + rozszerzenie TorrServer
++ Dodano AceStream Engine + rozszerzenie AceStream
+
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 250925
+= Zaktualizowano yt-dlp do wersji v2025.09.23
+= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-09-10
+= Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.7
+= Zaktualizowano MPC Video Renderer do wersji v0.9.13.2451
 = Zaktualizowano 7za.exe do wersji 25.01
-= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-09-04
-= Zaktualizowano pliki jêzykowe do wersji v250902
+= Zaktualizowano pliki jêzykowe do wersji v250909
 
 Wersja 3.9 build 6417
 =====================================
