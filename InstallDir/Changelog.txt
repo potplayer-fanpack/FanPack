@@ -1,10 +1,10 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 25.09.2025 +
++ Data kompilacji - 27.09.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6707
+Wersja 3.9 build 6708
 =====================================
 * Uproszczenie pobierania zewnêtrznych plików za pomoc¹ implementacji natywnego skryptu (z Inno Setup)
 
@@ -12,7 +12,7 @@ Wersja 3.9 build 6707
 + Dodano AceStream Engine + rozszerzenie AceStream
 
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 250925
-= Zaktualizowano yt-dlp do wersji v2025.09.23
+= Zaktualizowano yt-dlp do wersji v2025.09.26
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-09-10
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.7
 = Zaktualizowano MPC Video Renderer do wersji v0.9.13.2451

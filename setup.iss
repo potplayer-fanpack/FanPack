@@ -54,7 +54,7 @@ Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 25.09.2025
+BeveledLabel= 27.09.2025
 
 [Tasks]
 Name: "desktopicon";          Description: "{cm:tsk_desktopicon}";               
@@ -231,7 +231,7 @@ Source: "src\Extension\Data\yt-dlp_win\yt-dlp-add-metadata.bat";               D
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
-Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.09.23/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "4af2f876412c9e47fb43773685a20c07d12ac0f56e55b51361664af4ad80d0a7"; \
+Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.09.26/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "bdea903c0204dc07dc79a5abdf5d3b1d8944476d856106e1ce94127d65a039db"; \
 ExternalSize: 18_227_200; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
