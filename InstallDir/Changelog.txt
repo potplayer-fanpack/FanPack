@@ -1,10 +1,10 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 27.09.2025 +
++ Data kompilacji - 30.09.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6708
+Wersja 3.9 build 6709
 =====================================
 * Uproszczenie pobierania zewnêtrznych plików za pomoc¹ implementacji natywnego skryptu (z Inno Setup)
 
@@ -13,7 +13,7 @@ Wersja 3.9 build 6708
 
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 250925
 = Zaktualizowano yt-dlp do wersji v2025.09.26
-= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-09-10
+= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-09-28
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.7
 = Zaktualizowano MPC Video Renderer do wersji v0.9.13.2451
 = Zaktualizowano 7za.exe do wersji 25.01

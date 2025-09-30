@@ -24,9 +24,13 @@ Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i 
 - [_LAV Filters_](https://github.com/Nevcairiel/LAVFilters) zgodnie z licencją GPL-2.0 - Copyright (c) 2010-2025, Nevcairiel
 - [_Icaros_](http://shark007.net/tools.html) zgodnie z licencją "Icaros License.txt" - Copyright (c) 2010-2023, Tabibito Technology
 - [_yt-dlp_](https://github.com/yt-dlp/yt-dlp) i skrypt do pobierania wideo na licencji Public Domain, Copyright (c) 2012-2025, yt-dlp
+- [_FFmpeg i FFprobe_](https://www.gyan.dev/ffmpeg/builds/#git-master-builds) z pakietu "FFmpeg Builds binaries for Windows" do pobierania wideo ze skryptem yt-dlp na licencji Public Domain
 - [_PotPlayer-Extension_yt-dlp_](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) do przetwarzanie przesyłania strumieniowego za pomocą yt-dlp (playlisty z YT), Copyright (c) 2025, hgcat-360
 - Biblioteki LibTorrent - Copyright (c) 2003-2020, Arvid Norberg
 - [_Rozszerzenie do sieci Torrent_](http://cafe.daum.net/pot-tool/N88T/137) - Pobrane z czatu PotPlayer
+- [_Rozszerzenie Twitch_](https://github.com/TwitchPotPlayer/TwitchPotPlayer) do strumieniowania gier komputerowych oraz rozgrywek sportu elektronicznego
+- [_TorrentServer.Matrix_](  https://github.com/YouROK/TorrServer) na licencji GPL-3.0, Copyright (c) 2018-2025 YouROK
+- [_TorrServer Launcher_](https://github.com/Noperkot/TSL) na licencji MIT, Copyright (c) 2021-2024 Noperkot
 
 Wszystkie znaki towarowe i prawa autorskie są własnością ich odpowiednich właścicieli.
   
@@ -86,10 +90,14 @@ Everything is set up, you install the package, launch the player and start watch
 - [_LAV Filters_](https://github.com/Nevcairiel/LAVFilters) according to the GPL-2.0 license - Copyright (c) 2010-2025, Nevcairiel
 - [_Icaros_](http://shark007.net/tools.html) according to the "Icaros License.txt" license - Copyright (c) 2010-2025, Tabibito Technology
 - [_yt-dlp_](https://github.com/yt-dlp/yt-dlp) and a script to download video under a Public Domain license, Copyright (c) 2012-2025, yt-dlp
+- [_FFmpeg i FFprobe_](https://www.gyan.dev/ffmpeg/builds/#git-master-builds) from the "FFmpeg Builds binaries for Windows" package for downloading videos with the yt-dlp script under the Public Domain licence
 - [_PotPlayer-Extension_yt-dlp_](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) for processing streaming via yt-dlp (playlists from YT), Copyright (c) 2025, hgcat-360
 - Libraries LibTorrent - Copyright (c) 2003-2020, Arvid Norberg
 - [_Extension to the network Torrent_](http://cafe.daum.net/pot-tool/N88T/137) - downloaded from the PotPlayer chat room
-  
+- [_Rozszerzenie Twitch_](https://github.com/TwitchPotPlayer/TwitchPotPlayer) for streaming computer games and e-sports competitions
+- [_TorrentServer.Matrix_](  https://github.com/YouROK/TorrServer) under the GPL-3.0 license, Copyright (c) 2018-2025 YouROK
+- [_TorrServer Launcher_](https://github.com/Noperkot/TSL) under the MIT licence, Copyright (c) 2021-2024 Noperkot
+
 All trademarks and copyrights are the property of their respective owners.
   
 ## System requirements
