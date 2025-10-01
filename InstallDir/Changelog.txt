@@ -1,8 +1,12 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 30.09.2025 +
++ Data kompilacji - 01.10.2025 +
 ++++++++++++++++++++++++++++++++
 
+
+Wersja 3.9 build 6710
+=====================================
+= Zaktualizowano MPC Video Renderer do wersji v0.9.15.2463
 
 Wersja 3.9 build 6709
 =====================================
