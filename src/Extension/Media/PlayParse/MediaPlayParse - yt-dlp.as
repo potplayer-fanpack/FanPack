@@ -184,7 +184,7 @@ string GetFilePath()
 				path = GetPlayerDir() + "Extension\\Data\\yt-dlp_x86.exe";
 				if (!FileExist(path))
 				{
-					path = GetPlayerDir() + "Extention\\Data\\yt-dlp_win\\yt-dlp.exe"; // for some older versions...
+					path = GetPlayerDir() + "Module\\yt-dlp.exe"; // for some older versions...
 					if (!FileExist(path))
 					{
 						path = GetPlayerDir() + "Extention\\Data\\yt-dlp.exe";

@@ -53,6 +53,10 @@ Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i 
   na licencji Public Domain
   https://www.gyan.dev/ffmpeg/builds/#git-master-builds
 
+- Deno środowisko uruchomieniowe JavaScript do PotPlayer-Extension_yt-dlp
+  na licencji Public Domain
+  https://github.com/denoland/deno
+
 - Rozszerzenie do przetwarzanie przesyłania strumieniowego za pomocą yt-dlp (playlisty z YT)
   Copyright (c) 2025, hgcat-360
   https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp
