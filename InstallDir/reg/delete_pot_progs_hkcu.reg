@@ -7,3 +7,9 @@ Windows Registry Editor Version 5.00
 [-HKEY_CURRENT_USER\Software\LAV]
 
 [-HKEY_CURRENT_USER\Software\Gabest]
+
+[-HKEY_CURRENT_USER\Software\TorrServer]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\MediaInfo\Command]
+
+[-HKEY_CURRENT_USER\SOFTWARE\Classes\*\shell\MediaInfo]

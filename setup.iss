@@ -1,9 +1,11 @@
 #pragma option -v+
 #pragma verboselevel 9
 
+#define localize = "true"
+
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6752"
+#define MyAppVersion "3.9.6761"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -51,6 +53,9 @@ ArchiveExtraction                  = full
 
 [Languages]
 Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
+#if localize == "true"
+Name: "en"; MessagesFile: "compiler:Default.isl"
+#endif
 
 [LangOptions]
 DialogFontName=Tahoma
@@ -61,9 +66,10 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 29.11.2025
+BeveledLabel= 15.12.2025
 
 [Tasks]
+#if localize == "true"
 Name: "desktopicon";          Description: "{cm:tsk_desktopicon}";               
 Name: "minfo1";               Description: "{cm:tsk_minfo1}";                     Components: "minfo"
 Name: "addon";                Description: "{cm:tsk_addon}";                      Flags: unchecked
@@ -120,15 +126,18 @@ Name: "ThreadConv";           Description: "{cm:tsk_ThreadConv}";               
 Name: "playpriority";         Description: "{cm:tsk_playpriority}";               GroupDescription: "{cm:tsk_group4}"; Flags: unchecked
 Name: "mvc3d";                Description: "{cm:tsk_mvc3d}";                      GroupDescription: "{cm:tsk_group4}"; Flags: unchecked
 Name: "remposvideo";          Description: "{cm:tsk_remposvideo}";                GroupDescription: "{cm:tsk_group4}"
-
+#endif
 
 [Types]
+#if localize == "true"
 Name: "tweak";                Description: "{cm:comp_tweak}"
 Name: "full";                 Description: "{cm:comp_full}"
 Name: "compact";              Description: "{cm:comp_compact}"
 Name: "custom";               Description: "{cm:comp_custom}"; Flags: iscustom
+#endif
 
 [Components]
+#if localize == "true"
 Name: "program";              Description: "{cm:comp_program}"; Types: tweak full compact custom; Flags: fixed
 Name: "madVR";                Description: "{cm:comp_madVR}";   Types: custom
 Name: "YTDLP";                Description: "{cm:comp_YTDLP}";   Types: tweak full custom
@@ -139,8 +148,10 @@ Name: "Ace";                  Description: "{cm:comp_ACE}";     Types: custom
 Name: "Tor";                  Description: "{cm:comp_TOR}";     Types: custom
 Name: "icaros";               Description: "{cm:comp_icaros}";  Types: custom; Check: not IsIcarosInstalled
 Name: "minfo";                Description: "{cm:comp_minfo}";   Types: custom
+#endif
 
 [Icons]
+#if localize == "true"
 Name: "{group}\Addons Mozilla PotPlayer YouTube.url"; Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Tasks: "addon\1"
 Name: "{group}\Addons Chrome PotPlayer YouTube.url";  Filename: "https://chrome.google.com/webstore/search/potplayer";                     Tasks: "addon\2"
 Name: "{group}\CzytajTo";                             Filename: "{app}\CzytajTo.txt"
@@ -157,6 +168,7 @@ Name: "{group}\Download Video";                       Filename: "{autopf}\DAUM\P
 Name: "{autodesktop}\TorrServer Launcher";            Filename: "{userappdata}\TorrServer\tsl.exe"; Comment: "{cm:msg_streamtor}";                                                                                                            Components: "Tor";   Tasks: "desktopicon" 
 Name: "{autodesktop}\Download Video";                 Filename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"; Tasks: "desktopicon"
 Name: "{userdesktop}\AceStream Engine";               Filename: "{userappdata}\AceStream\engine\ace_engine.exe"; Parameters: "--live-cache-type memory --live-mem-cache-size 268435456"; IconFilename: "{userappdata}\AceStream\engine\data\images\engine.ico"; Comment: "Streaming torrent-tv przez HTTP"; Components: "Ace"; Tasks: "desktopicon"
+#endif
 
 [Files]
 ; Core program files
@@ -246,8 +258,8 @@ Source: "src\Extension\Data\yt-dlp_win\yt-dlp-add-metadata.bat";               D
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
-Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.11.12/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "213b917ad92f60ca6702a60eb0481dd82235f48a672aa0e2db8979977ef4c404"; \
-ExternalSize: 18_337_792; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "e21312153686f045e5efb598fe1eb6f780379c8e24d0cce8c2296a7aaba3e750"; \
+ExternalSize: 18_354_176; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
 Source: "https://github.com/denoland/deno/releases/download/v2.5.6/denort-x86_64-pc-windows-msvc.zip"; DestName: "denort-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
 ExternalSize: 44_797_952; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
@@ -402,6 +414,7 @@ Type: files; Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
 
 
 [Run]
+#if localize == "true"
 ;----------------- Rozpakowywanie archiwów 7z -----------------
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult and FileExists(ExpandConstant('{tmp}\Module64.7z')); Components: "program"
 
@@ -422,10 +435,11 @@ Filename: "{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe"; Description: "{cm:Launc
 Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Description: "{cm:tsk_addon_1}"; Tasks: "addon\1"; Flags: postinstall ShellExec
 
 Filename: "https://chrome.google.com/webstore/search/potplayer"; Description: "{cm:tsk_addon_2}"; Tasks: "addon\2"; Flags: postinstall ShellExec
-
+#endif
 
 
 [UninstallRun]
+#if localize == "true"
 ;----------------- Ubijanie procesu PotPlayer -----------------
 Filename: "{autopf}\DAUM\PotPlayer\KillPot64.exe"; WorkingDir: "{autopf}\DAUM\PotPlayer"; RunOnceId: "DelService"; Flags: shellexec runhidden
 
@@ -434,7 +448,7 @@ Filename: "{app}\delete madVR.bat"; WorkingDir: "{app}"; RunOnceId: "DelService"
 
 ;----------------- Usuwanie wpisów rejestru -----------------
 Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; WorkingDir: "{app}\reg"; Flags: waituntilterminated runhidden shellexec
-
+#endif
 
 
 [UninstallDelete]

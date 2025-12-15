@@ -38,7 +38,7 @@ pl.tsk_powerststus_a=Wyœwietlaj konfiguracjê zasilania i stan na³adowania bateri
 pl.tsk_powerststus_b=Wyœwietlaj tylko stan na³adowania baterii
 pl.tsk_desktopicon=Utwórz na Pulpicie skróty do ACE, TOR, YTDLP
 ;pl.tsk_desktopicon1=Utwórz na Pulpicie skrót do TorrServer.Matrix
-pl.tsk_minfo=Dodaj MediaInfo do menu kontekstowego plików
+pl.tsk_minfo1=Dodaj MediaInfo do menu kontekstowego plików
 pl.tsk_addon=Instalacja dodatków dla przegl¹darek
 pl.tsk_addon_1=Przekieruj do Firefox Potplayer Youtube Shortcut
 pl.tsk_addon_2=Przekieruj do Chrome Potplayer Youtube Shortcut
@@ -67,6 +67,13 @@ pl.tsk_crossfeed=W³¹cz Crossfeed - *gdy u¿ywasz s³uchawek
 pl.tsk_virtual_dolby=Wirtualny dekoder Dolby - *gdy u¿ywasz s³uchawek
 ;
 pl.tsk_group4=Dodatkowe ustawienia wideo:
+pl.tsk_renderer=Renderer wideo 
+pl.tsk_renderer_auto=Wybór automatyczny *zalecane
+; pl.tsk_renderer_evrcp=W³¹cz EVR Custom Present Renderer
+pl.tsk_renderer_d3d9=W³¹cz wbudowany Direct3D 9 Video Renderer
+pl.tsk_renderer_d3d11=W³¹cz wbudowany Direct3D 11 Video Renderer
+pl.tsk_renderer_m=W³¹cz zewnêtrzny madVR
+pl.tsk_extmpcvr=Dodaj zewnêtrzny MPC Video Renderer (D3D9/11)
 pl.tsk_ffmpeg=W³¹cz FFmpeg64.dll do odtwarzania H.265/HEVC
 pl.tsk_hwfirst=U¿yj sprzêtowego zarz¹dzania kolorami
 pl.tsk_resizer=U¿yj resizera ""Shader (2PASS) Lanczos 3"" *zwiêkszenie ostroœci
@@ -85,6 +92,8 @@ pl.comp_compact=Instalacja kompaktowa
 pl.comp_custom=Instalacja niestandardowa
 pl.comp_program=Pliki podstawowe
 pl.comp_YTDLP=YTDLP - pobieranie wideo za pomoc¹ linku skopiowanego do schowka systemowego
+pl.comp_Deno=Deno - œrodowisko uruchomieniowe JavaScript wymagane w PotPlayer-Extension_yt-dlp
+pl.comp_madVR=madVR - wysokiej jakoœci renderer wideo
 pl.comp_FFmpeg=FFmpeg i FFprobe - niezbêne do pobierania wideo
 pl.comp_EXT=Dodatkowe rozszerzenia (Twitch, LibTorrent, yt-dlp)
 pl.comp_ext_torrent=Ext LibTorrent - ogl¹danie wideo z trackerów sieci Torrent
@@ -94,3 +103,7 @@ pl.comp_icaros=Icaros - wyœwietlanie miniatur plików multimedialnych w Eksplorat
 pl.comp_TOR=TorrServer.MatriX - strumieniowe przesy³anie treœci cyfrowych przez HTTP
 pl.comp_ACE=Ace Stream Engine - ogl¹danie TV z trackerów sieci Torrent (acestream://)
 pl.comp_minfo=MediaInfo - info o multimediach w menu kontekstowym plików
+
+#if localize == "true"
+  #include "custom_messages_translated.iss"
+#endif

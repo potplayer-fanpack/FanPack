@@ -1,17 +1,18 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 29.11.2025 +
++ Data kompilacji - 15.12.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6752
+Wersja 3.9 build 6761
 =====================================
 + Dodano Deno.exe v2.5.6.0 wykorzystywany w PotPlayer-Extension_yt-dlp
++ Dodano jêzyk angielski do instalatora
  
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.8
 = Zaktualizowano MediaInfo.dll do wersji v25.09.0.0
-= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 251125
-= Zaktualizowano yt-dlp do wersji v2025.11.12
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 251213
+= Zaktualizowano yt-dlp do wersji v2025.12.08
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-11-27
 = Zaktualizowano MPC Video Renderer do wersji v0.9.17.2472
 = Naprawiono b³êdny zapis w rejestrze MediaInfo

@@ -1,13 +1,20 @@
 ; Rejestr PotPlayer [Registry]
+Root: "HKCU"; Subkey: "Software\Microsoft\Multimedia\ActiveMovie\Filter Cache"; Flags: deletekey noerror
 ; madVR
-Root: "HKCU"; Subkey: "SOFTWARE\madshi";                                                                                                                         Flags: uninsdeletekey
-Root: "HKCU"; Subkey: "SOFTWARE\madshi";                                                                                                                         Flags: deletekey
-Root: "HKCU"; Subkey: "SOFTWARE\madshi\madHcCtrl"; ValueType: dword; ValueName: "ShowTrayIcon"; ValueData: "$1";                                                 Flags: uninsdeletevalue uninsdeletekeyifempty
-Root: "HKCU"; Subkey: "SOFTWARE\madshi\madVR"; ValueType: string; ValueName: "LastSettingsKey"; ValueData: "rendering\dithering";                                Flags: uninsdeletevalue uninsdeletekeyifempty
+Root: "HKCU"; Subkey: "SOFTWARE\madshi";                                                                                                                            Components: "madVR"; Flags: uninsdeletekey
+Root: "HKCU"; Subkey: "SOFTWARE\madshi";                                                                                                                            Components: "madVR"; Flags: deletekey
+Root: "HKCU"; Subkey: "SOFTWARE\madshi\madHcCtrl"; ValueType: dword; ValueName: "ShowTrayIcon"; ValueData: "$1";                                                    Components: "madVR"; Flags: uninsdeletevalue uninsdeletekeyifempty
+Root: "HKCU"; Subkey: "SOFTWARE\madshi\madVR"; ValueType: string; ValueName: "LastSettingsKey"; ValueData: "rendering\dithering";                                   Components: "madVR"; Flags: uninsdeletevalue uninsdeletekeyifempty
 ; MediaInfo
-Root: "HKCU"; Subkey: "SOFTWARE\MediaInfo"; ValueName: "Path"; ValueType: String; ValueData: "{autopf}\DAUM\PotPlayer\Module\";                                  Tasks: "minfo"; Flags: uninsdeletevalue uninsdeletekeyifempty 
-Root: "HKCU"; Subkey: "SOFTWARE\Classes\*\shell\MediaInfo"; ValueName: "Icon"; ValueType: String; ValueData: """{autopf}\DAUM\PotPlayer\Module\mediainfo.exe"""; Tasks: "minfo"; Flags: uninsdeletevalue uninsdeletekeyifempty 
-Root: "HKCU"; Subkey: "SOFTWARE\Classes\*\shell\MediaInfo\Command"; ValueType: String; ValueData: """{autopf}\DAUM\PotPlayer\Module\mediainfo.exe"" ""%1""";     Tasks: "minfo"; Flags: uninsdeletevalue uninsdeletekeyifempty 
+Root: "HKCU"; Subkey: "SOFTWARE\MediaInfo"; ValueName: "Path"; ValueType: String; ValueData: "{autopf}\DAUM\PotPlayer\Module\MI\";                                  Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+Root: "HKCU"; Subkey: "SOFTWARE\Classes\*\shell\MediaInfo"; ValueName: "Icon"; ValueType: String; ValueData: """{autopf}\DAUM\PotPlayer\Module\MI\MediaInfo.exe"""; Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+Root: "HKCU"; Subkey: "SOFTWARE\Classes\*\shell\MediaInfo\Command"; ValueType: String; ValueData: """{autopf}\DAUM\PotPlayer\Module\MI\MediaInfo.exe"" ""%1""";     Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+;
+;Root: HKA; Subkey: "Software\Classes\Applications\MediaInfo.exe";                                                                                                                               Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+;Root: HKA; Subkey: "Software\Classes\Applications\MediaInfo.exe\shell";                                                                                                                         Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+;Root: HKA; Subkey: "Software\Classes\Applications\MediaInfo.exe\shell\open";                                                                                                                    Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+;Root: HKA; Subkey: "Software\Classes\Applications\MediaInfo.exe\shell\open\command";                                                                                                            Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
+;Root: HKA; Subkey: "Software\Classes\Applications\MediaInfo.exe\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{autopf}\DAUM\PotPlayer\Module\MI\MediaInfo.exe"" ""%1"""; Components: "minfo"; Tasks: "minfo1"; Flags: uninsdeletevalue uninsdeletekeyifempty
 ; Sanear
 Root: "HKCU"; Subkey: "SOFTWARE\sanear"; ValueType: string; ValueName: "DeviceId"; ValueData: "";                                                                                                                                  Tasks: "renaudio\sanear"; Flags: uninsdeletevalue
 Root: "HKCU"; Subkey: "SOFTWARE\sanear"; ValueType: dword; ValueName: "DeviceExclusive"; ValueData: $00000001;                                                                                                                     Tasks: "renaudio\sanear"; Flags: uninsdeletevalue
@@ -543,6 +550,31 @@ Root: "HKCU"; Subkey: "{#keyPM}\OptionList_MPC-BE Filters"; ValueType: dword; Va
 Root: "HKCU"; Subkey: "{#keyPM}\OptionList_Nvidia CUDA Decoder"; ValueType: dword; ValueName: "CaptionLineSpace"; ValueData: "$ffffffec";                                       Tasks: "interlinia"; Flags: uninsdeletekey
 Root: "HKCU"; Subkey: "{#keyPM}\OptionList_Smooth Video (AviSynth+ & SVPflow)"; ValueType: dword; ValueName: "CaptionLineSpace"; ValueData: "$ffffffec";                        Tasks: "interlinia"; Flags: uninsdeletekey
 Root: "HKCU"; Subkey: "{#keyPMS}"; ValueType: dword; ValueName: "CaptionLineSpace"; ValueData: "$ffffffec";                                                                     Tasks: "interlinia"; Flags: uninsdeletekey
+; Renderer EVR CP
+; Root: HKCU; Subkey: "{#keyPMS}"; ValueType: dword; ValueName: "VideoRen2"; ValueData: "$8";                                                                                     Tasks: "renderer\evrcp"; Flags: uninsdeletekey
+; Renderer D3D9
+Root: HKCU; Subkey: "{#keyPMS}"; ValueType: dword; ValueName: "VideoRen2"; ValueData: "$b";                                                                                     Tasks: "renderer\d3d9"; Flags: uninsdeletekey
+; Renderer D3D11
+Root: HKCU; Subkey: "{#keyPMS}"; ValueType: dword; ValueName: "VideoRen2"; ValueData: "$f";                                                                                     Tasks: "renderer\d3d11"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyPMS}"; ValueType: dword; ValueName: "VMR9VSyncInternal"; ValueData: "$0";                                                                             Tasks: "renderer\d3d11"; Flags: uninsdeletekey
+; Renderer madVR
+Root: HKCU; Subkey: "{#keyPMS}"; ValueType: dword; ValueName: "VideoRen2"; ValueData: "$a";                                                                                     Tasks: "renderer\madVR"; Flags: uninsdeletekey
+; ; Imported Registry File: "MPC Video Renderer"
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "UseD3D11"; ValueData: "$1";                                                                        Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "ShowStatistics"; ValueData: "$0";                                                                  Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "TextureFormat"; ValueData: "$0";                                                                   Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "VPEnableNV12"; ValueData: "$1";                                                                    Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "VPEnableP01x"; ValueData: "$1";                                                                    Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "VPEnableYUY2"; ValueData: "$1";                                                                    Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "VPEnableOther"; ValueData: "$1";                                                                   Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "DoubleFramerateDeinterlace"; ValueData: "$1";                                                      Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "VPScaling"; ValueData: "$1";                                                                       Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "ChromaScaling"; ValueData: "$0";                                                                   Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "Upscaling"; ValueData: "$2";                                                                       Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "Downscaling"; ValueData: "$2";                                                                     Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "InterpolateAt50pct"; ValueData: "$1";                                                              Tasks: "extmpcvr"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "{#keyMVR}"; ValueType: dword; ValueName: "SwapEffect"; ValueData: "$0";                                                                      Tasks: "extmpcvr"; Flags: uninsdeletekey
+
 ; SVP
 ; Root: "HKCU"; Subkey: "{#keyPM}\OptionList_Smooth Video (AviSynth+ & SVPflow)"; ValueName: "UseSelfDxva"; ValueType: Dword; ValueData: "$1";                                    Flags: uninsdeletevalue
 ; Root: "HKCU"; Subkey: "{#keyPM}\OptionList_Smooth Video (AviSynth+ & SVPflow)"; ValueName: "AvisynthScript"; ValueType: String; ValueData: "demo=1 import(""svp.avs"")";        Flags: uninsdeletevalue
