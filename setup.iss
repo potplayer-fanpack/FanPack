@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6761"
+#define MyAppVersion "3.9.6763"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 15.12.2025
+BeveledLabel= 19.12.2025
 
 [Tasks]
 #if localize == "true"
@@ -261,8 +261,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           D
 Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "e21312153686f045e5efb598fe1eb6f780379c8e24d0cce8c2296a7aaba3e750"; \
 ExternalSize: 18_354_176; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
-Source: "https://github.com/denoland/deno/releases/download/v2.5.6/denort-x86_64-pc-windows-msvc.zip"; DestName: "denort-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
-ExternalSize: 44_797_952; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/denoland/deno/releases/download/v2.6.2/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
+Hash: "c8212fb29fe777cd973c62d0efdd1a4e7ccae1b591f2a159dcfaa68cdc9ccf67"; ExternalSize: 45_383_680; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
 ; TorrServer.Marix
@@ -962,7 +962,7 @@ end;
 
 procedure DeleteTempFiles;
 var
-  TempFiles: array[0..5] of String;
+  TempFiles: array[0..6] of String;
   I: Integer;
 begin
   Log('Deleting temp files...');
