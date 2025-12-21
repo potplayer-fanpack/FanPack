@@ -25,7 +25,7 @@ Wszystko jest już skonfigurowane, instalujesz pakiet, uruchamiasz odtwarzacz i 
 - [_Icaros_](http://shark007.net/tools.html) zgodnie z licencją "Icaros License.txt" - Copyright (c) 2010-2023, Tabibito Technology
 - [_yt-dlp_](https://github.com/yt-dlp/yt-dlp) i skrypt do pobierania wideo na licencji Public Domain, Copyright (c) 2012-2025, yt-dlp
 - [_FFmpeg i FFprobe_](https://www.gyan.dev/ffmpeg/builds/#git-master-builds) z pakietu "FFmpeg Builds binaries for Windows" do pobierania wideo ze skryptem yt-dlp na licencji Public Domain
-- [_Deno_]([https://github.com/denoland/deno]) środowisko uruchomieniowe JavaScript dla Youtube wykorzystywane w PotPlayer-Extension_yt-dlp
+- [_Deno_](https://github.com/denoland/deno) środowisko uruchomieniowe JavaScript dla Youtube wykorzystywane w PotPlayer-Extension_yt-dlp
 - [_PotPlayer-Extension_yt-dlp_](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) do przetwarzanie przesyłania strumieniowego za pomocą yt-dlp (playlisty z YT), Copyright (c) 2025, hgcat-360
 - Biblioteki LibTorrent - Copyright (c) 2003-2020, Arvid Norberg
 - [_Rozszerzenie do sieci Torrent_](http://cafe.daum.net/pot-tool/N88T/137) - Pobrane z czatu PotPlayer
@@ -92,7 +92,7 @@ Everything is set up, you install the package, launch the player and start watch
 - [_Icaros_](http://shark007.net/tools.html) according to the "Icaros License.txt" license - Copyright (c) 2010-2025, Tabibito Technology
 - [_yt-dlp_](https://github.com/yt-dlp/yt-dlp) and a script to download video under a Public Domain license, Copyright (c) 2012-2025, yt-dlp
 - [_FFmpeg i FFprobe_](https://www.gyan.dev/ffmpeg/builds/#git-master-builds) from the "FFmpeg Builds binaries for Windows" package for downloading videos with the yt-dlp script under the Public Domain licence
-- [_Deno_]([https://github.com/denoland/deno]) JavaScript runtime environment for YouTube used in PotPlayer-Extension_yt-dlp
+- [_Deno_](https://github.com/denoland/deno) JavaScript runtime environment for YouTube used in PotPlayer-Extension_yt-dlp
 - [_PotPlayer-Extension_yt-dlp_](https://github.com/hgcat-360/PotPlayer-Extension_yt-dlp) for processing streaming via yt-dlp (playlists from YT), Copyright (c) 2025, hgcat-360
 - Libraries LibTorrent - Copyright (c) 2003-2020, Arvid Norberg
 - [_Extension to the network Torrent_](http://cafe.daum.net/pot-tool/N88T/137) - downloaded from the PotPlayer chat room
