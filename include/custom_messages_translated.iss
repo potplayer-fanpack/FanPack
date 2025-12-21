@@ -21,6 +21,7 @@ en.LaunchProgram=Launch the PotPlayer
 en.msg_install_icaros=Installation of Icaros in progress. Please wait...
 en.msg_downvideos=Downloading video from clipboard link
 en.msg_confpot=PotPlayer Configuration...
+en.msg_extAceLib=Unpacking AceLibs.7z
 en.msg_extracting=Unpacking Module64.7z
 en.msg_extYTDLP=Unpacking yt-dlp_win.zip
 en.msg_extFFmpeg=Unpacking ffmpeg.7z

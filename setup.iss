@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6763"
+#define MyAppVersion "3.9.6764"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 19.12.2025
+BeveledLabel= 21.12.2025
 
 [Tasks]
 #if localize == "true"
@@ -261,8 +261,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           D
 Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "e21312153686f045e5efb598fe1eb6f780379c8e24d0cce8c2296a7aaba3e750"; \
 ExternalSize: 18_354_176; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
-Source: "https://github.com/denoland/deno/releases/download/v2.6.2/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
-Hash: "c8212fb29fe777cd973c62d0efdd1a4e7ccae1b591f2a159dcfaa68cdc9ccf67"; ExternalSize: 45_383_680; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/denoland/deno/releases/download/v2.6.3/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
+Hash: "a011a0c6f1ea120ec60a65969e9d549af894b999cf1d35fe5ee81e694227cce2"; ExternalSize: 45_387_776; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
 ; TorrServer.Marix
@@ -272,7 +272,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - TorrServer.ico";       D
 Source: "{userappdata}\TorrServer\config-backup.zip";                          DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags: ignoreversion 
 Source: "{userappdata}\TorrServer\config.db";                                  DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags: ignoreversion 
 Source: "{userappdata}\TorrServer\msvcr100.dll";                               DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags: ignoreversion
-Source: "{userappdata}\TorrServer\tsl.exe";                                    DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags:ignoreversion 
+Source: "{userappdata}\TorrServer\tsl.exe";                                    DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags:ignoreversion
+Source: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl";                  DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Components: "Tor"; Flags: ignoreversion 
 Source: "https://github.com/YouROK/TorrServer/releases/download/MatriX.136/TorrServer-windows-amd64.exe"; DestName: "TorrServer-windows-amd64.exe"; DestDir: "{userappdata}\TorrServer"; Hash: "2af32be36c46dc5d3d11bc5483f630e7b71c08de788edafcb1a043455332a826"; \
 Components: "Tor"; ExternalSize: 53_297_152; Flags: external download ignoreversion
 ; AceStream
@@ -282,7 +283,7 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - AceStream.ico";        D
 Source: "{userappdata}\.ACEStream\playerconf.pickle";                          DestDir: "{userappdata}\.ACEStream";                             Components: "Ace"; Flags: ignoreversion 
 Source: "{userappdata}\AceStream\playerconf.pickle";                           DestDir: "{userappdata}\AceStream";                              Components: "Ace"; Flags: ignoreversion 
 Source: "{userappdata}\AceStream\ResetSettings.vbs";                           DestDir: "{userappdata}\AceStream";                              Components: "Ace"; Flags: ignoreversion 
-
+Source: "{userappdata}\PotPlayerMini64\Playlist\AceTV.dpl";                    DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Components: "Ace"; Flags: ignoreversion
 Source: "{userappdata}\AceStream\engine\acestream.conf";                       DestDir: "{userappdata}\AceStream\engine";                       Components: "Ace"; Flags: ignoreversion 
 Source: "{userappdata}\AceStream\engine\ace_engine.exe";                       DestDir: "{userappdata}\AceStream\engine";                       Components: "Ace"; Flags: ignoreversion 
 Source: "{userappdata}\AceStream\engine\chrome";                               DestDir: "{userappdata}\AceStream\engine";                       Components: "Ace"; Flags: ignoreversion 
@@ -291,70 +292,8 @@ Source: "{userappdata}\AceStream\engine\python27.dll";                         D
 Source: "{userappdata}\AceStream\engine\data\schema_sdb_v6.sql";               DestDir: "{userappdata}\AceStream\engine\data";                  Components: "Ace"; Flags: ignoreversion 
 Source: "{userappdata}\AceStream\engine\data\images\engine.ico";               DestDir: "{userappdata}\AceStream\engine\data\images";           Components: "Ace"; Flags: ignoreversion 
 Source: "{userappdata}\AceStream\engine\data\lang\en_EN.lang";                 DestDir: "{userappdata}\AceStream\engine\data\lang";             Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\data\lang\ru_RU.lang";                 DestDir: "{userappdata}\AceStream\engine\data\lang";             Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.Core.pyd";         DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.CoreApp.pyd";      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.live.pyd";         DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.node.pyd";         DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.pycompat.pyd";     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.pysegmenter.pyd";  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.pywebrtc.pyd";     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.streamer.pyd";     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\acestreamengine.Transport.pyd";    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\apsw.pyd";                         DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\avcodec-56.dll";                   DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\avformat-56.dll";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\avutil-54.dll";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\bitarray._bitarray.pyd";           DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\bz2.pyd";                          DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\cpyamf.amf0.pyd";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\cpyamf.amf3.pyd";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\cpyamf.util.pyd";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\Crypto.Cipher.AES.pyd";            DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\dbghelp.dll";                      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\LIBEAY32.dll";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\libgcc_s_dw2-1.dll";               DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\lxml.etree.pyd";                   DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\M2Crypto.__m2crypto.pyd";          DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\miniupnpc.pyd";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\pycompat27.pyd";                   DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\pyexpat.pyd";                      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\pythoncom27.dll";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\pywin2.pyd";                       DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\pywintypes27.dll";                 DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\select.pyd";                       DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\sqlite3.dll";                      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\SSLEAY32.dll";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\swresample-1.dll";                 DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\unicodedata.pyd";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32api.pyd";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32event.pyd";                   DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32evtlog.pyd";                  DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32file.pyd";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32gui.pyd";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32pdh.pyd";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32pipe.pyd";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32process.pyd";                 DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32ui.pyd";                      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\win32wnet.pyd";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wx._controls_.pyd";                DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wx._core_.pyd";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wx._gdi_.pyd";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wx._misc_.pyd";                    DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wx._windows_.pyd";                 DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wxbase28uh_net_vc.dll";            DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wxbase28uh_vc.dll";                DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wxmsw28uh_adv_vc.dll";             DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wxmsw28uh_core_vc.dll";            DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\wxmsw28uh_html_vc.dll";            DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_blist.pyd";                       DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_ctypes.pyd";                      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_hashlib.pyd";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_psutil_mswindows.pyd";            DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_socket.pyd";                      DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_sqlite3.pyd";                     DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_ssl.pyd";                         DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion 
-Source: "{userappdata}\AceStream\engine\lib\_win32sysloader.pyd";              DestDir: "{userappdata}\AceStream\engine\lib";                   Components: "Ace"; Flags: ignoreversion
+Source: "{userappdata}\AceStream\engine\data\lang\ru_RU.lang";                 DestDir: "{userappdata}\AceStream\engine\data\lang";             Components: "Ace"; Flags: ignoreversion
+Source: "{tmp}\lib.7z";                                                        DestDir: "{tmp}";                                                Components: "ACE"; Flags: deleteafterinstall
 ; Extensions 
 ; LibTorrent
 Source: "src\Extension\Lib\TorrentReader64.dll";                               DestDir: "{autopf}\DAUM\PotPlayer\Extension\Lib";                Components: "EXT"; Flags: ignoreversion
@@ -362,6 +301,7 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - LibTorrent.as";        D
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - LibTorrent.ico";       DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\SourceReader\MediaSourceReader - LibTorrent.as";  DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\SourceReader"; Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\SourceReader\MediaSourceReader - LibTorrent.ico"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\SourceReader"; Components: "EXT"; Flags: ignoreversion
+Source: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl";                  DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Components: "EXT"; Flags: ignoreversion
 ; Twitch
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - Twitch.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - Twitch.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
@@ -384,8 +324,6 @@ Source: "{userappdata}\PotPlayerMini64\Playlist\IPTV.dpl";                     D
 Source: "{userappdata}\PotPlayerMini64\Playlist\FilmPolski.dpl";               DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Tasks: "playlist";  Flags: ignoreversion
 Source: "{userappdata}\PotPlayerMini64\Playlist\YouTube.dpl";                  DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Tasks: "playlist";  Flags: ignoreversion
 Source: "{userappdata}\PotPlayerMini64\Playlist\CzarnoBiałe.dpl";              DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Tasks: "playlist";  Flags: ignoreversion
-Source: "{userappdata}\PotPlayerMini64\Playlist\AceTV.dpl";                    DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Tasks: "playlist"; Components: "Ace"; Flags: ignoreversion
-Source: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl";                  DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Tasks: "playlist"; Components: "Tor"; Flags: ignoreversion
 ; Sanear
 Source: "src\Module\sanear64.ax";                                              DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Tasks: "renaudio\sanear"; Flags: regserver noregerror ignoreversion
 Source: "7za.exe";                                                             DestDir: "{tmp}";                                                Flags: deleteafterinstall
@@ -421,6 +359,8 @@ Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAU
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult and FileExists(ExpandConstant('{tmp}\ffmpeg.7z')); Components: "FFmpeg"
 
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extmadVR}"; Check: CheckmadVRResult and FileExists(ExpandConstant('{tmp}\madVR.7z')); Components: "madVR"
+
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}"; Check: ChecklibResult and FileExists(ExpandConstant('{tmp}\lib.7z')); Components: "ACE"
 
 ;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe')); Components: "icaros"
@@ -874,6 +814,28 @@ end;
      Result := False;
    end;
  end;
+
+function ChecklibResult: Boolean;
+var
+  ResultCode: Integer;
+begin
+  Log('Extracting lib.7z...');
+  Result := Exec(ExpandConstant('{tmp}\7za.exe'),
+    'x "' + ExpandConstant('{tmp}\lib.7z') + '" -o"' + ExpandConstant('{userappdata}\AceStream\engine\lib') + '" * -r -aoa',
+    '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
+  
+  if ResultCode = 0 then
+  begin
+    Log('Extraction successful.');
+    Result := True;
+  end
+  else
+  begin
+    MsgBox('Błąd rozpakowywania lib.7z. Kod: ' + IntToStr(ResultCode), mbError, MB_OK);
+    Log('7za failed with code: ' + IntToStr(ResultCode));
+    Result := False;
+  end;
+end;
  
 function OnDownloadProgress(const Url, FileName: String; const Progress, ProgressMax: Int64): Boolean;
 begin
@@ -962,7 +924,7 @@ end;
 
 procedure DeleteTempFiles;
 var
-  TempFiles: array[0..6] of String;
+  TempFiles: array[0..7] of String;
   I: Integer;
 begin
   Log('Deleting temp files...');
@@ -973,6 +935,7 @@ begin
   Tempfiles[4] := ExpandConstant('{tmp}\yt-dlp_win.zip');
   Tempfiles[5] := ExpandConstant('{tmp}\ffmpeg.7z');
   Tempfiles[6] := ExpandConstant('{tmp}\denort-x86_64-pc-windows-msvc.zip');
+  Tempfiles[7] := ExpandConstant('{tmp}\lib.7z');
   for I := 0 to GetArrayLength(TempFiles) - 1 do
     if FileExists(TempFiles[I]) then
     begin

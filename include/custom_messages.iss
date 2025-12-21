@@ -20,6 +20,7 @@ pl.LaunchProgram=Uruchom odtwarzacz PotPlayer
 pl.msg_install_icaros=Trwa instalacja Icaros. Proszê czekaæ...
 pl.msg_downvideos=Pobieranie wideo z linku w schowku
 pl.msg_confpot=Konfiguracja PotPlayer...
+pl.msg_extAceLib=Wypakowywanie AceLibs.7z
 pl.msg_extracting=Wypakowywanie Module64.7z
 pl.msg_extYTDLP=Wypakowywanie yt-dlp_win.zip
 pl.msg_extFFmpeg=Wypakowywanie ffmpeg.7z
