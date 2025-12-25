@@ -3,11 +3,11 @@ Historia wersji PotPlayer
 
 
 ----------------------------------------------------------
-[251216]
+[251224]
 ----------------------------------------------------------
 + Dodano funkcję dekodowania APV
 
-- Ulepszono obsługę zestawów znaków w napisach 
+- Poprawiono obsługę zestawów znaków w napisach 
 - Naprawiono problem powodujący, że napisy generowane z audio w czasie rzeczywistym podczas odtwarzania strumieniowego na żywo nie były zsynchronizowane
 - Naprawiono problem, w wyniku którego nie można było zakończyć odtwarzania niektórych plików MKV
 - Naprawiono problem powodujący powolne odtwarzanie niektórych plików MP4

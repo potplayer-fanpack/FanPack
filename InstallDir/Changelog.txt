@@ -1,18 +1,24 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 21.12.2025 +
++ Data kompilacji - 25.12.2025 +
 ++++++++++++++++++++++++++++++++
 
+
+Wersja 3.9 build 6774
+=====================================
+= Zaktualizowano MPC Video Renderer 0.9.19.2490
+= Zaktualizowano OpenCodec64 do wersji 2025.12.22
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 251222
+= Zaktualizowano pliki jêzykowe odtwarzacza
 
 Wersja 3.9 build 6764
 =====================================
 = Zaktualizowano Deno.exe do wersji v2.6.3
-
-- Zmieniono b³êdny na poprawny link do Deno (by³ do Denort)
+= Zmieniono b³êdny na poprawny link do Deno (by³ do Denort)
 
 Wersja 3.9 build 6761
 =====================================
-+ Dodano Deno.exe v2.5.6 wykorzystywany w PotPlayer-Extension_yt-dlp
++ Dodano Deno.exe v2.5.6 wymagane do pe³nego wsparcia YouTube
 + Dodano jêzyk angielski do instalatora
  
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.8
