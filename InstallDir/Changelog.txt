@@ -4,9 +4,10 @@
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6774
+Wersja 3.9 build 6776
 =====================================
 = Zaktualizowano MPC Video Renderer 0.9.19.2490
+= Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-12-25
 = Zaktualizowano OpenCodec64 do wersji 2025.12.22
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 251222
 = Zaktualizowano pliki jêzykowe odtwarzacza
