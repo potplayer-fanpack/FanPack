@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6779"
+#define MyAppVersion "3.9.6780"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 27.12.2025
+BeveledLabel= 28.12.2025
 
 [Tasks]
 #if localize == "true"
@@ -274,8 +274,8 @@ Source: "{userappdata}\TorrServer\config.db";                                  D
 Source: "{userappdata}\TorrServer\msvcr100.dll";                               DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags: ignoreversion
 Source: "{userappdata}\TorrServer\tsl.exe";                                    DestDir: "{userappdata}\TorrServer";                             Components: "Tor"; Flags:ignoreversion
 Source: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl";                  DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Components: "Tor"; Flags: ignoreversion 
-Source: "https://github.com/YouROK/TorrServer/releases/download/MatriX.136/TorrServer-windows-amd64.exe"; DestName: "TorrServer-windows-amd64.exe"; DestDir: "{userappdata}\TorrServer"; Hash: "2af32be36c46dc5d3d11bc5483f630e7b71c08de788edafcb1a043455332a826"; \
-Components: "Tor"; ExternalSize: 53_297_152; Flags: external download ignoreversion
+Source: "https://github.com/YouROK/TorrServer/releases/download/MatriX.137/TorrServer-windows-amd64.exe"; DestName: "TorrServer-windows-amd64.exe"; DestDir: "{userappdata}\TorrServer"; Hash: "038246f4bd3fd111b2e5aaa7b2e8e207e328f823b22d6b6a3a5efa4935d990a0"; \
+Components: "TOR"; ExternalSize: 56_020_992; Flags: external download ignoreversion 
 ; AceStream
 Source: "src\Extension\Data\run,2.vbs";   DestName: "run.vbs";                 DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data";               Components: "Ace"; Flags: ignoreversion 
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - AceStream.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "Ace"; Flags: ignoreversion 
