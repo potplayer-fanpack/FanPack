@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6780"
+#define MyAppVersion "3.9.6786"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 28.12.2025
+BeveledLabel= 30.12.2025
 
 [Tasks]
 #if localize == "true"
@@ -384,10 +384,10 @@ Filename: "https://chrome.google.com/webstore/search/potplayer"; Description: "{
 Filename: "{autopf}\DAUM\PotPlayer\KillPot64.exe"; WorkingDir: "{autopf}\DAUM\PotPlayer"; RunOnceId: "DelService"; Flags: shellexec runhidden
 
 ;----------------- Usuwanie madVR (bat) -----------------
-Filename: "{app}\delete madVR.bat"; WorkingDir: "{app}"; RunOnceId: "DelService"; Flags: shellexec runhidden; Check: FileExists(ExpandConstant('{app}\delete madVR.bat')); Components: "madVR"
+Filename: "{app}\delete madVR.bat"; WorkingDir: "{app}"; RunOnceId: "DelmadVR"; Flags: shellexec runhidden; Check: FileExists(ExpandConstant('{app}\delete madVR.bat')); Components: "madVR"
 
 ;----------------- Usuwanie wpisów rejestru -----------------
-Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; WorkingDir: "{app}\reg"; Flags: waituntilterminated runhidden shellexec
+Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; WorkingDir: "{app}\reg"; RunOnceId: "DelReg"; Flags: waituntilterminated runhidden shellexec
 #endif
 
 

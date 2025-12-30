@@ -1,12 +1,13 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 28.12.2025 +
++ Data kompilacji - 30.12.2025 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6780
+Wersja 3.9 build 6786
 =====================================
-= Zaktualizowano TorrServer.Matrix do wersji v136
+= Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.9
+= Zaktualizowano TorrServer.Matrix do wersji v137
 = Zaktualizowano MPC Video Renderer 0.9.19.2490
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-12-25
 = Zaktualizowano OpenCodec64 do wersji 2025.12.22
