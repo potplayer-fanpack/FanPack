@@ -1,11 +1,12 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 30.12.2025 +
++ Data kompilacji - 05.01.2026 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6786
+Wersja 3.9 build 6798
 =====================================
+= Zaktualizowano LAVFilters do wersji v0.80.0-14
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.9
 = Zaktualizowano TorrServer.Matrix do wersji v137
 = Zaktualizowano MPC Video Renderer 0.9.19.2490

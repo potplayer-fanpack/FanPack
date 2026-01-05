@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6786"
+#define MyAppVersion "3.9.6798"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -25,7 +25,7 @@ AppSupportURL                      = {#MyAppURL}
 AppUpdatesURL                      = {#MyAppURL}
 DefaultDirName                     = {autopf}\{#MyAppName}
 DefaultGroupName                   = {#MyAppName}
-AppCopyright                       = Copyright © {#MyAppPublisher} 2014-2025
+AppCopyright                       = Copyright © {#MyAppPublisher} 2014-2026
 AllowNoIcons                       = yes
 OutputDir                          = bin
 SourceDir                          = .
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 30.12.2025
+BeveledLabel= 05.01.2026
 
 [Tasks]
 #if localize == "true"
