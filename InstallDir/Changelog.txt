@@ -1,11 +1,12 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 05.01.2026 +
++ Data kompilacji - 06.01.2026 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6798
+Wersja 3.9 build 6799
 =====================================
+= Zaktualizowano Deno.exe do wersji v2.6.4
 = Zaktualizowano LAVFilters do wersji v0.80.0-14
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.9
 = Zaktualizowano TorrServer.Matrix do wersji v137
