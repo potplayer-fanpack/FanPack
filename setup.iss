@@ -865,7 +865,7 @@ begin
 
     if PotPlayerDownloadNeeded then
     begin
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/250909/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'CE0CCDB5A9DAB389E01920A440377A62E5087B4DF8D113E2F5B91B357D09ACCA');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260114/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '8BE7BFE57308A5F62191B10F2D25F7BF85E459F9963BD129B61CFF9FAA08FCAE');
       HasDownloads := True;
     end;
 
