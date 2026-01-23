@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6825"
+#define MyAppVersion "3.9.6827"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -179,11 +179,11 @@ Source: "InstallDir\LGPL.TXT";                                                 D
 Source: "InstallDir\MyProg-x64.exe";                                           DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 Source: "InstallDir\AviSynth\*";                                               DestDir: "{app}\AviSynth";                                       Components: "program"; Flags: ignoreversion
 Source: "InstallDir\PxShader\*";                                               DestDir: "{app}\PxShader";                                       Components: "program"; Flags: ignoreversion
-Source: "InstallDir\PotPlayerMini64.exe";                                      DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
+; Source: "InstallDir\PotPlayerMini64.exe";                                      DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 Source: "InstallDir\PotPlayerMini64.dpl";                                      DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 Source: "InstallDir\reg\pot64_settings.reg";                                   DestDir: "{tmp}";                                                Components: "program"; Flags: ignoreversion deleteafterinstall
 Source: "InstallDir\reg\delete_pot_progs_hkcu.reg";                            DestDir: "{app}\reg";                                            Components: "program"; Flags: ignoreversion
-Source: "src\PotPlayerMini64.exe";                                             DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion uninsneveruninstall
+; Source: "src\PotPlayerMini64.exe";                                             DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion uninsneveruninstall
 Source: "src\History\Polish.txt";                                              DestDir: "{autopf}\DAUM\PotPlayer\History";                      Components: "program"; Flags: ignoreversion uninsneveruninstall
 Source: "src\Language\Polish.ini";                                             DestDir: "{autopf}\DAUM\PotPlayer\Language";                     Components: "program"; Flags: ignoreversion uninsneveruninstall
 ; OpenCodec
@@ -993,6 +993,6 @@ begin
     MoveFolderIfExists('{app}\AviSynth', '{autopf}\DAUM\PotPlayer\AviSynth');
     MoveFolderIfExists('{app}\PxShader', '{autopf}\DAUM\PotPlayer\PxShader');
     // Przenoszenie pliku PotPlayerMini64.exe
-    MoveFileIfExists('{app}\PotPlayerMini64.exe', '{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe');
+    // MoveFileIfExists('{app}\PotPlayerMini64.exe', '{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe');
   end;
 end;
