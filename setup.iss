@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6827"
+#define MyAppVersion "3.9.6828"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 23.01.2026
+BeveledLabel= 24.01.2026
 
 [Tasks]
 #if localize == "true"

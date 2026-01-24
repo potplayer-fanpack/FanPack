@@ -1,13 +1,14 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 23.01.2026 +
++ Data kompilacji - 24.01.2026 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6827
+Wersja 3.9 build 6828
 =====================================
 * W oryginalnym instalatorze usuniêto PotPlayerMiniXP64.exe i PotPlayerXP64.exe 
-  (teraz plik PotPlayerMini64.exe zamiast 240 KB "wa¿y" 2567 KB)
+  (teraz plik PotPlayerMini64.exe zamiast 240 KB "wa¿y" 2567 KB - wesz³o to 
+  od nowej wersji beta odtwarzacza v260123 i nie mo¿na ju¿ zmieniaæ ikony)
 
 = Zaktualizowano Deno do wersji v2.6.6
 = Zaktualizowano LAVFilters do wersji v0.81.0-3
