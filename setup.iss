@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6848"
+#define MyAppVersion "3.9.6850"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -310,7 +310,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #1.ico";        D
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #2.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion 
-Source: "src\Extension\Media\PlayParse\yt-dlp_default.ini";                    DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\yt-dlp_default,1.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "EXT"; Languages: "en"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\yt-dlp_default,2.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "EXT"; Languages: "pl"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio1.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio2.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 ; Icaros

@@ -4,8 +4,10 @@
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6848
+Wersja 3.9 build 6850
 =====================================
++ Dodano t³umaczenie pliku konfiguracji dla PotPlayer-Extension_yt-dlp
+ 
 = Zaktualizowano ustawienia PotPlayer-Extension_yt-dlp do wersji 260115.1
 = Zaktualizowano wewnêtrzne nazewnictwo niektórych rozszerzeñ 
 = Zrobiono porz¹dek ze zbêdnymi wpisami w rejestrze
