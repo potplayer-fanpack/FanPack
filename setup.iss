@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6828"
+#define MyAppVersion "3.9.6848"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 24.01.2026
+BeveledLabel= 25.01.2026
 
 [Tasks]
 #if localize == "true"
@@ -256,8 +256,8 @@ Source: "InstallDir\delete madVR.bat";                                         D
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp-live-from-start.bat";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp-add-metadata.bat";               DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
-Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
-Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
 Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "e21312153686f045e5efb598fe1eb6f780379c8e24d0cce8c2296a7aaba3e750"; \
 ExternalSize: 18_354_176; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
@@ -306,9 +306,13 @@ Source: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl";                  D
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - Twitch.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - Twitch.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 ; yt-dlp playlist/playitem
-Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp#2.as";          DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion 
-Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp#2.ico";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #1.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #2.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion 
 Source: "src\Extension\Media\PlayParse\yt-dlp_default.ini";                    DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\yt-dlp_radio1.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\yt-dlp_radio2.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 ; Icaros
 Source: "https://github.com/Xanashi/Icaros/releases/download/v3.3.4b1/Icaros_v3.3.4_b1.exe"; DestName: "Icaros.exe"; DestDir: "{tmp}"; Hash: "608ff4b0508f31e3d85810141cbb56b57304a385fc26cce8a9b4b2ad95c99c64"; \
 ExternalSize: 13_201_408; Components: "icaros"; Flags: external download ignoreversion
@@ -435,13 +439,17 @@ Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\d
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp-live-from-start.bat"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp-add-metadata.bat"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\yt-dlp.bat"
-Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp#2.as"
-Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp#2.ico"
-Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\yt-dlp_default.ini"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Module\MI\MediaInfo.exe"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Module\MI\MediaInfo.dll"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\yt-dlp_default.ini"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #1.ico"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #2.ico"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\yt-dlp_radio1.jpg"
+Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\yt-dlp_radio2.jpg"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\config.ini"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - Twitch.as"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse\MediaPlayParse - Twitch.ico"
