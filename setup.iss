@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6861"
+#define MyAppVersion "3.9.6862"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -258,8 +258,8 @@ Source: "src\Extension\Data\yt-dlp_win\yt-dlp-add-metadata.bat";               D
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
-Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "e21312153686f045e5efb598fe1eb6f780379c8e24d0cce8c2296a7aaba3e750"; \
-ExternalSize: 18_354_176; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2026.01.29/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "26286cea6a45f5a19706dfc2bb843660fed61a231a167126f3ffc3ec7e5a1e86"; \
+ExternalSize: 18_284_544; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
 Source: "https://github.com/denoland/deno/releases/download/v2.6.7/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
 Hash: "d4e8c2acc7f178d39310dbef8241c802898dec1469d3acb81fc084fa0cf51bb4"; ExternalSize: 46_202_880; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
