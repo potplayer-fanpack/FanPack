@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6850"
+#define MyAppVersion "3.9.6861"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 25.01.2026
+BeveledLabel= 29.01.2026
 
 [Tasks]
 #if localize == "true"
@@ -184,8 +184,8 @@ Source: "InstallDir\PotPlayerMini64.dpl";                                      D
 Source: "InstallDir\reg\pot64_settings.reg";                                   DestDir: "{tmp}";                                                Components: "program"; Flags: ignoreversion deleteafterinstall
 Source: "InstallDir\reg\delete_pot_progs_hkcu.reg";                            DestDir: "{app}\reg";                                            Components: "program"; Flags: ignoreversion
 ; Source: "src\PotPlayerMini64.exe";                                             DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion uninsneveruninstall
-Source: "src\History\Polish.txt";                                              DestDir: "{autopf}\DAUM\PotPlayer\History";                      Components: "program"; Flags: ignoreversion uninsneveruninstall
-Source: "src\Language\Polish.ini";                                             DestDir: "{autopf}\DAUM\PotPlayer\Language";                     Components: "program"; Flags: ignoreversion uninsneveruninstall
+Source: "src\History\Polish.txt";                                              DestDir: "{autopf}\DAUM\PotPlayer\History";                      Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
+Source: "src\Language\Polish.ini";                                             DestDir: "{autopf}\DAUM\PotPlayer\Language";                     Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
 ; OpenCodec
 Source: "src\Module\libmfxsw64.dll";                                           DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
 Source: "src\Module\OpenCodec\OpenCodecUnity64.dll";                           DestDir: "{autopf}\DAUM\PotPlayer\Module\OpenCodec";             Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
@@ -261,8 +261,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        D
 Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2025.12.08/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "e21312153686f045e5efb598fe1eb6f780379c8e24d0cce8c2296a7aaba3e750"; \
 ExternalSize: 18_354_176; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
-Source: "https://github.com/denoland/deno/releases/download/v2.6.6/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
-Hash: "0e26574aa9028e4b574909a4f561bc7614bef36b0c2cab02ca99b60d838db5fc"; ExternalSize: 45_826_048; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/denoland/deno/releases/download/v2.6.7/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
+Hash: "d4e8c2acc7f178d39310dbef8241c802898dec1469d3acb81fc084fa0cf51bb4"; ExternalSize: 46_202_880; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
 ; TorrServer.Marix
@@ -310,8 +310,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #1.ico";        D
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp #2.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.ico";           DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp.as";            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion 
-Source: "src\Extension\Media\PlayParse\yt-dlp_default,1.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "EXT"; Languages: "en"; Flags: ignoreversion
-Source: "src\Extension\Media\PlayParse\yt-dlp_default,2.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "EXT"; Languages: "pl"; Flags: ignoreversion
+Source: "src\Extension\Media\PlayParse\yt-dlp_default,1.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "EXT"; Flags: ignoreversion; Languages: "en"
+Source: "src\Extension\Media\PlayParse\yt-dlp_default,2.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse"; Components: "EXT"; Flags: ignoreversion; Languages: "pl"
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio1.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio2.jpg";                     DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 ; Icaros
