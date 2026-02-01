@@ -4,14 +4,14 @@
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6865
+Wersja 3.9 build 6874
 =====================================
 + Dodano t³umaczenie pliku konfiguracji dla PotPlayer-Extension_yt-dlp
 
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2026-01-29
 = Zaktualizowano yt-dlp do wersji v2026.01.31
 = Zaktualizowano Deno do wersji v2.6.7
-= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260130
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260201
 = Zaktualizowano ustawienia PotPlayer-Extension_yt-dlp
 = Zaktualizowano wewnêtrzne nazewnictwo niektórych rozszerzeñ 
 = Zrobiono porz¹dek ze zbêdnymi wpisami w rejestrze
