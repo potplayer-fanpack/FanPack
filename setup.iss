@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6876"
+#define MyAppVersion "3.9.6878"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 02.02.2026
+BeveledLabel= 03.02.2026
 
 [Tasks]
 #if localize == "true"
@@ -261,8 +261,8 @@ Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        D
 Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2026.01.31/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "d5d67e1a7a477de3895fe3edb8c937732d424da45b1e805e1ee6253d5b8fcb0c"; \
 ExternalSize: 18_284_544; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
-Source: "https://github.com/denoland/deno/releases/download/v2.6.7/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
-Hash: "d4e8c2acc7f178d39310dbef8241c802898dec1469d3acb81fc084fa0cf51bb4"; ExternalSize: 46_202_880; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/denoland/deno/releases/download/v2.6.8/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
+Hash: "febe91c13a3bd5509f77058f1376bff99c76b518046ebd46fe385bbf81b836d9"; ExternalSize: 46_231_552; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
 ; TorrServer.Marix
