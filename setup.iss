@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6878"
+#define MyAppVersion "3.9.6879"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 03.02.2026
+BeveledLabel= 04.02.2026
 
 [Tasks]
 #if localize == "true"
@@ -141,9 +141,9 @@ Name: "custom";               Description: "{cm:comp_custom}"; Flags: iscustom
 Name: "program";              Description: "{cm:comp_program}"; Types: tweak full compact custom; Flags: fixed
 Name: "madVR";                Description: "{cm:comp_madVR}";   Types: custom
 Name: "YTDLP";                Description: "{cm:comp_YTDLP}";   Types: tweak full custom
-Name: "deno";                 Description: "{cm:comp_Deno}";    Types: tweak full custom
 Name: "FFmpeg";               Description: "{cm:comp_FFmpeg}";  Types: tweak full custom
 Name: "EXT";                  Description: "{cm:comp_ext}";     Types: custom
+Name: "deno";                 Description: "{cm:comp_Deno}";    Types: custom
 Name: "Ace";                  Description: "{cm:comp_ACE}";     Types: custom
 Name: "Tor";                  Description: "{cm:comp_TOR}";     Types: custom
 Name: "icaros";               Description: "{cm:comp_icaros}";  Types: custom; Check: not IsIcarosInstalled
@@ -258,8 +258,8 @@ Source: "src\Extension\Data\yt-dlp_win\yt-dlp-add-metadata.bat";               D
 Source: "src\Extension\Data\yt-dlp_win\yt-dlp.bat";                            DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - yt-dlp-DV.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "YTDLP"; Flags: ignoreversion
-Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2026.01.31/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "d5d67e1a7a477de3895fe3edb8c937732d424da45b1e805e1ee6253d5b8fcb0c"; \
-ExternalSize: 18_284_544; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/yt-dlp/yt-dlp/releases/download/2026.02.04/yt-dlp_win.zip"; DestName: "yt-dlp_win.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; Hash: "cc6c3cd3f954b68a5f07e7f601d80b2c84120fadc5227e2989e3af481656e567"; \
+ExternalSize: 18_288_640; Components: "YTDLP"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components Deno
 Source: "https://github.com/denoland/deno/releases/download/v2.6.8/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
 Hash: "febe91c13a3bd5509f77058f1376bff99c76b518046ebd46fe385bbf81b836d9"; ExternalSize: 46_231_552; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion

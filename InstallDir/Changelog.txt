@@ -1,15 +1,17 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 03.02.2026 +
++ Data kompilacji - 04.02.2026 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6878
+Wersja 3.9 build 6879
 =====================================
+* PotPlayer-Extension_yt-dlp dzia³a tylko z wersj¹ v260114 PotPlayer lub wersjami starszymi
+
 + Dodano t³umaczenie pliku konfiguracji dla PotPlayer-Extension_yt-dlp
 
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2026-02-02
-= Zaktualizowano yt-dlp do wersji v2026.01.31
+= Zaktualizowano yt-dlp do wersji v2026.02.04
 = Zaktualizowano Deno do wersji v2.6.8
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260202
 = Zaktualizowano ustawienia PotPlayer-Extension_yt-dlp
