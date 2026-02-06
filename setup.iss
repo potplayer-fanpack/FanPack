@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6879"
+#define MyAppVersion "3.9.6887"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -66,7 +66,7 @@ DialogFontBaseScaleWidth=6
 #include "include/custom_messages.iss"
 
 [Messages]
-BeveledLabel= 04.02.2026
+BeveledLabel= 06.02.2026
 
 [Tasks]
 #if localize == "true"
@@ -264,7 +264,9 @@ ExternalSize: 18_288_640; Components: "YTDLP"; Flags: external download extracta
 Source: "https://github.com/denoland/deno/releases/download/v2.6.8/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"; \
 Hash: "febe91c13a3bd5509f77058f1376bff99c76b518046ebd46fe385bbf81b836d9"; ExternalSize: 46_231_552; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
-Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
+; Source: "{tmp}\ffmpeg.7z";                                                     DestDir: "{tmp}";                                                Components: "FFmpeg"; Flags: deleteafterinstall
+Source: "https://github.com/GyanD/codexffmpeg/releases/download/8.0.1/ffmpeg-8.0.1-essentials_build.7z"; DestName: "ffmpeg-8.0.1-essentials_build.7z"; DestDir: "{tmp}"; ExternalSize: "32_567_296"; \
+Hash: "a0c715acca3839bfd203e600a7775b83cfe3ff928a4eceb9ca54f2982365901c"; Components: "FFmpeg"; Flags: ignoreversion external download extractarchive recursesubdirs createallsubdirs
 ; TorrServer.Marix
 Source: "src\Extension\Data\run,1.vbs";   DestName: "run.vbs";                 DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data";               Components: "Tor"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - TorrServer.as";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "Tor"; Flags: ignoreversion 
@@ -332,7 +334,8 @@ Source: "{userappdata}\PotPlayerMini64\Playlist\CzarnoBiałe.dpl";              
 ; Sanear
 Source: "src\Module\sanear64.ax";                                              DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Tasks: "renaudio\sanear"; Flags: regserver noregerror ignoreversion
 Source: "7za.exe";                                                             DestDir: "{tmp}";                                                Flags: deleteafterinstall
-   
+;
+Source: "Oswald-Regular.ttf";                                                  DestDir: "{autofonts}"; FontInstall: "Oswald Regular";           Flags: onlyifdoesntexist uninsneveruninstall   
    
 [Registry]
 Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Uninstall\FanPack64_is1"; ValueName: "DisplayVersion"; ValueType: string; ValueData: "{#MyAppVersion}"; Flags: uninsdeletevalue
@@ -361,11 +364,14 @@ Type: files; Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
 ;----------------- Rozpakowywanie archiwów 7z -----------------
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Check: Check7zaResult and FileExists(ExpandConstant('{tmp}\Module64.7z')); Components: "program"
 
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\ffmpeg.7z"" -o""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extFFmpeg}"; Check: CheckFFmpegResult and FileExists(ExpandConstant('{tmp}\ffmpeg.7z')); Components: "FFmpeg"
-
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extmadVR}"; Check: CheckmadVRResult and FileExists(ExpandConstant('{tmp}\madVR.7z')); Components: "madVR"
 
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}"; Check: ChecklibResult and FileExists(ExpandConstant('{tmp}\lib.7z')); Components: "ACE"
+
+;----------------- Przenoszenie plików pakietu FFmpeg -----------------
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.0.1-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
+
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.0.1-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
 
 ;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe')); Components: "icaros"
@@ -397,6 +403,7 @@ Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:32"; Working
 
 
 [UninstallDelete]
+Type: filesandordirs; Name: "{tmp}\ffmpeg-8.0.1-essentials_build"
 Type: filesandordirs; Name: "{app}"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\MI"
 Type: filesandordirs; Name: "{autopf}\madVR"; Components: "madvr"
@@ -779,30 +786,8 @@ begin
     Result := False;
   end;
 end;
-
-  function CheckFFmpegResult: Boolean;
- var
-   ResultCode: Integer;
- begin
-   Log('Extracting ffmpeg.7z...');
-   Result := Exec(ExpandConstant('{tmp}\7za.exe'),
-     'x "' + ExpandConstant('{tmp}\ffmpeg.7z') + '" -o"' + ExpandConstant('{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win') + '" * -r -aoa',
-     '', SW_HIDE, ewWaitUntilTerminated, ResultCode);
-  
-   if ResultCode = 0 then
-   begin
-     Log('Extraction successful.');
-     Result := True;
-   end
-   else
-   begin
-     MsgBox('Błąd rozpakowywania ffmpeg.7z. Kod: ' + IntToStr(ResultCode), mbError, MB_OK);
-     Log('7za failed with code: ' + IntToStr(ResultCode));
-     Result := False;
-   end;
- end;
  
-   function CheckmadVRResult: Boolean;
+ function CheckmadVRResult: Boolean;
  var
    ResultCode: Integer;
  begin
@@ -874,7 +859,7 @@ begin
 
     if PotPlayerDownloadNeeded then
     begin
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260114/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '8BE7BFE57308A5F62191B10F2D25F7BF85E459F9963BD129B61CFF9FAA08FCAE');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260114/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'A6D7ABB88966C51409962D689FB87313B282DBBC713A04321DA462C6E0DBB9DF');
       HasDownloads := True;
     end;
 
@@ -943,8 +928,8 @@ begin
   TempFiles[3] := ExpandConstant('{tmp}\PotPlayerSetup64.exe');
   Tempfiles[4] := ExpandConstant('{tmp}\yt-dlp_win.zip');
   Tempfiles[5] := ExpandConstant('{tmp}\ffmpeg.7z');
-  Tempfiles[6] := ExpandConstant('{tmp}\denort-x86_64-pc-windows-msvc.zip');
-  Tempfiles[7] := ExpandConstant('{tmp}\lib.7z');
+  Tempfiles[6] := ExpandConstant('{tmp}\deno-x86_64-pc-windows-msvc.zip');
+  Tempfiles[7] := ExpandConstant('{tmp}\ffmpeg-8.0.1-essentials_build.7z');
   for I := 0 to GetArrayLength(TempFiles) - 1 do
     if FileExists(TempFiles[I]) then
     begin
