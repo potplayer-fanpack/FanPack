@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6887"
+#define MyAppVersion "3.9.6895"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -142,8 +142,8 @@ Name: "program";              Description: "{cm:comp_program}"; Types: tweak ful
 Name: "madVR";                Description: "{cm:comp_madVR}";   Types: custom
 Name: "YTDLP";                Description: "{cm:comp_YTDLP}";   Types: tweak full custom
 Name: "FFmpeg";               Description: "{cm:comp_FFmpeg}";  Types: tweak full custom
-Name: "EXT";                  Description: "{cm:comp_ext}";     Types: custom
-Name: "deno";                 Description: "{cm:comp_Deno}";    Types: custom
+Name: "EXT";                  Description: "{cm:comp_ext}";     Types: tweak full custom
+Name: "deno";                 Description: "{cm:comp_Deno}";    Types: tweak full custom
 Name: "Ace";                  Description: "{cm:comp_ACE}";     Types: custom
 Name: "Tor";                  Description: "{cm:comp_TOR}";     Types: custom
 Name: "icaros";               Description: "{cm:comp_icaros}";  Types: custom; Check: not IsIcarosInstalled
@@ -179,11 +179,9 @@ Source: "InstallDir\LGPL.TXT";                                                 D
 Source: "InstallDir\MyProg-x64.exe";                                           DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 Source: "InstallDir\AviSynth\*";                                               DestDir: "{app}\AviSynth";                                       Components: "program"; Flags: ignoreversion
 Source: "InstallDir\PxShader\*";                                               DestDir: "{app}\PxShader";                                       Components: "program"; Flags: ignoreversion
-; Source: "InstallDir\PotPlayerMini64.exe";                                      DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 Source: "InstallDir\PotPlayerMini64.dpl";                                      DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
 Source: "InstallDir\reg\pot64_settings.reg";                                   DestDir: "{tmp}";                                                Components: "program"; Flags: ignoreversion deleteafterinstall
 Source: "InstallDir\reg\delete_pot_progs_hkcu.reg";                            DestDir: "{app}\reg";                                            Components: "program"; Flags: ignoreversion
-; Source: "src\PotPlayerMini64.exe";                                             DestDir: "{autopf}\DAUM\PotPlayer";                              Components: "program"; Flags: ignoreversion uninsneveruninstall
 Source: "src\History\Polish.txt";                                              DestDir: "{autopf}\DAUM\PotPlayer\History";                      Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
 Source: "src\Language\Polish.ini";                                             DestDir: "{autopf}\DAUM\PotPlayer\Language";                     Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
 ; OpenCodec
