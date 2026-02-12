@@ -28,6 +28,9 @@ en.msg_extFFmpeg=Unpacking ffmpeg.7z
 en.msg_extmadVR=Unpacking madVR.7z
 en.msg_streamtor=Streaming torrents via HTTP
 ;
+en.tsk_group0=Update options:
+en.tsk_skipsettings=Only update components without overwriting PotPlayer settings
+;
 en.tsk_group1=Integration:
 en.tsk_opendef_navig=Open "File Manager" - *recommended for display on TV
 en.tsk_opendef_navig_a=Display items on the right in two lines
@@ -38,7 +41,7 @@ en.tsk_opendef_navig_no_close=Do not close the window after selecting an item
 en.tsk_powerststus=Power status
 en.tsk_powerststus_a=Display power configuration and battery charge status
 en.tsk_powerststus_b=Only display battery status
-en.tsk_desktopicon=Create desktop shortcuts to ACE, TOR, YTDLP
+en.tsk_desktopicon=Create desktop shortcuts
 en.tsk_minfo1=Add MediaInfo to the file context menu
 en.tsk_addon=Installing browser add-ons
 en.tsk_addon_1=Redirect to Firefox Potplayer Youtube Shortcut
@@ -94,7 +97,7 @@ en.comp_YTDLP=YTDLP - downloading a video using a link copied to the system clip
 en.comp_Deno=Deno - JavaScript runtime required in PotPlayer-Extension_yt-dlp
 en.comp_madVR=madVR - high quality video renderer
 en.comp_FFmpeg=FFmpeg and FFprobe - essential for video downloading
-en.comp_ext=Additional extensions (Twitch, LibTorrent, yt-dlp)
+en.comp_ext=Additional extensions (Twitch, LibTorrent, PotPlayer-Extension_yt-dlp)
 en.comp_ext_torrent=Ext LibTorrent - Watching Videos from Torrent Trackers
 en.comp_ext_ytdlp=Ext yt-dlp - Play YouTube video/music playlists
 en.comp_ext_twitch=Ext Twitch - streaming computer games and e-sports competitions

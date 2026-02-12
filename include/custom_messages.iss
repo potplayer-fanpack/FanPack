@@ -27,6 +27,9 @@ pl.msg_extFFmpeg=Wypakowywanie ffmpeg.7z
 pl.msg_extmadVR=Wypakowywanie madVR.7z
 pl.msg_streamtor=Streamowanie torrentów za pomoc¹ protoko³u HTTP
 ;
+pl.tsk_group0=Opcje aktualizacji:
+pl.tsk_skipsettings=Tylko aktualizacja komponentów bez nadpisywania ustawieñ PotPlayera
+;
 pl.tsk_group1=Integracja:
 pl.tsk_opendef_navig=Otwórz "Mened¿er plików" - *zalecane do wyœwietlania na TV
 pl.tsk_opendef_navig_a=Wyœwietlaj elementy po prawej w dwóch liniach
@@ -37,7 +40,7 @@ pl.tsk_opendef_navig_no_close=Nie zamykaj okna po wybraniu elementu
 pl.tsk_powerststus=Stan zasilania
 pl.tsk_powerststus_a=Wyœwietlaj konfiguracjê zasilania i stan na³adowania baterii
 pl.tsk_powerststus_b=Wyœwietlaj tylko stan na³adowania baterii
-pl.tsk_desktopicon=Utwórz na Pulpicie skróty do ACE, TOR, YTDLP
+pl.tsk_desktopicon=Utwórz skróty na Pulpicie
 ;pl.tsk_desktopicon1=Utwórz na Pulpicie skrót do TorrServer.Matrix
 pl.tsk_minfo1=Dodaj MediaInfo do menu kontekstowego plików
 pl.tsk_addon=Instalacja dodatków dla przegl¹darek
@@ -96,7 +99,7 @@ pl.comp_YTDLP=YTDLP - pobieranie wideo za pomoc¹ linku skopiowanego do schowka s
 pl.comp_Deno=Deno - œrodowisko uruchomieniowe JavaScript wymagane w PotPlayer-Extension_yt-dlp
 pl.comp_madVR=madVR - wysokiej jakoœci renderer wideo
 pl.comp_FFmpeg=FFmpeg i FFprobe - niezbêne do pobierania wideo
-pl.comp_EXT=Dodatkowe rozszerzenia (Twitch, LibTorrent, yt-dlp)
+pl.comp_EXT=Dodatkowe rozszerzenia (Twitch, LibTorrent, PotPlayer-Extension_yt-dlp)
 pl.comp_ext_torrent=Ext LibTorrent - ogl¹danie wideo z trackerów sieci Torrent
 pl.comp_ext_ytdlp=Ext yt-dlp - odtwarzanie playlist wideo/muzyki z YouTube
 pl.comp_ext_twitch=Ext Twich - strumieniowanie gier komputerowych oraz rozgrywek sportu elektronicznego
