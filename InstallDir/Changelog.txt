@@ -1,10 +1,10 @@
 ++++++++++++++++++++++++++++++++
 +           FanPack64          +
-+ Data kompilacji - 12.02.2026 +
++ Data kompilacji - 13.02.2026 +
 ++++++++++++++++++++++++++++++++
 
 
-Wersja 3.9 build 6951
+Wersja 3.9 build 6974
 =====================================
 * Przepisano i uproszczono kod w Pascalu odpowiadaj¹cy za pobieranie komponentów i ich instalacjê
 
@@ -12,7 +12,10 @@ Wersja 3.9 build 6951
 
 = Zmieniono œcie¿ki instalacji Deno, yt-dlp, FFmpeg, FFprobe z Extension\Data\yt-dlp_win na Module
 = Zaktualizowano Deno do wersji v2.6.9
-= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260211
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260213
+= Zaktualizowano LAVFilters do wersji v0.81.0-5
+= Zaktualizowano 7za.exe do wersji 26.0
+= Poprawiono ustawienia w profilu "Lektor (TTS)"
 
 Wersja 3.9 build 6895
 =====================================
