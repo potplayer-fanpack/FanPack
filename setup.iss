@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.6974"
+#define MyAppVersion "3.9.6994"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -35,8 +35,8 @@ InternalCompressLevel              = ultra
 SolidCompression                   = yes
 SetupIconFile                      = embedded\PotPlayer.ico
 ShowTasksTreeLines                 = yes
-WizardStyle                        = modern dynamic
-WizardSmallImageFile               = embedded\WizardSmallImage.bmp
+WizardStyle                        = modern dynamic polar
+WizardSmallImageFile               = embedded\WizardSmallImage.png
 Uninstallable                      = yes
 OutputBaseFilename                 = {#MyAppName}_v{#MyAppVersion}
 ArchitecturesAllowed               = x64compatible
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 13.02.2026
+BeveledLabel= 12.03.2026
 
 
 [Tasks]
@@ -99,12 +99,14 @@ Name: "savedesktop";          Description: "{cm:tsk_savedesktop}";              
 Name: "saveformat\bmp";       Description: ".BMP";                                GroupDescription: "{cm:tsk_group2}"; Flags: exclusive unchecked
 Name: "saveformat\jpg";       Description: ".JPG";                                GroupDescription: "{cm:tsk_group2}"; Flags: exclusive unchecked
 Name: "saveformat\png";       Description: ".PNG";                                GroupDescription: "{cm:tsk_group2}"; Flags: exclusive
+Name: "saveformat\webp";      Description: ".WEBP";                               GroupDescription: "{cm:tsk_group2}"; Flags: exclusive
 Name: "savegalery";           Description: "{cm:tsk_savegalery}";                 GroupDescription: "{cm:tsk_group2}"
 Name: "dispasthumb";          Description: "{cm:tsk_dispasthumb}";                GroupDescription: "{cm:tsk_group2}"
 Name: "loadurl";              Description: "{cm:tsk_loadurl}";                    GroupDescription: "{cm:tsk_group2}"
 Name: "rememberlist";         Description: "{cm:tsk_rememberlist}";               GroupDescription: "{cm:tsk_group2}"
 Name: "subsave";              Description: "{cm:tsk_subsave}";                    GroupDescription: "{cm:tsk_group2}"
 Name: "interlinia";           Description: "{cm:tsk_interlinia}";                 GroupDescription: "{cm:tsk_group2}"
+Name: "trans_sub";            Description: "{cm:tsk_trans_sub}";                  GroupDescription: "{cm:tsk_group2}"
 ; Dodatkowe ustawienia audio
 Name: "extaudio";             Description: "{cm:tsk_extaudio}";                   GroupDescription: "{cm:tsk_group3}"; Flags: unchecked
 Name: "audsave";              Description: "{cm:tsk_audsave}";                    GroupDescription: "{cm:tsk_group3}"
@@ -149,6 +151,7 @@ Name: "custom";               Description: "{cm:comp_custom}"; Flags: iscustom
 #if localize == "true"
 Name: "program";              Description: "{cm:comp_program}"; Types: tweak full compact custom; Flags: fixed
 Name: "madVR";                Description: "{cm:comp_madVR}";   Types: tweak full custom
+; Check: not IsUpdate and not IsmadVRInstalled
 Name: "YTDLP";                Description: "{cm:comp_YTDLP}";   Types: tweak full custom
 Name: "FFmpeg";               Description: "{cm:comp_FFmpeg}";  Types: tweak full custom
 Name: "EXT";                  Description: "{cm:comp_ext}";     Types: tweak full custom
@@ -156,6 +159,7 @@ Name: "Deno";                 Description: "{cm:comp_Deno}";    Types: tweak ful
 Name: "ACE";                  Description: "{cm:comp_ACE}";     Types: custom
 Name: "TOR";                  Description: "{cm:comp_TOR}";     Types: custom
 Name: "Icaros";               Description: "{cm:comp_icaros}";  Types: custom
+; Check: not IsUpdate and not IsIcarosInstalled
 Name: "minfo";                Description: "{cm:comp_minfo}";   Types: custom
 #endif
 
@@ -183,72 +187,72 @@ Name: "{userdesktop}\AceStream Engine";               Filename: "{userappdata}\A
 
 [Files]
 ; Core program files
-Source: "InstallDir\Changelog.txt";               DestName: "Lista zmian.txt"; DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
-Source: "InstallDir\License.txt";                 DestName: "Licencja.txt";    DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
-Source: "InstallDir\ReadMe.txt";                  DestName: "CzytajTo.txt";    DestDir: "{app}";                                                Components: "program"; Flags: isreadme
-Source: "InstallDir\LGPL.TXT";                                                 DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
-Source: "InstallDir\MyProg-x64.exe";                                           DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
-Source: "InstallDir\AviSynth\*";                                               DestDir: "{app}\AviSynth";                                       Components: "program"; Flags: ignoreversion
-Source: "InstallDir\PxShader\*";                                               DestDir: "{app}\PxShader";                                       Components: "program"; Flags: ignoreversion
-Source: "InstallDir\PotPlayerMini64.dpl";                                      DestDir: "{app}";                                                Components: "program"; Flags: ignoreversion
-Source: "InstallDir\reg\pot64_settings.reg";                                   DestDir: "{tmp}";                                                Components: "program"; Flags: ignoreversion deleteafterinstall
-Source: "InstallDir\reg\delete_pot_progs_hkcu.reg";                            DestDir: "{app}\reg";                                            Components: "program"; Flags: ignoreversion
-Source: "src\History\Polish.txt";                                              DestDir: "{autopf}\DAUM\PotPlayer\History";                      Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
-Source: "src\Language\Polish.ini";                                             DestDir: "{autopf}\DAUM\PotPlayer\Language";                     Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
+Source: "InstallDir\Changelog.txt";                   DestDir: "{app}"; DestName: "Lista zmian.txt";         Components: "program"; Flags: ignoreversion
+Source: "InstallDir\License.txt";                     DestDir: "{app}"; DestName: "Licencja.txt";            Components: "program"; Flags: ignoreversion
+Source: "InstallDir\ReadMe.txt";                      DestDir: "{app}"; DestName: "CzytajTo.txt";            Components: "program"; Flags: isreadme
+Source: "InstallDir\LGPL.TXT";                        DestDir: "{app}";                                      Components: "program"; Flags: ignoreversion
+Source: "InstallDir\MyProg-x64.exe";                  DestDir: "{app}";                                      Components: "program"; Flags: ignoreversion
+Source: "InstallDir\AviSynth\*";                      DestDir: "{app}\AviSynth";                             Components: "program"; Flags: ignoreversion
+Source: "InstallDir\PxShader\*";                      DestDir: "{app}\PxShader";                             Components: "program"; Flags: ignoreversion
+Source: "InstallDir\PotPlayerMini64.dpl";             DestDir: "{app}";                                      Components: "program"; Flags: ignoreversion
+Source: "InstallDir\reg\pot64_settings.reg";          DestDir: "{tmp}";                                      Components: "program"; Flags: ignoreversion deleteafterinstall
+Source: "InstallDir\reg\delete_pot_progs_hkcu.reg";   DestDir: "{app}\reg";                                  Components: "program"; Flags: ignoreversion
+Source: "src\History\Polish.txt";                     DestDir: "{autopf}\DAUM\PotPlayer\History";            Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
+Source: "src\Language\Polish.ini";                    DestDir: "{autopf}\DAUM\PotPlayer\Language";           Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
 ; OpenCodec
-Source: "src\Module\libmfxsw64.dll";                                           DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "src\Module\OpenCodec\OpenCodecUnity64.dll";                           DestDir: "{autopf}\DAUM\PotPlayer\Module\OpenCodec";             Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "src\Module\FFmpeg62\FFmpeg64.dll";                                    DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62";              Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "src\Module\FFmpeg62\FFmpegMininum64.dll";                             DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62";              Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "{tmp}\Module64.7z";                                                   DestDir: "{tmp}";                                                Components: "program"; Flags: deleteafterinstall
+Source: "src\Module\libmfxsw64.dll";                  DestDir: "{autopf}\DAUM\PotPlayer\Module";             Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "src\Module\OpenCodec\OpenCodecUnity64.dll";  DestDir: "{autopf}\DAUM\PotPlayer\Module\OpenCodec";   Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "src\Module\FFmpeg62\FFmpeg64.dll";           DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62";    Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "src\Module\FFmpeg62\FFmpegMininum64.dll";    DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62";    Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "{tmp}\Module64.7z";                          DestDir: "{tmp}";                                      Components: "program"; Flags: deleteafterinstall
 ; Listy
-Source: "src\UrlList\Radio.asx";                                               DestDir: "{autopf}\DAUM\PotPlayer\UrlList";                      Components: "program"; Flags: ignoreversion uninsneveruninstall
-Source: "src\UrlList\TV.asx";                                                  DestDir: "{autopf}\DAUM\PotPlayer\UrlList";                      Components: "program"; Flags: ignoreversion uninsneveruninstall
+Source: "src\UrlList\Radio.asx";                      DestDir: "{autopf}\DAUM\PotPlayer\UrlList";            Components: "program"; Flags: ignoreversion uninsneveruninstall
+Source: "src\UrlList\TV.asx";                         DestDir: "{autopf}\DAUM\PotPlayer\UrlList";            Components: "program"; Flags: ignoreversion uninsneveruninstall
 ; Pixel Shaders
-Source: "src\PxShader\BT.601 to BT.709.hlsl";                                  DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Convert HDR to SDR.hlsl";                                DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Debanding D3D9.hlsl";                                    DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Fix YV12 Chroma.hlsl";                                   DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Gamma.hlsl";                                             DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Levels 16-235.hlsl";                                     DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Levels Custom.hlsl";                                     DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Noise Default.hlsl";                                     DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Other-PxShader.zip";                                     DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Sharpen Adaptive.hlsl";                                  DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Sharpen Complex.hlsl";                                   DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Sharpen Contrast.hlsl";                                  DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Sharpen Flou.hlsl";                                      DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\Sharpen Luma.hlsl";                                      DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\SweetFX ColorGrading.hlsl";                              DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\SweetFX GammaGain.hlsl";                                 DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\SweetFX Tonemap.hlsl";                                   DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
-Source: "src\PxShader\SweetFX Vibrance.hlsl";                                  DestDir: "{autopf}\DAUM\PotPlayer\PxShader";                     Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\BT.601 to BT.709.hlsl";         DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Convert HDR to SDR.hlsl";       DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Debanding D3D9.hlsl";           DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Fix YV12 Chroma.hlsl";          DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Gamma.hlsl";                    DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Levels 16-235.hlsl";            DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Levels Custom.hlsl";            DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Noise Default.hlsl";            DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Other-PxShader.zip";            DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Sharpen Adaptive.hlsl";         DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Sharpen Complex.hlsl";          DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Sharpen Contrast.hlsl";         DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Sharpen Flou.hlsl";             DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\Sharpen Luma.hlsl";             DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\SweetFX ColorGrading.hlsl";     DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\SweetFX GammaGain.hlsl";        DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\SweetFX Tonemap.hlsl";          DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
+Source: "src\PxShader\SweetFX Vibrance.hlsl";         DestDir: "{autopf}\DAUM\PotPlayer\PxShader";           Components: "program"; Flags: ignoreversion
 ; Skins
-Source: "src\Skins\Default.MOD.dsf";                                           DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\Default.MOD.Old.Optimized.dsf";                             DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\Default.MOD.Optimized.Blue.dsf";                            DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\Default.MOD.Optimized.Yellow.dsf";                          DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\FMOD.dsf";                                                  DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\FMOD.Gilly.dsf";                                            DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\FMOD.Light.dsf";                                            DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\Inflames.dsf";                                              DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\LUMINPOT.DSF";                                              DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\PotMPC v1.0.dsf";                                           DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\PotMPC v2.0.dsf";                                           DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\PotMPC v3.0.dsf";                                           DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\PotXMP.dsf";                                                DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
-Source: "src\Skins\v2.6 (Window Frame).dsf";                                   DestDir: "{autopf}\DAUM\PotPlayer\Skins";                        Components: "program"; Flags: ignoreversion
+Source: "src\Skins\Default.MOD.dsf";                  DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\Default.MOD.Old.Optimized.dsf";    DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\Default.MOD.Optimized.Blue.dsf";   DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\Default.Mod.Yellow.dsf";           DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\FMOD.dsf";                         DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\FMOD.Gilly.dsf";                   DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\FMOD.Light.dsf";                   DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\Inflames.dsf";                     DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\LUMINPOT.DSF";                     DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\PotMPC v1.0.dsf";                  DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\PotMPC v2.0.dsf";                  DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\PotMPC v3.0.dsf";                  DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\PotXMP.dsf";                       DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
+Source: "src\Skins\v2.6 (Window Frame).dsf";          DestDir: "{autopf}\DAUM\PotPlayer\Skins";              Components: "program"; Flags: ignoreversion
 ; Logos
-Source: "src\Logos\Anime.jpg";                                                 DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
-Source: "src\Logos\City.jpg";                                                  DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
-Source: "src\Logos\Girls.jpg";                                                 DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
-Source: "src\Logos\Logo1.png";                                                 DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
-Source: "src\Logos\Logo2.png";                                                 DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion 
-Source: "src\Logos\PotPlayer2.png";                                            DestDir: "{autopf}\DAUM\PotPlayer\Logos";                        Components: "program"; Flags: ignoreversion
+Source: "src\Logos\Anime.jpg";                        DestDir: "{autopf}\DAUM\PotPlayer\Logos";              Components: "program"; Flags: ignoreversion 
+Source: "src\Logos\City.jpg";                         DestDir: "{autopf}\DAUM\PotPlayer\Logos";              Components: "program"; Flags: ignoreversion 
+Source: "src\Logos\Girls.jpg";                        DestDir: "{autopf}\DAUM\PotPlayer\Logos";              Components: "program"; Flags: ignoreversion 
+Source: "src\Logos\Logo1.png";                        DestDir: "{autopf}\DAUM\PotPlayer\Logos";              Components: "program"; Flags: ignoreversion 
+Source: "src\Logos\Logo2.png";                        DestDir: "{autopf}\DAUM\PotPlayer\Logos";              Components: "program"; Flags: ignoreversion 
+Source: "src\Logos\PotPlayer2.png";                   DestDir: "{autopf}\DAUM\PotPlayer\Logos";              Components: "program"; Flags: ignoreversion
 ;
-Source: "7za.exe";                                                             DestDir: "{tmp}";                                                Flags: deleteafterinstall
+Source: "7za.exe";                                    DestDir: "{tmp}";                                      Flags: deleteafterinstall
 ;
-Source: "Oswald-Regular.ttf";                                                  DestDir: "{autofonts}"; FontInstall: "Oswald Regular";           Flags: onlyifdoesntexist uninsneveruninstall   
+Source: "{fonts}\Oswald-Regular.ttf";                 DestDir: "{autofonts}"; FontInstall: "Oswald Regular"; Flags: onlyifdoesntexist uninsneveruninstall   
 
 #include "include/files-acestream.iss"
 #include "include/files-components.iss"
@@ -267,16 +271,12 @@ Root: HKLM; Subkey: "Software\Microsoft\Windows\CurrentVersion\Uninstall\FanPack
 [InstallDelete]
 ;----------------- Usuwanie plików z folderów PotPlayer  -----------------
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\AviSynth\*"
-
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\PxShader\*"
 
 ;----------------- Usuwanie zbędnych folderów poinstalacyjnych -----------------
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Html"
-
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\FFmpeg4"
-
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"
-
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Extension\Data"
 
 ;----------------- Usuwanie zbędnych plików poinstalacyjnych -----------------
@@ -287,21 +287,17 @@ Type: files; Name: "{autopf}\DAUM\PotPlayer\FileList.txt"
 #if localize == "true"
 ;----------------- Rozpakowywanie archiwów 7z -----------------
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\Module64.7z"" -o""{autopf}\DAUM\PotPlayer\Module"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extracting}"; Components: "program"
-
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extmadVR}"; Components: "madVR"
-
-Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa"; Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}"; Components: "ACE"
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"" * -r -aoa";                    Flags: runhidden; StatusMsg: "{cm:msg_extmadVR}";   Components: "madVR"
+Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa";  Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}";  Components: "ACE"
 
 ;----------------- Przenoszenie plików pakietu FFmpeg -----------------
 Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.0.1-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
-
 Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.0.1-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
 
 ;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe')); Components: "Icaros"
 
 ;----------------- Import rejestru -----------------
-;Filename: "{sys}\regedit.exe"; Parameters: "/s ""{tmp}\pot64_settings.reg"""; Description: "{cm:msg_confpot}"; StatusMsg: "{cm:msg_confpot}"; Check: not WizardIsTaskSelected('skipsettings'); Flags: shellexec runhidden
 Filename: "reg"; Parameters: "IMPORT {tmp}\pot64_settings.reg /reg:64"; Description: "{cm:msg_confpot}"; StatusMsg: "{cm:msg_confpot}"; Check: not WizardIsTaskSelected('skipsettings'); Flags: runhidden
 
 ;----------------- Uruchomienie PotPlayer po instalacji -----------------
@@ -309,7 +305,6 @@ Filename: "{autopf}\DAUM\PotPlayer\PotPlayerMini64.exe"; Description: "{cm:Launc
 
 ;----------------- Otwarcie dodatków przeglądarki -----------------
 Filename: "https://addons.mozilla.org/pl/firefox/addon/potplayer-youtube-shortcut/"; Description: "{cm:tsk_addon_1}"; Tasks: "addon\1"; Flags: postinstall ShellExec
-
 Filename: "https://chrome.google.com/webstore/search/potplayer"; Description: "{cm:tsk_addon_2}"; Tasks: "addon\2"; Flags: postinstall ShellExec
 #endif
 
@@ -327,7 +322,6 @@ Filename: "reg"; Parameters: "IMPORT delete_pot_progs_hkcu.reg /reg:64"; Working
 
 ;----------------- Przenoszenie oryginalnych plików PotPlayer -----------------
 Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\AviSynth\*.*"" (MOVE /Y ""{app}\AviSynth\*.*"" ""{autopf}\DAUM\PotPlayer\AviSynth"")"; RunOnceId: "MoveAVS"; Flags: runhidden
-
 Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PxShader\*.*"" (MOVE /Y ""{app}\PxShader\*.*"" ""{autopf}\DAUM\PotPlayer\PxShader"")"; RunOnceId: "MovePx"; Flags: runhidden
 #endif
 
@@ -497,6 +491,27 @@ begin
   else 
     Result := 'False';
 end;
+
+//function IsmadVRInstalled: Boolean;
+//begin
+//  Result :=
+//    RegKeyExists(HKCU, 'Software\madshi') or
+//    FileExists(ExpandConstant('{autopf}\madVR\madVR.ax')) or
+//    FileExists(ExpandConstant('{autopf}\madVR\madVR64.ax'));
+    
+//  Log('IsmadVRInstalled result: ' + BoolToString(Result)); 
+//end;
+
+//function IsIcarosInstalled: Boolean; 
+//begin 
+//  Result :=
+//    RegKeyExists(HKCU, 'SOFTWARE\Icaros') or 
+//    RegKeyExists(HKLM, 'SOFTWARE\Icaros') or 
+//    RegKeyExists(HKLM, 'SOFTWARE\WOW6432Node\Icaros') or 
+//    FileExists(ExpandConstant('{autopf}\Icaros\IcarosConfig.exe')); 
+    
+//  Log('IsIcarosInstalled result: ' + BoolToString(Result)); 
+//end;
 
 function IsPotPlayerInstalled: Boolean;
 var
@@ -763,7 +778,7 @@ var
   I: Integer;
 begin
   Log('Deleting temp files...');
-  SetArrayLength(TempFiles, 10);
+  SetArrayLength(TempFiles, 9);
   TempFiles[0] := ExpandConstant('{tmp}\Module64.7z');
   TempFiles[1] := ExpandConstant('{tmp}\Icaros.exe');
   TempFiles[2] := ExpandConstant('{tmp}\madVR.7z');
@@ -773,7 +788,6 @@ begin
   TempFiles[6] := ExpandConstant('{tmp}\deno-x86_64-pc-windows-msvc.zip');
   TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-8.0.1-essentials_build.7z');
   TempFiles[8] := ExpandConstant('{tmp}\lib.7z');
-  TempFiles[9] := ExpandConstant('{tmp}\7za.exe');
 
   for I := 0 to GetArrayLength(TempFiles) - 1 do
   begin
@@ -794,18 +808,6 @@ procedure CurStepChanged(CurStep: TSetupStep);
 begin
   if CurStep = ssPostInstall then
   begin
-    // Użycie nowej funkcji ExtractArchive (zamiast powielonych Check...Result)
-    // UWAGA: Upewnij się, że pliki .7z są w {tmp} (np. z sekcji [Files] z flagą deleteafterinstall lub z DownloadPage)
-    
-    if FileExists(ExpandConstant('{tmp}\Module64.7z')) then
-      ExtractArchive('{tmp}\Module64.7z', '{autopf}\DAUM\PotPlayer\Module');
-
-    if FileExists(ExpandConstant('{tmp}\madVR.7z')) then
-      ExtractArchive('{tmp}\madVR.7z', '{autopf}\madVR');
-      
-    if FileExists(ExpandConstant('{tmp}\lib.7z')) then
-      ExtractArchive('{tmp}\lib.7z', '{userappdata}\AceStream\engine\lib');
-
     // Rejestracja filtrów po instalacji
     RegisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVVideo.ax');
     RegisterFilter('{autopf}\DAUM\PotPlayer\Module\LAV\LAVAudio.ax');
@@ -814,12 +816,12 @@ begin
     RegisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcAudioRenderer.ax');
     RegisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MPCVideoDec.ax');
     RegisterFilter('{autopf}\DAUM\PotPlayer\Module\XySubFilter\XySubFilter.dll');
-    RegisterFilter('{autopf}\madVR\madVR64.ax')
+    RegisterFilter('{autopf}\madVR\madVR64.ax');
 
     // Odświeżenie pulpitu
     SHChangeNotify($8000000, $1000, 0, 0);
   end;
-  
+
   // Usunięcie śmieci po zakończeniu sukcesem
   if CurStep = ssDone then
   begin
@@ -841,7 +843,7 @@ begin
     UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpaDecFilter.ax');
     UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MpcAudioRenderer.ax');
     UnregisterFilter('{autopf}\DAUM\PotPlayer\Module\MPC-BE\MPCVideoDec.ax');
-    UnregisterFilter('{autopf}\madVR\madVR64.ax')
+    UnregisterFilter('{autopf}\madVR\madVR64.ax');
   end;
 end;
 

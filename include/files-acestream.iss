@@ -1,6 +1,6 @@
 ; Rozszerzenia PotPlayer [Files]
 ; AceStream
-Source: "src\Extension\Data\run,2.vbs";   DestName: "run.vbs";                 DestDir: "{autopf}\DAUM\PotPlayer\Extension\Data";               Components: "ACE"; Flags: ignoreversion
+Source: "src\Extension\Data\run,2.vbs";   DestName: "run.vbs";                 DestDir: "{autopf}\DAUM\PotPlayer\Module";                       Components: "ACE"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - AceStream.as";         DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "ACE"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\MediaPlayParse - AceStream.ico";        DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "ACE"; Flags: ignoreversion
 Source: "{userappdata}\.ACEStream\playerconf.pickle";                          DestDir: "{userappdata}\.ACEStream";                             Components: "ACE"; Flags: ignoreversion

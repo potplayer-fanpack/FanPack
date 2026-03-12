@@ -1,23 +1,26 @@
-++++++++++++++++++++++++++++++++
-+           FanPack64          +
-+ Data kompilacji - 13.02.2026 +
-++++++++++++++++++++++++++++++++
+Dziennik zmian w FanPack64
 
+Wersja 3.9.6994          [12.03.2026]
+=====================================
+= Zaktualizowano ustawienia przechwytywania wideo
+= Zaktualizowano Deno do wersji v2.7.5
+= Zaktualizowano yt-dlp do wersji v2026.03.03
+= Zaktualizowano TorrServer.Matrix do wersji v141
 
-Wersja 3.9 build 6974
+Wersja 3.9.6974          [13.02.2026]
 =====================================
 * Przepisano i uproszczono kod w Pascalu odpowiadaj¹cy za pobieranie komponentów i ich instalacjê
+* Zmieniono œcie¿ki instalacji Deno, yt-dlp, FFmpeg, FFprobe z Extension\Data\yt-dlp_win na Module
 
 + Dodano funkcjê "Tylko aktualizacja komponentów bez nadpisywania ustawieñ PotPlayera"
 
-= Zmieniono œcie¿ki instalacji Deno, yt-dlp, FFmpeg, FFprobe z Extension\Data\yt-dlp_win na Module
 = Zaktualizowano Deno do wersji v2.6.9
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260213
 = Zaktualizowano LAVFilters do wersji v0.81.0-5
 = Zaktualizowano 7za.exe do wersji 26.0
 = Poprawiono ustawienia w profilu "Lektor (TTS)"
 
-Wersja 3.9 build 6895
+Wersja 3.9.6895          [06.02.2026]
 =====================================
 * Komponenty FFmpeg i FFprobe s¹ teraz pobierane online
 
@@ -32,7 +35,7 @@ Wersja 3.9 build 6895
 = Zaktualizowano wewnêtrzne nazewnictwo niektórych rozszerzeñ 
 = Zrobiono porz¹dek ze zbêdnymi wpisami w rejestrze
  
-Wersja 3.9 build 6828
+Wersja 3.9.6828 (23.01.2026)
 =====================================
 * W oryginalnym instalatorze usuniêto PotPlayerMiniXP64.exe i PotPlayerXP64.exe 
   (teraz plik PotPlayerMini64.exe zamiast 240 KB "wa¿y" 2567 KB - wesz³o to 
@@ -50,7 +53,7 @@ Wersja 3.9 build 6828
 
 - Usuniêto wykorzystywany w instalacji ze zmienion¹ niebiesk¹ okr¹g³¹ ikon¹ plik PotPlayerMini64.exe
 
-Wersja 3.9 build 6764
+Wersja 3.9.6764 (22.12.2025)
 =====================================
 = Zaktualizowano Deno.exe do wersji v2.6.3
 = Zmieniono b³êdny na poprawny link do Deno (by³ do Denort)

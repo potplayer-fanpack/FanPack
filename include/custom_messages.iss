@@ -57,6 +57,7 @@ pl.tsk_dispasthumb=Wyœwietlaj miniatury i szczegó³y w liœcie odtwarzania
 pl.tsk_loadurl=Automatycznie wklejaj adresy URL ze schowka
 pl.tsk_rememberlist=Przechowuj i poka¿ ostatnio odtwarzane elementy w menu "Albumy/Ulubione"
 pl.tsk_subsave=Zapamiêtaj wybór œcie¿ki napisów
+pl.tsk_trans_sub=T³umaczenie napisów w czasie rzeczywistym
 pl.tsk_interlinia=Zmniejsz odstêp miêdzy liniami napisów (interlinia)
 ;
 pl.tsk_group3=Dodatkowe ustawienia audio:

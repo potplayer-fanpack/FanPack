@@ -56,6 +56,7 @@ en.tsk_dispasthumb=Display thumbnails and details in the playlist
 en.tsk_loadurl=Automatically paste URLs from the clipboard
 en.tsk_rememberlist=Store and show recently played items in the "Albums/Favorites" menu
 en.tsk_subsave=Remember subtitle track selection
+en.tsk_trans_sub=Real-time subtitle translation
 en.tsk_interlinia=Reduce the spacing between subtitle lines
 ;
 en.tsk_group3=Additional audio settings:
