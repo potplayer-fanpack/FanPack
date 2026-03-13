@@ -1,18 +1,18 @@
 Dziennik zmian w FanPack64
 
-Wersja 3.9.6994          [12.03.2026]
+Wersja 3.9.6995          [13.03.2026]
 =====================================
 = Zaktualizowano ustawienia przechwytywania wideo
 = Zaktualizowano Deno do wersji v2.7.5
-= Zaktualizowano yt-dlp do wersji v2026.03.03
+= Zaktualizowano yt-dlp do wersji v2026.03.13
 = Zaktualizowano TorrServer.Matrix do wersji v141
 
 Wersja 3.9.6974          [13.02.2026]
 =====================================
-* Przepisano i uproszczono kod w Pascalu odpowiadaj¹cy za pobieranie komponentów i ich instalacjê
-* Zmieniono œcie¿ki instalacji Deno, yt-dlp, FFmpeg, FFprobe z Extension\Data\yt-dlp_win na Module
+* Przepisano i uproszczono kod w Pascalu odpowiadajÄ…cy za pobieranie komponentÃ³w i ich instalacjÄ™
+* Zmieniono Å›cieÅ¼ki instalacji Deno, yt-dlp, FFmpeg, FFprobe z Extension\Data\yt-dlp_win na Module
 
-+ Dodano funkcjê "Tylko aktualizacja komponentów bez nadpisywania ustawieñ PotPlayera"
++ Dodano funkcjÄ™ "Tylko aktualizacja komponentÃ³w bez nadpisywania ustawieÅ„ PotPlayera"
 
 = Zaktualizowano Deno do wersji v2.6.9
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260213
@@ -22,24 +22,24 @@ Wersja 3.9.6974          [13.02.2026]
 
 Wersja 3.9.6895          [06.02.2026]
 =====================================
-* Komponenty FFmpeg i FFprobe s¹ teraz pobierane online
+* Komponenty FFmpeg i FFprobe sÄ… teraz pobierane online
 
-+ Dodano t³umaczenie pliku konfiguracji dla PotPlayer-Extension_yt-dlp
-+ Dodano czcionkê Oswald Regular do ustawieñ OSD
++ Dodano tÅ‚umaczenie pliku konfiguracji dla PotPlayer-Extension_yt-dlp
++ Dodano czcionkÄ™ Oswald Regular do ustawieÅ„ OSD
 
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v8.0.1
 = Zaktualizowano yt-dlp do wersji v2026.02.04
 = Zaktualizowano Deno do wersji v2.6.8
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260206
 = Zaktualizowano ustawienia PotPlayer-Extension_yt-dlp
-= Zaktualizowano wewnêtrzne nazewnictwo niektórych rozszerzeñ 
-= Zrobiono porz¹dek ze zbêdnymi wpisami w rejestrze
+= Zaktualizowano wewnÄ™trzne nazewnictwo niektÃ³rych rozszerzeÅ„ 
+= Zrobiono porzÄ…dek ze zbÄ™dnymi wpisami w rejestrze
  
 Wersja 3.9.6828 (23.01.2026)
 =====================================
-* W oryginalnym instalatorze usuniêto PotPlayerMiniXP64.exe i PotPlayerXP64.exe 
-  (teraz plik PotPlayerMini64.exe zamiast 240 KB "wa¿y" 2567 KB - wesz³o to 
-  od nowej wersji beta odtwarzacza v260123 i nie mo¿na ju¿ zmieniaæ ikony)
+* W oryginalnym instalatorze usuniÄ™to PotPlayerMiniXP64.exe i PotPlayerXP64.exe 
+  (teraz plik PotPlayerMini64.exe zamiast 240 KB "waÅ¼y" 2567 KB - weszÅ‚o to 
+  od nowej wersji beta odtwarzacza v260123 i nie moÅ¼na juÅ¼ zmieniaÄ‡ ikony)
 
 = Zaktualizowano Deno do wersji v2.6.6
 = Zaktualizowano LAVFilters do wersji v0.81.0-3
@@ -49,19 +49,19 @@ Wersja 3.9.6828 (23.01.2026)
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2026-01-19
 = Zaktualizowano OpenCodec64 do wersji 2025.12.22
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260115.1
-= Zaktualizowano pliki jêzykowe odtwarzacza
+= Zaktualizowano pliki jÄ™zykowe odtwarzacza
 
-- Usuniêto wykorzystywany w instalacji ze zmienion¹ niebiesk¹ okr¹g³¹ ikon¹ plik PotPlayerMini64.exe
+- UsuniÄ™to wykorzystywany w instalacji ze zmienionÄ… niebieskÄ… okrÄ…gÅ‚Ä… ikonÄ… plik PotPlayerMini64.exe
 
 Wersja 3.9.6764 (22.12.2025)
 =====================================
 = Zaktualizowano Deno.exe do wersji v2.6.3
-= Zmieniono b³êdny na poprawny link do Deno (by³ do Denort)
+= Zmieniono bÅ‚Ä™dny na poprawny link do Deno (byÅ‚ do Denort)
 
 Wersja 3.9 build 6761
 =====================================
-+ Dodano Deno.exe v2.5.6 wymagane do pe³nego wsparcia YouTube
-+ Dodano jêzyk angielski do instalatora
++ Dodano Deno.exe v2.5.6 wymagane do peÅ‚nego wsparcia YouTube
++ Dodano jÄ™zyk angielski do instalatora
  
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.8
 = Zaktualizowano MediaInfo.dll do wersji v25.09.0.0
@@ -69,11 +69,11 @@ Wersja 3.9 build 6761
 = Zaktualizowano yt-dlp do wersji v2025.12.08
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-11-27
 = Zaktualizowano MPC Video Renderer do wersji v0.9.17.2472
-= Naprawiono b³êdny zapis w rejestrze MediaInfo
+= Naprawiono bÅ‚Ä™dny zapis w rejestrze MediaInfo
 
 Wersja 3.9 build 6709
 =====================================
-* Uproszczenie pobierania zewnêtrznych plików za pomoc¹ implementacji natywnego skryptu (z Inno Setup)
+* Uproszczenie pobierania zewnÄ™trznych plikÃ³w za pomocÄ… implementacji natywnego skryptu (z Inno Setup)
 
 + Dodano TorrServer.Matrix.136 + TorrServer Launcher v1.8.1 + rozszerzenie TorrServer
 + Dodano AceStream Engine + rozszerzenie AceStream
@@ -84,26 +84,26 @@ Wersja 3.9 build 6709
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.8.7
 = Zaktualizowano MPC Video Renderer do wersji v0.9.13.2451
 = Zaktualizowano 7za.exe do wersji 25.01
-= Zaktualizowano pliki jêzykowe do wersji v250909
+= Zaktualizowano pliki jÄ™zykowe do wersji v250909
 
 Wersja 3.9 build 6417
 =====================================
 * Przy pierwszym uruchomieniu profilu Smooth Video uruchamiane jest demo 
-  pokazuj¹ce jak dzia³a skrypt (obszar obrazu dzielony jest na dwie czêœci; 
-  po lewej "Source" po prawej "Smooth"), potem mo¿na dobraæ skrypt do swoich preferencji
+  pokazujÄ…ce jak dziaÅ‚a skrypt (obszar obrazu dzielony jest na dwie czÄ™Å›ci; 
+  po lewej "Source" po prawej "Smooth"), potem moÅ¼na dobraÄ‡ skrypt do swoich preferencji
 
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v2025-07-28
 = Zaktualizowano komponenty AviSynth+ (r2772-MT)
 = Zaktualizowano MediaInfo do wersji 25.07
 = Naprawiono nie wykrywanie skryptu SVP
-= Ulepszono przenoszenie plików
-= Ulepszono rejestrowanie i wyrejestrowywanie filtrów
+= Ulepszono przenoszenie plikÃ³w
+= Ulepszono rejestrowanie i wyrejestrowywanie filtrÃ³w
 = Dalsze prace nad skryptem instalatora
 
 Wersja 3.9 build 6329
 =====================================
 * Instalator wykrywa brak zainstalowanego odtwarzacza i proponuje 
-  jego instalacjê. Inaczej instalacja FanPacka nie powiedzie siê.
+  jego instalacjÄ™. Inaczej instalacja FanPacka nie powiedzie siÄ™.
 
 + Dodano MPC Video Renderer v0.9.9.2400
 + Dodano MPC-BE Standalone Filters v1.8.5
@@ -115,16 +115,16 @@ Wersja 3.9 build 6329
 
 Wersja 3.9 build 6319
 =====================================
-= Wznowienie prac nad now¹ wersj¹
+= Wznowienie prac nad nowÄ… wersjÄ…
 
 Wersja 3.8 build 6001
 =====================================
 + Dodano nowe funkcje do Nawigatora po plikach
-+ Dodano mo¿liwoœæ w³¹czenia "Lektora"
++ Dodano moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia "Lektora"
 + Dodano Crossfeed
-+ Dodano funkcjê pobierania napisów z Napisy24
++ Dodano funkcjÄ™ pobierania napisÃ³w z Napisy24
 = Zaktualizowano madVR do wersji v0.92.14
-= Zaktualizowano skórki FMOD
+= Zaktualizowano skÃ³rki FMOD
 = Zaktualizowano LAVFilters do wersji v0.71.0-35
 = Zmodernizowano instalator
 
@@ -137,7 +137,7 @@ Wersja 3.7 build 5535
 
 Wersja 3.7 build 5465
 =====================================
-+ Dodano mo¿liwoœæ dodania MediaInfo do menu kontekstowego plików
++ Dodano moÅ¼liwoÅ›Ä‡ dodania MediaInfo do menu kontekstowego plikÃ³w
 = Zaktualizowano LAVFilters do wersji v0.71.0-16
 = Zaktualizowano komponenty AviSynth+ (r2636-MT)
 
@@ -171,28 +171,28 @@ Wersja 3.7 build 5153
 
 Wersja 3.7 build 5133
 =====================================
-+ Dodano w profilu SOFT mo¿liwoœæ w³¹czenia DmitriRenderer (jeœli jest zainstalowany w systemie)
++ Dodano w profilu SOFT moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia DmitriRenderer (jeÅ›li jest zainstalowany w systemie)
 = Zaktualizowano madVR do wersji v0.92.10
 = Zaktualizowano LAVFilters v0.70.2-83
-= Zaktualizowano skórkê fMod_GillyGlossy
+= Zaktualizowano skÃ³rkÄ™ fMod_GillyGlossy
 = Zaktualizowano komponenty AviSynth+ (r2574-MT)
 
 Wersja 3.7 build 5046
 =====================================
 = Zaktualizowano LAVFilters v0.70.2-82
-= Przebudowano wybór i instalacjê profili
-= Ulepszono ustawienia rendererów wideo
+= Przebudowano wybÃ³r i instalacjÄ™ profili
+= Ulepszono ustawienia rendererÃ³w wideo
 
 Wersja 3.7 build 4384
 =====================================
-+ Dodano mo¿liwoœæ wybrania wysokiego priorytetu procesu
-+ Dodano do wyboru skórek Default.Mod.Old
++ Dodano moÅ¼liwoÅ›Ä‡ wybrania wysokiego priorytetu procesu
++ Dodano do wyboru skÃ³rek Default.Mod.Old
 + Dodano IPTV Filmy.dpl
-+ Dodano zadanie "W³¹cz shadery SharpenComplex2 & Remap 16-235"
++ Dodano zadanie "WÅ‚Ä…cz shadery SharpenComplex2 & Remap 16-235"
 = Zaktualizowano madVR do wersji v0.92.9
 = Zaktualizowano ustawienia madVR
 = Zaktualizowano 3DYD Youtube Source do wersji v1.9.1
-= Zmieniono czcionkê OSD na Segoe UI Semibold
+= Zmieniono czcionkÄ™ OSD na Segoe UI Semibold
 = Zaktualizowano komponenty AviSynth+ (r2544-MT)
 = Zaktualizowano skrypty dla AviSynth+
 = Zaktualizowano komponenty OpenCodec
@@ -200,38 +200,38 @@ Wersja 3.7 build 4384
 
 Wersja 3.6 build 4080
 =====================================
-+ Dodano funkcjê "Zmniejsz odstêp miêdzy liniami napisów"
-+ Dodano niezale¿ny wybór profili dla wbudowanych dekoderów
++ Dodano funkcjÄ™ "Zmniejsz odstÄ™p miÄ™dzy liniami napisÃ³w"
++ Dodano niezaleÅ¼ny wybÃ³r profili dla wbudowanych dekoderÃ³w
 = Zaktualizowano madVR do wersji v0.92.8
 = Zaktualizowano LAVFilters v0.70.2-80
 = Zaktualizowano Icaros do wersji v3.0.3 Beta 2
 = Zaktualizowano SVPflow do wersji 4.0.0.142
 = Zaktualizowano funkcje
-= Zaktualizowano skórki
+= Zaktualizowano skÃ³rki
 = Ulepszono skrypt instalacyjny
-- Usuniêto czcionkê Apolonia Bold
+- UsuniÄ™to czcionkÄ™ Apolonia Bold
 
 Wersja 3.5 build 3601
 =====================================
 = Zaktualizowano madVR do wersji v0.92.6
 = Zaktualizowano LAVFilters v0.70.2-79
-= Zaktualizowano skórki
+= Zaktualizowano skÃ³rki
 
 Wersja 3.5 build 3491
 =====================================
 = Zaktualizowano madVR do wersji v0.92.4
 = Zaktualizowano LAVFilters v0.70.2-77
-= Zaktualizowano funkcje (min. funkcje posiadaj¹ce 3 stany wyboru)
+= Zaktualizowano funkcje (min. funkcje posiadajÄ…ce 3 stany wyboru)
 
 Wersja 3.5 build 3313
 =====================================
-+ Dodano funkcjê "Najpierw u¿yj D3D11 DXVA" do ustawieñ akceleracji sprzêtowej
-+ Dodano do ustawieñ funkcjê "Utrzymaj obecny rozmiar podczas prze³¹czania skórek wideo/audio"
++ Dodano funkcjÄ™ "Najpierw uÅ¼yj D3D11 DXVA" do ustawieÅ„ akceleracji sprzÄ™towej
++ Dodano do ustawieÅ„ funkcjÄ™ "Utrzymaj obecny rozmiar podczas przeÅ‚Ä…czania skÃ³rek wideo/audio"
 + Dodano Built-in Direct3D 9 Video Renderer
 = Zaktualizowano LAVFilters v0.70.2-71
 = Zaktualizowano Icaros do wersji v3.0.3 Beta 1
-= Przeprowadzono zmiany w ustawieniach rendererów i dekodowania HW DXVA
-- Usuniêto funkcjê "Pó³przezroczyste elementy steruj¹ce OSC - Direct3D 11"
+= Przeprowadzono zmiany w ustawieniach rendererÃ³w i dekodowania HW DXVA
+- UsuniÄ™to funkcjÄ™ "PÃ³Å‚przezroczyste elementy sterujÄ…ce OSC - Direct3D 11"
 
 Wersja 3.5 build 2958
 =====================================
@@ -239,13 +239,13 @@ Wersja 3.5 build 2958
 = Zaktualizowano 3DYD Youtube Source do wersji v1.9
 = Zaktualizowano Icaros do wersji v3.0.2
 = Zaktualizowano LAVFilters v0.70.2-67
-= Ulepszono skrypt instalacyjny (pakiety instalacyjne wraz z zapisami rejestru instalowane s¹ jako 7zSFX)
+= Ulepszono skrypt instalacyjny (pakiety instalacyjne wraz z zapisami rejestru instalowane sÄ… jako 7zSFX)
 
 Wersja 3.4 build 2650
 =====================================
-+ Dodano w konfiguracji automatyczne prze³¹czanie do profilu LAV, jeœli PC zasilany jest z sieci
-= Zmieniono wyœwietlanie na OSD czasu odtwarzania (Pozosta³y czas/Godzina zakoñczenia)
-= Zaktualizowano listê odtwarzania YouTube
++ Dodano w konfiguracji automatyczne przeÅ‚Ä…czanie do profilu LAV, jeÅ›li PC zasilany jest z sieci
+= Zmieniono wyÅ›wietlanie na OSD czasu odtwarzania (PozostaÅ‚y czas/Godzina zakoÅ„czenia)
+= Zaktualizowano listÄ™ odtwarzania YouTube
 
 Wersja 3.3 build 2598
 =====================================
@@ -280,7 +280,7 @@ Wersja 2.9 build 2106
 = Zaktualizowano 3DYD Youtube Source do wersji v1.8.2 Beta 1
 = Zaktualizowano Icaros do wersji v3.0.2 Beta 2
 = Przebudowano skrypt instalatora
-- Usuniêto kilka pomniejszych b³êdów w skrypcie instalacyjnym
+- UsuniÄ™to kilka pomniejszych bÅ‚Ä™dÃ³w w skrypcie instalacyjnym
 
 Wersja 2.8 build 1963
 =====================================
@@ -290,14 +290,14 @@ Wersja 2.8 build 1963
 
 Wersja 2.7 build 1902
 =====================================
-+ Dodano mo¿liwoœæ ustawienia sta³ego rozmiaru okna odtwarzacza
-+ Dodano mo¿liwoœæ w³¹czenia OSC z Direct3D 11
++ Dodano moÅ¼liwoÅ›Ä‡ ustawienia staÅ‚ego rozmiaru okna odtwarzacza
++ Dodano moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia OSC z Direct3D 11
 = Zaktualizowano LAVFilters tMod (0.69-18 z 04.04.2017)
 
 Wersja 2.6 build 1803
 =====================================
-+ Dodano mo¿liwoœæ wyboru wbudowanego renderera wideo Direct3D 11
-+ Dodano skórkê DefaultBlue
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru wbudowanego renderera wideo Direct3D 11
++ Dodano skÃ³rkÄ™ DefaultBlue
 + Dodano nowe funkcje w ustawieniach wideo
 = Zaktualizowano komponenty AviSynth+ (r2455-MT)
 
@@ -309,10 +309,10 @@ Wersja 2.5 build 1766
 
 Wersja 2.4 build 1453
 =====================================
-+ Dodano funkcjê "U¿ywaj dekodera FFmpeg DXVA"
++ Dodano funkcjÄ™ "UÅ¼ywaj dekodera FFmpeg DXVA"
 = Zaktualizowano LAVFilters tMod (0.69-2 z 13.02.2017)
-= Zaktualizowano dodatkowe skórki
-= Zaktualizowano linki do komponentów extra
+= Zaktualizowano dodatkowe skÃ³rki
+= Zaktualizowano linki do komponentÃ³w extra
 
 Wersja 2.3 build 1424
 =====================================
@@ -320,71 +320,71 @@ Wersja 2.3 build 1424
 = Zaktualizowano komponenty AviSynth+ (r2420-MT)
 = Zaktualizowano komponenty VapourSynth (R36) i Phyton (3.6)
 = Zaktualizowano Icaros do wersji v3.0.1
-= Zmieniono ustawienia skrótów do dodatków Firefox i Chrome
+= Zmieniono ustawienia skrÃ³tÃ³w do dodatkÃ³w Firefox i Chrome
 
 Wersja 2.2 build 1248
 =====================================
-+ Dodano obs³ugê DASH Streams w 3DYD Youtube
-= Zmieniono funkcje zapisu zrzutów ekranowych
++ Dodano obsÅ‚ugÄ™ DASH Streams w 3DYD Youtube
+= Zmieniono funkcje zapisu zrzutÃ³w ekranowych
 = Zaktualizowano madVR do wersji v0.91.5
-= Zaktualizowano skróty do dodatków Firefox i Chrome
-- Usuniêto kilka pomniejszych b³êdów w skrypcie instalacyjnym
+= Zaktualizowano skrÃ³ty do dodatkÃ³w Firefox i Chrome
+- UsuniÄ™to kilka pomniejszych bÅ‚Ä™dÃ³w w skrypcie instalacyjnym
 
 Wersja 2.1 build 1176
 =====================================
 = Zaktualizowano LAVFilters tMod (0.69 z 11.12.2016)
 = Przebudowano instalator
-= Zmieniono proces numeracji buildów FanPacka
-- Usuniêto ustawienia i instalator online SVP4
+= Zmieniono proces numeracji buildÃ³w FanPacka
+- UsuniÄ™to ustawienia i instalator online SVP4
 
 Wersja 2.0 build 1076
 =====================================
-+ Dodano do komponentów VapourSynth (extra download)
++ Dodano do komponentÃ³w VapourSynth (extra download)
 = Zaktualizowano ustawienia madVR
 = Zaktualizowano komponenty AviSynth & SVPflow
 = Zaktualizowano LAVFilters tMod (0.68.1-53 z 09.12.2016)
 = Przebudowano instalator (komponenty extra download)
-- Usuniêto kilka pomniejszych b³êdów w skrypcie instalacyjnym
+- UsuniÄ™to kilka pomniejszych bÅ‚Ä™dÃ³w w skrypcie instalacyjnym
 
 Wersja 1.9 build 3805
 =====================================
 = Zaktualizowano madVR do wersji v0.91.4
 = Zaktualizowano LAVFilters tMod (0.68.1-46 z 03.12.2016)
-- Usuniêto kilka pomniejszych b³êdów w skrypcie instalacyjnym
+- UsuniÄ™to kilka pomniejszych bÅ‚Ä™dÃ³w w skrypcie instalacyjnym
 
 Wersja 1.9 build 3398
 =====================================
 = Zaktualizowano madVR do wersji v0.91.3
 = Zaktualizowano LAVFilters tMod (0.68.1-37 z 26.11.2016)
 = Ulepszono ustawienia Lentoid HEVC Decoder
-= Zmieniono ustawienia skórek domyœlnych FanPacka
-- Usuniêto ustawienia skórki dotykowej
-- Usuniêto niektóre funkcje z ustawieñ audio
-- Usuniêto kilka pomniejszych b³êdów w skrypcie instalacyjnym
+= Zmieniono ustawienia skÃ³rek domyÅ›lnych FanPacka
+- UsuniÄ™to ustawienia skÃ³rki dotykowej
+- UsuniÄ™to niektÃ³re funkcje z ustawieÅ„ audio
+- UsuniÄ™to kilka pomniejszych bÅ‚Ä™dÃ³w w skrypcie instalacyjnym
 
 Wersja 1.9 build 2948
 =====================================
 = Zaktualizowano madVR do wersji v0.91.1
 = Zaktualizowano 3DYD Youtube Source v1.6.2
 = Zaktualizowano Icaros do wersji v3.0.1 RC1
-= Zaktualizowano skórki Kardox
+= Zaktualizowano skÃ³rki Kardox
 = Ulepszono skrypt instalacyjny
 
 Wersja 1.9 build 2440
 =====================================
-+ Dodano do ustawieñ skórkê PotXMP - zalecana dla AviSynth & SVPflow
++ Dodano do ustawieÅ„ skÃ³rkÄ™ PotXMP - zalecana dla AviSynth & SVPflow
 = Zaktualizowano LAVFilters tMod (0.68.1-35 z 05.11.2016)
 = Ulepszono skrypt instalacyjny
 
 Wersja 1.9 build 2327
 =====================================
-+ Przebudowano ustawienia zwiêkszania p³ynnoœci i dynamiki ruchu
++ Przebudowano ustawienia zwiÄ™kszania pÅ‚ynnoÅ›ci i dynamiki ruchu
 + Dodano komponenty AviSynth+ r2294 MT i SVPflow 4.0.0.128
-+ Dodano do ustawieñ g³oœników AS IS (WindowsMixer)
++ Dodano do ustawieÅ„ gÅ‚oÅ›nikÃ³w AS IS (WindowsMixer)
 = Zaktualizowano 3DYD Youtube Source v1.6.2 beta 2
-- Usuniêto natywny instalator InterFrame
-- Usuniêto natywny instalator AviSynth
-- Usuniêto ustawienia Avisynth z InterFrame
+- UsuniÄ™to natywny instalator InterFrame
+- UsuniÄ™to natywny instalator AviSynth
+- UsuniÄ™to ustawienia Avisynth z InterFrame
 
 Wersja 1.8 build 2207
 =====================================
@@ -411,23 +411,23 @@ Wersja 1.8 build 1721
 
 Wersja 1.8 build 1668
 =====================================
-+ Dodano wybór czcionki napisów Apolonia Nova OT pogrubiona (domyœlnie jest zwyk³a)
-+ Dodano wybór madVR do profili domyœlnych
-= Zmodyfikowano ustawienia madVR (teraz instalowane s¹ tylko domyœlne dla obydwu profili)
++ Dodano wybÃ³r czcionki napisÃ³w Apolonia Nova OT pogrubiona (domyÅ›lnie jest zwykÅ‚a)
++ Dodano wybÃ³r madVR do profili domyÅ›lnych
+= Zmodyfikowano ustawienia madVR (teraz instalowane sÄ… tylko domyÅ›lne dla obydwu profili)
 = Ulepszono skrypt instalacyjny
 
 Wersja 1.8 build 1486
 =====================================
-+ Dodano czcionkê Apolonia Nova OT
++ Dodano czcionkÄ™ Apolonia Nova OT
 = Ulepszono ustawienia LAV Filters (szybsze uruchamianie odtwarzacza)
 = Ulepszono ustawienia madVR (szybsze uruchamianie odtwarzacza; bez trybu exclusive)
-= Naprawiono b³¹d wykrywania Icaros
+= Naprawiono bÅ‚Ä…d wykrywania Icaros
 = Ulepszono skrypt instalacyjny
-- Usuniêto XySubFilter
+- UsuniÄ™to XySubFilter
 
 Wersja 1.8 build 1255
 =====================================
-+ Przebudowano i ulepszono instalator (dodano oryginalne instalatory programów wspó³zale¿nych)
++ Przebudowano i ulepszono instalator (dodano oryginalne instalatory programÃ³w wspÃ³Å‚zaleÅ¼nych)
 + Ograniczono instalator tylko dla Windows 7 i nowszych
 
 Wersja 1.7 build 2498
@@ -488,23 +488,23 @@ Wersja 1.7 build 1904
 
 Wersja 1.7 build 1863
 =====================================
-+ Dodano mo¿liwoœæ wyboru domyœlnego dzia³ania otwierania (F3)
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru domyÅ›lnego dziaÅ‚ania otwierania (F3)
 = Zaktualizowano wtyczki "svpflow" w InterFrame do wersji v4.0.0.1032
 = Zaktualizowano LAV Video Decoder do wersji v0.68.0-14
 = Zaktualizowano madVR do wersji v0.90.16
 
 Wersja 1.7 build 1798
 =====================================
-+ Dodano mo¿liwoœæ w³¹czenia skórki dotykowej
++ Dodano moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia skÃ³rki dotykowej
 + Dodano instalator online SVP 4 Free v4.0.0.70
-= Wyodrêbniono instalatory dla AviSynth i InterFrame
+= WyodrÄ™bniono instalatory dla AviSynth i InterFrame
 = Zaktualizowano LAV Video Decoder do wersji v0.68.0-11
 = Zaktualizowano wtyczki "svpflow" w InterFrame do wersji v4.0.0.1030
 = Ulepszono skrypt instalacyjny
 
 Wersja 1.6 build 1029
 =====================================
-+ Dodano jêzyk angielski
++ Dodano jÄ™zyk angielski
 = Zaktualizowano madVR do wersji v0.90.15
 = Zaktualizowano LAV Video Decoder do wersji v0.68.0-1
 = Ulepszono skrypt instalacyjny
@@ -530,28 +530,28 @@ Wersja 1.5 build 1319
 =====================================
 = Zaktualizowano LAV Video Decoder do wersji v0.67.0-115:
     - dodano podstawowy dekoder H264 MVC oparty na Intel MediaSDK (v1.7)
-    - dodano mo¿liwoœæ wyboru, które GPU jest u¿ywane do dekodowania DXVA2-CopyBack
+    - dodano moÅ¼liwoÅ›Ä‡ wyboru, ktÃ³re GPU jest uÅ¼ywane do dekodowania DXVA2-CopyBack
     - dodano eksport ze strumieni HEVC HDR metadanych HDR do renderowania wideo (wymaga madVR 0.89.18 lub nowszego)
     - dodano dekodowanie H.264 MVC 3D (wymaga madVR 0.90 lub nowszego)
-    - usuniêto opcjê przetwarzania CUVID HQ, w razie potrzeby jest u¿ywana automatycznie
+    - usuniÄ™to opcjÄ™ przetwarzania CUVID HQ, w razie potrzeby jest uÅ¼ywana automatycznie
 
 Wersja 1.5 build 1279
 =====================================
-+ Dodano wybór przegl¹darek w nieaktywnym oknie czatu
++ Dodano wybÃ³r przeglÄ…darek w nieaktywnym oknie czatu
 = Zaktualizowano LAV Filters do wersji v0.67.0-85 z 15.02.2016
 = Zaktualizowano madVR do wersji v0.90.10 z 15.02.2016
-= Przywrócono wybór formatu zapisu zrzutów
+= PrzywrÃ³cono wybÃ³r formatu zapisu zrzutÃ³w
 
 Wersja 1.5 build 1195
 =====================================
-+ Dodano skórkê Kardox
-+ Dodano skórkê Modern-X - Dark
-= Przywrócono funkcjê sprawdzania systemu i instalacji PotPlayer
++ Dodano skÃ³rkÄ™ Kardox
++ Dodano skÃ³rkÄ™ Modern-X - Dark
+= PrzywrÃ³cono funkcjÄ™ sprawdzania systemu i instalacji PotPlayer
 = Zaktualizowano LAV Filters do wersji v0.67.0-78 z 12.02.2016
 
 Wersja 1.5 build 1099
 =====================================
-* Przeprowadzono kompletn¹ reorganizacjê skryptu instalacyjnego
+* Przeprowadzono kompletnÄ… reorganizacjÄ™ skryptu instalacyjnego
 = Zaktualizowano Open Codec do wersji z 30.12.2015
 = Zaktualizowano madVR do wersji v0.90.8 z 10.02.2016
 = Zaktualizowano LAV Filters do wersji v0.67.0-76 z 05.02.2016
@@ -561,11 +561,11 @@ Wersja 1.2.9.1 build 64 - 17.12.2015
 = Zaktualizowano madVR do wersji v0.89.18 z 14.12.2015
 = Zaktualizowano LAV Filters do wersji v0.67.0-29 z 14.12.2015
 = Zaktualizowano Lentoid HEVC Decoder do wersji v.2.1.0.0
-= Zaktualizowano funkcjê "Usuñ folder Html wraz z zawartoœci¹"
+= Zaktualizowano funkcjÄ™ "UsuÅ„ folder Html wraz z zawartoÅ›ciÄ…"
 
 Wersja 1.2.9.0 build 404 - 15.11.2015
 =====================================
-+ Dodano do wszystkich profili funkcjê "Wczytuj napisy z dowoln¹ nazw¹" - plik napisów nie musi mieæ takiej samej nazwy jak plik wideo
++ Dodano do wszystkich profili funkcjÄ™ "Wczytuj napisy z dowolnÄ… nazwÄ…" - plik napisÃ³w nie musi mieÄ‡ takiej samej nazwy jak plik wideo
 = Zaktualizowano madVR do wersji v0.89.17 z 15.11.2015
 = Zaktualizowano LAV Filters do wersji v0.67.0 z 15.11.2015
 
@@ -578,7 +578,7 @@ Wersja 1.2.9.0 build 305 - 08.11.2015
 
 Wersja 1.2.9.0 build 226 - 28.10.2015
 =====================================
-= Przywrócono ustawienia audio dla OpenCodec
+= PrzywrÃ³cono ustawienia audio dla OpenCodec
 = Zaktualizowano Open Codec do wersji z 28.10.2015
 = Zaktualizowano LAV Filters do wersji v0.66.0-32 z 27.10.2015
 = Zaktualizowano madVR do wersji v0.89.12 z 20.10.2015
@@ -599,16 +599,16 @@ Wersja 1.2.8.9 build 111 - 03.10.2015
 
 Wersja 1.2.8.8 build 981 - 18.09.2015
 =====================================
-+ W³¹czono funkcjê "Konwersja wysokiej jakoœci YUY2/RGB24/32" w przestrzeni kolorów
++ WÅ‚Ä…czono funkcjÄ™ "Konwersja wysokiej jakoÅ›ci YUY2/RGB24/32" w przestrzeni kolorÃ³w
 = Zaktualizowano madVR do wersji v0.89.2 z 09.09.2015
 = Zaktualizowano LAV Filters do wersji v0.65.0-50 z 12.09.2015
-- Usuniêto mo¿liwoœæ wyboru dekodera audio (pozostawiono domyœlny)
+- UsuniÄ™to moÅ¼liwoÅ›Ä‡ wyboru dekodera audio (pozostawiono domyÅ›lny)
 
 Wersja 1.2.8.8 build 447 - 28.08.2015
 =====================================
-+ Dodano w dodatkowych zadaniach mo¿liwoœæ w³¹czenia przesuwania myszki dla Pan&Scan, Zoom i rozci¹gania obrazu
-+ Dodano w dodatkowych zadaniach mo¿liwoœæ ustawienia g³oœnoœci audio na 100% przy ka¿dorazowym uruchamianiu odtwarzacza
-+ Dodano w dodatkowych zadaniach mo¿liwoœæ w³¹czenia przesuwania napisów w pionie i poziomie za pomoc¹ Alt, Ctrl + przeci¹ganie myszk¹
++ Dodano w dodatkowych zadaniach moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia przesuwania myszki dla Pan&Scan, Zoom i rozciÄ…gania obrazu
++ Dodano w dodatkowych zadaniach moÅ¼liwoÅ›Ä‡ ustawienia gÅ‚oÅ›noÅ›ci audio na 100% przy kaÅ¼dorazowym uruchamianiu odtwarzacza
++ Dodano w dodatkowych zadaniach moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia przesuwania napisÃ³w w pionie i poziomie za pomocÄ… Alt, Ctrl + przeciÄ…ganie myszkÄ…
 = Zaktualizowano LAV Filters do wersji v0.65.0-49 z 28.08.2015
 
 Wersja 1.2.8.8 build 397 - 21.08.2015
@@ -624,100 +624,100 @@ Wersja 1.2.8.8 build 274 - 01.08.2015
 
 Wersja 1.2.8.8 build 247 - 27.07.2015
 =====================================
-+ Dodano do profilu Self-DXVA automatyczne ustawienie DX11 w systemie Win7 i wy¿szym 
-= Przywrócono ustawienia domyœlne g³oœnoœci (100%)
++ Dodano do profilu Self-DXVA automatyczne ustawienie DX11 w systemie Win7 i wyÅ¼szym 
+= PrzywrÃ³cono ustawienia domyÅ›lne gÅ‚oÅ›noÅ›ci (100%)
 = Zaktualizowano Open Codec do wersji z 24.07.2015
 = Zaktualizowano LAV Filters do wersji v0.65.0-30 z 25.07.2015
 = Zaktualizowano madVR do wersji v0.88.21 z 27.07.2015
 
 Wersja 1.2.8.8 build 179 - 10.07.2015
 =====================================
-= Przeprowadzono reorganizacjê PotPlayer Live (mo¿liwoœæ wyboru 3 opcji: usuniêcie, YT, VIKI&DailyMotion dla PotPlayerMini.exe)
+= Przeprowadzono reorganizacjÄ™ PotPlayer Live (moÅ¼liwoÅ›Ä‡ wyboru 3 opcji: usuniÄ™cie, YT, VIKI&DailyMotion dla PotPlayerMini.exe)
 = Zaktualizowano LAV Filters do wersji v0.65.0-24 z 09.07.2015
 = Zaktualizowano madVR do wersji v0.88.16 z 08.07.2015
 = Zaktualizowano komponenty svpflow1.dll i svpflow2.dll w InterFrame, SVP i wtyczkach AviSynth
 
 Wersja 1.2.8.8 build 95 - 08.07.2015
 =====================================
-+ Dodano w dodatkowych zadaniach mo¿liwoœæ w³¹czenia Strongene Lentoid HEVC Decoder
-+ Dodano PotPlayer Live z oryginaln¹ zawartoœci¹ (Viki & DailyMotion)
-= Ustawiono oryginaln¹ skórkê (Default.dsf) dla funkcji Live i Live & YouTube
-= Ustawiono w PotPlayer Live & YouTube wartoœæ domyœln¹ audio na 150%
++ Dodano w dodatkowych zadaniach moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia Strongene Lentoid HEVC Decoder
++ Dodano PotPlayer Live z oryginalnÄ… zawartoÅ›ciÄ… (Viki & DailyMotion)
+= Ustawiono oryginalnÄ… skÃ³rkÄ™ (Default.dsf) dla funkcji Live i Live & YouTube
+= Ustawiono w PotPlayer Live & YouTube wartoÅ›Ä‡ domyÅ›lnÄ… audio na 150%
 = Zaktualizowano SVP do wersji 3.1.7
 = Zaktualizowano LAV Filters do wersji v0.65.0-22 z 08.07.2015
-= Zaktualizowano skórkê DefaultSkinMod.dsf
-= Zamieniono skórkê SplashPot MOD na BlackBoxVFD
+= Zaktualizowano skÃ³rkÄ™ DefaultSkinMod.dsf
+= Zamieniono skÃ³rkÄ™ SplashPot MOD na BlackBoxVFD
 = Zaktualizowano madVR do wersji v0.88.15 z 06.07.2015
 = Zaktualizowano Open Codec do wersji z 26.06.2015
 = Zaktualizowano Icaros do wersji v3.0.0 Beta2
 
 Wersja 1.2.8.6 build 713 - 18.06.2015
 =====================================
-+ Dodano funkcjê automatycznego wyszukiwania napisów na OSDb po uruchomieniu odtwarzania (gdy brak napisów w folderze z filmem) i po znalezieniu, powiadomienie o napisach do pobrania
-= Ulepszono PotPlayer Live & YouTube (strona html + 2 nowe skórki i PotPlayer dla XP)
++ Dodano funkcjÄ™ automatycznego wyszukiwania napisÃ³w na OSDb po uruchomieniu odtwarzania (gdy brak napisÃ³w w folderze z filmem) i po znalezieniu, powiadomienie o napisach do pobrania
+= Ulepszono PotPlayer Live & YouTube (strona html + 2 nowe skÃ³rki i PotPlayer dla XP)
 = Zaktualizowano madVR do wersji v0.88.12 z 14.06.2015
-- Usuniêto komponent Napisy24 (do momentu ustabilizowania wersji i poprawnego dzia³ania)
-- Usuniêto komponent DXVA Checker
+- UsuniÄ™to komponent Napisy24 (do momentu ustabilizowania wersji i poprawnego dziaÅ‚ania)
+- UsuniÄ™to komponent DXVA Checker
 
 Wersja 1.2.8.6 build 647 - 13.06.2015
 =====================================
-+ Dodano mo¿liwoœæ wyboru skórki "Black Onix HD" 
-+ Dodano pe³ne wsparcie komponentów i ustawieñ dla PotPlayer Live & YouTube
-+ Dodano funkcjê warunkowego w³¹czenia profilu LAV z madVR, gdy wideo ma rozdzielczoœæ 800x600 i wy¿sz¹
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru skÃ³rki "Black Onix HD" 
++ Dodano peÅ‚ne wsparcie komponentÃ³w i ustawieÅ„ dla PotPlayer Live & YouTube
++ Dodano funkcjÄ™ warunkowego wÅ‚Ä…czenia profilu LAV z madVR, gdy wideo ma rozdzielczoÅ›Ä‡ 800x600 i wyÅ¼szÄ…
 = Zaktualizowano Icaros do wersji v3.0.0 Beta1
-= Usprawniono zapisy rejestru dotycz¹ce Icaros
+= Usprawniono zapisy rejestru dotyczÄ…ce Icaros
 = Zaktualizowano LAV Filters do wersji v0.65.0-20 z 10.06.2015
-= Zmieniono w XySubFilter funkcjê wczytywania napisów zewnêtrznych/wbudowanych z "when_needed" na "always"
+= Zmieniono w XySubFilter funkcjÄ™ wczytywania napisÃ³w zewnÄ™trznych/wbudowanych z "when_needed" na "always"
 = Zaktualizowano Open Codec do wersji z 11.06.2015
-= Ulepszono skrypt odnoœnie wyboru skórek podczas instalacji
-= Przywrócono ustawienia domyœlne poziomu g³oœnoœci na 150%
+= Ulepszono skrypt odnoÅ›nie wyboru skÃ³rek podczas instalacji
+= PrzywrÃ³cono ustawienia domyÅ›lne poziomu gÅ‚oÅ›noÅ›ci na 150%
 
 Wersja 1.2.8.5 build 628 - 08.06.2015
 =====================================
 = Zaktualizowano LAV Filters do wersji v0.65.0-18 z 08.06.2015
 = Zaktualizowano madVR do wersji v0.88.11 z 05.06.2015
 = Zaktualizowano Icaros do wersji v2.3.0 Final
-= Zmieniono skróty klawiszowe dla AviSynth
+= Zmieniono skrÃ³ty klawiszowe dla AviSynth
 
 Wersja 1.2.8.5 build 572 - 03.06.2015
 =====================================
-+ Dodano w dodatkowych zadanich mo¿liwoœæ wyboru jednej z 4 skórek
-+ Dodano mo¿liwoœæ zainstalowania PotPlayer Live z rozszerzon¹ o YouTube skórk¹ "Black Box R-You"
++ Dodano w dodatkowych zadanich moÅ¼liwoÅ›Ä‡ wyboru jednej z 4 skÃ³rek
++ Dodano moÅ¼liwoÅ›Ä‡ zainstalowania PotPlayer Live z rozszerzonÄ… o YouTube skÃ³rkÄ… "Black Box R-You"
 = Zaktualizowano AviSynth do wersji 2.6.0
 = Zaktualizowano skrypt dla XySubFilter
 
 Wersja 1.2.8.5 build 395 - 28.05.2015
 =====================================
-+ Dodano do komponentu AviSynth mo¿liwoœæ zaznaczenia warunkowego prze³¹czenia siê do profilu Self DXVA, gdy zostanie wykryte wideo z mniej ni¿ 60FPS (AviSynth podnosi wtedy fps do 62)
-+ Dodano skróty klawiszowe umo¿liwiaj¹ce prze³¹czanie siê za pomoc¹ klawiatury numerycznej do skryptów AVS 120fps i 240fps
-+ Dodano do dodatkowych zadañ mo¿liwoœæ wyboru formatu zapisu zrzutów ekranowych (thx Remix)
-+ Dodano do dodatkowych zadañ mo¿liwoœæ wyboru lokalizacji zapisu zrzutów, wideo, audio "Zapisuj na Pulpicie" (thx Remix)
-+ Dodano skrypty AVS umo¿liwiaj¹ce zmianê fps: 48fps, 62fps, 70fps, 120fps, 240fps
++ Dodano do komponentu AviSynth moÅ¼liwoÅ›Ä‡ zaznaczenia warunkowego przeÅ‚Ä…czenia siÄ™ do profilu Self DXVA, gdy zostanie wykryte wideo z mniej niÅ¼ 60FPS (AviSynth podnosi wtedy fps do 62)
++ Dodano skrÃ³ty klawiszowe umoÅ¼liwiajÄ…ce przeÅ‚Ä…czanie siÄ™ za pomocÄ… klawiatury numerycznej do skryptÃ³w AVS 120fps i 240fps
++ Dodano do dodatkowych zadaÅ„ moÅ¼liwoÅ›Ä‡ wyboru formatu zapisu zrzutÃ³w ekranowych (thx Remix)
++ Dodano do dodatkowych zadaÅ„ moÅ¼liwoÅ›Ä‡ wyboru lokalizacji zapisu zrzutÃ³w, wideo, audio "Zapisuj na Pulpicie" (thx Remix)
++ Dodano skrypty AVS umoÅ¼liwiajÄ…ce zmianÄ™ fps: 48fps, 62fps, 70fps, 120fps, 240fps
 = Zaktualizowano madVR do wersji v0.88.10 z 27.05.2015
-= Przeprowadzono optymalizacjê skryptu instalacyjnego
-= Zoptymalizowano skrypt dla funkcji wyboru dekodera audio dla ró¿nych systemów (thx fysiu i Remix)
-= Zamienion skórkê "Splash" na "SplashPot MOD"
-- Usuniêto b³¹d powoduj¹cy ustawienie zrzutów tylko dla profilu Buil-in Soft (thx Remix)
+= Przeprowadzono optymalizacjÄ™ skryptu instalacyjnego
+= Zoptymalizowano skrypt dla funkcji wyboru dekodera audio dla rÃ³Å¼nych systemÃ³w (thx fysiu i Remix)
+= Zamienion skÃ³rkÄ™ "Splash" na "SplashPot MOD"
+- UsuniÄ™to bÅ‚Ä…d powodujÄ…cy ustawienie zrzutÃ³w tylko dla profilu Buil-in Soft (thx Remix)
 
 Wersja 1.2.8.5 build 74 - 25.05.2015
 =====================================
 + Dodano dodatkowe zestawy ikon "KMPlayer Glass PotIcons" i "Splash PotIcons"
-+ Dodano mo¿liwoœæ ustawienia poziomu g³oœnoœci na 200%
-+ Dodano mo¿liwoœæ wyboru dekoderów audio FFmpeg i Libav
-+ Dodano mo¿liwoœæ wyboru czcionki napisów "Verdana Bold" lub pozostawienie domyœlnej (zale¿ne od systemu, od Win7 jest to Segoe UI)
-+ Dodano komponent XySubFilter v3.1.0.705 do konfiguracji napisów z madVR i LAV Filters
-+ Dodano mo¿liwoœæ doinstalowania AviSynth do profilu domyœlnego odtwarzacza
-+ Dodano do dodatkowych zadañ mo¿liwoœæ wyboru lokalizacji zapisu galerii miniatur "Zapisuj galeriê miniatur w folderze z odtwarzanym plikiem"
-+ Dodano do dodatkowych zadañ mo¿liwoœæ wyboru lokalizacji zapisu zrzutów, wideo, audio "Zapisuj w folderze z odtwarzanym plikiem"
-+ Dodano do dodatkowych zadañ mo¿liwoœæ wyboru lokalizacji zapisu zrzutów, wideo, audio "Zapisuj w folderze ...\Dokumenty\PotPlayer"
-= Zoptymalizowano instalator (usuniêto zbêdne pliki z instalowanych komponentów oraz zbêdne zapisów w rejestrze)
++ Dodano moÅ¼liwoÅ›Ä‡ ustawienia poziomu gÅ‚oÅ›noÅ›ci na 200%
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru dekoderÃ³w audio FFmpeg i Libav
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru czcionki napisÃ³w "Verdana Bold" lub pozostawienie domyÅ›lnej (zaleÅ¼ne od systemu, od Win7 jest to Segoe UI)
++ Dodano komponent XySubFilter v3.1.0.705 do konfiguracji napisÃ³w z madVR i LAV Filters
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania AviSynth do profilu domyÅ›lnego odtwarzacza
++ Dodano do dodatkowych zadaÅ„ moÅ¼liwoÅ›Ä‡ wyboru lokalizacji zapisu galerii miniatur "Zapisuj galeriÄ™ miniatur w folderze z odtwarzanym plikiem"
++ Dodano do dodatkowych zadaÅ„ moÅ¼liwoÅ›Ä‡ wyboru lokalizacji zapisu zrzutÃ³w, wideo, audio "Zapisuj w folderze z odtwarzanym plikiem"
++ Dodano do dodatkowych zadaÅ„ moÅ¼liwoÅ›Ä‡ wyboru lokalizacji zapisu zrzutÃ³w, wideo, audio "Zapisuj w folderze ...\Dokumenty\PotPlayer"
+= Zoptymalizowano instalator (usuniÄ™to zbÄ™dne pliki z instalowanych komponentÃ³w oraz zbÄ™dne zapisÃ³w w rejestrze)
 = Zaktualizowano madVR do wersji v0.88.8 z 15.05.2015
-= Zmieniono ustawienia madVR dla s³abszych GPU na domyœlne
+= Zmieniono ustawienia madVR dla sÅ‚abszych GPU na domyÅ›lne
 = Zaktualizowano LAV Filters do wersji v0.65.0-9 z 25.05.2015
 = Zaktualizowano wtyczki w SVP "svpflow" do wersji 1.1.15 z dn. 13.05.2015
-= Zmieniono domyœln¹ skórkê na DefaultSkinMod
-- Usuniêto Meta Fox i Haali
-- Usuniêto profil i dekoder ArcSoft
+= Zmieniono domyÅ›lnÄ… skÃ³rkÄ™ na DefaultSkinMod
+- UsuniÄ™to Meta Fox i Haali
+- UsuniÄ™to profil i dekoder ArcSoft
 
 Wersja 1.2.8.4 build 668 - 13.05.2015
 =====================================
@@ -728,15 +728,15 @@ Wersja 1.2.8.4 build 668 - 13.05.2015
 
 Wersja 1.2.8.4 build 636 - 10.05.2015
 =====================================
-+ Dodano do ustawieñ g³oœników "Wirtualny dekoder Dolby"
++ Dodano do ustawieÅ„ gÅ‚oÅ›nikÃ³w "Wirtualny dekoder Dolby"
 = Zaktualizowano LAV Filters do wersji v0.65.0-7 z 10.05.2015
 = Zaktualizowano madVR do wersji v0.88.2 z 10.05.2015
 = Zaktualizowano ustawienia madVR dla mocnych GPU
-- Usuniêto z profili ustawienia przetwarzania wideo "Deband" i "Sharpen"
+- UsuniÄ™to z profili ustawienia przetwarzania wideo "Deband" i "Sharpen"
 
 Wersja 1.2.8.4 build 578 - 03.05.2015
 =====================================
-+ Dodano playlistê Radio.asx z polskimi stacjami radiowymi
++ Dodano playlistÄ™ Radio.asx z polskimi stacjami radiowymi
 = Zaktualizowano komponenty SVP
 = Zaktualizowano Icaros do wersji v2.3.0 RC1
 = Zaktualizowano ustawienia madVR dla mocnych GPU
@@ -750,9 +750,9 @@ Wersja 1.2.8.4 build 542 - 21.04.2015
 
 Wersja 1.2.8.4 build 520 - 13.04.2015
 =====================================
-+ Dodano w ustawieniach Korektora opcjê wyboru "Loudness"
++ Dodano w ustawieniach Korektora opcjÄ™ wyboru "Loudness"
 = Zaktualizowano madVR do wersji v0.87.21
-- Optymalizacja instalatora (zbêdne pliki i wpisy w skrypcie)
+- Optymalizacja instalatora (zbÄ™dne pliki i wpisy w skrypcie)
 
 Wersja 1.2.8.4 build 494 - 11.04.2015
 =====================================
@@ -783,8 +783,8 @@ Wersja 1.2.8.4 build 371 - 05.03.2015
 
 Wersja 1.2.8.4 build 279 - 19.02.2015
 =====================================
-+ Dodano skórkê BlackOnix
-+ Dodano mo¿liwoœæ wyboru warunkowego/bezwarunkowego u¿ywania OpenCodec
++ Dodano skÃ³rkÄ™ BlackOnix
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru warunkowego/bezwarunkowego uÅ¼ywania OpenCodec
 = Zaktualizowano madVR do wersji v0.87.14
 = Poprawiono ustawienia w profilach Buil-in CUDA i QSync
 
@@ -818,10 +818,10 @@ Wersja 1.2.8.4 build 65 - 20.12.2014
 
 Wersja 1.2.8.4 build 8 - 05.12.2014
 =====================================
-+ Dodano mo¿liwoœæ wyboru wyjœcia g³oœnikowego
-+ Dodano mo¿liwoœæ w³¹czenia WASAPI wraz z podleg³ymi funkcjami
-+ Dodano mo¿liwoœæ wyboru próbkowania audio
-+ Dodano mo¿liwoœæ wyboru ustawieñ Korektora
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru wyjÅ›cia gÅ‚oÅ›nikowego
++ Dodano moÅ¼liwoÅ›Ä‡ wÅ‚Ä…czenia WASAPI wraz z podlegÅ‚ymi funkcjami
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru prÃ³bkowania audio
++ Dodano moÅ¼liwoÅ›Ä‡ wyboru ustawieÅ„ Korektora
 = Zaktualizowano LAV Filters do wersji v0.63.0 z 02.12.2014
 = Zaktualizowano madVR v0.87.11 do wersji z dn. 02.12.2014
 = Zaktualizowano Icaros do wersji v2.2.7 Beta 3 
@@ -839,27 +839,27 @@ Wersja 1.2.8.3 build 514 - 03.10.2014
 
 Wersja 1.2.8.3 build 314 - 01.10.2014
 =====================================
-= Zaktualizowano LAV Filters do wersji z 01.10.2014 (nightly builds z obs³ug¹ HEVC)
+= Zaktualizowano LAV Filters do wersji z 01.10.2014 (nightly builds z obsÅ‚ugÄ… HEVC)
 = Zaktualizowano w SVP komponenty FFDShow do wersji 4533 z dn. 29.09.2014
 
 Wersja 1.2.8.3 build 184 - 23.09.2014
 =====================================
 = Zaktualizowano Icaros do wersji v2.2.6 Final
 = Zaktualizowano komponenty Open Codec do wersji z 13.08.2014
-= Zaktualizowano LAV Filters do wersji z 23.09.2014 (nightly builds z obs³ug¹ HEVC)
+= Zaktualizowano LAV Filters do wersji z 23.09.2014 (nightly builds z obsÅ‚ugÄ… HEVC)
 = Zaktualizowano DXVA Checker do wersji v3.1.2
-- Usuniêto Lentoid HEVC Decoder OpenCL (w zwi¹zku z dodaniem odtwarzania HEVC do wbudowanych dekoderów i LAV)
+- UsuniÄ™to Lentoid HEVC Decoder OpenCL (w zwiÄ…zku z dodaniem odtwarzania HEVC do wbudowanych dekoderÃ³w i LAV)
 
 Wersja 1.2.8.3 build 94 - 07.08.2014
 =====================================
 = Zaktualizowano LAV Filters do wersji z 04.08.2014
 = Zaktualizowano MetaFox do wersji v1.1.9 Final
-- Usuniêto SVPtube
+- UsuniÄ™to SVPtube
 
 Wersja 1.2.8.3 build 54 - 18.07.2014
 =====================================
-+ Dodano do profili now¹ funkcjê "Po upuszczeniu dodawaj pliki w pozycji kursora myszki"
-= Zmieniono w profilach ustawienia czcionki napisów
++ Dodano do profili nowÄ… funkcjÄ™ "Po upuszczeniu dodawaj pliki w pozycji kursora myszki"
+= Zmieniono w profilach ustawienia czcionki napisÃ³w
 = Zaktualizowano w SVP komponenty FFDShow do wersji 4532 z dn. 17.07.2014
 
 Wersja 1.2.8.3 build 27 - 01.07.2014
@@ -873,96 +873,96 @@ Wersja 1.2.8.2 build 15 - 29.06.2014
 
 Wersja 1.2.8.1 build 10 - 28.06.2014
 =====================================
-+ Dodano mo¿liwoœæ instalowania aktualizacji bez potrzeby deinstalacji pakietu
-+ Dodano do ustawieñ LAV Filters "Deband", "Sharpen" i korekcjê kolorów Gamma wyœwietlacza
-= Przywrócono mo¿liwoœæ wykrycia i zainstalowania PotPlayer
-- Zmieniono ustawienia skryptu odnoœnie wykrywania numeru zainstalowanej wersji
-- Zmieniono oznaczenia numeracji poszczególnych wersji (wprowadzono oznaczenie "build")
++ Dodano moÅ¼liwoÅ›Ä‡ instalowania aktualizacji bez potrzeby deinstalacji pakietu
++ Dodano do ustawieÅ„ LAV Filters "Deband", "Sharpen" i korekcjÄ™ kolorÃ³w Gamma wyÅ›wietlacza
+= PrzywrÃ³cono moÅ¼liwoÅ›Ä‡ wykrycia i zainstalowania PotPlayer
+- Zmieniono ustawienia skryptu odnoÅ›nie wykrywania numeru zainstalowanej wersji
+- Zmieniono oznaczenia numeracji poszczegÃ³lnych wersji (wprowadzono oznaczenie "build")
 
 Wersja 1.2.8 - 25.06.2014
 ===========================
 + Dodano zestaw ikon KMP_Pot
-- Poprawiono b³êdn¹ œcie¿kê w skrypcie do skórki BlackBoxVFD.dsf
-- Zmieniono domyœlne ustawienia proporcji obrazu na "Zmieñ rozmiar okna przy zachowaniu wspó³czynnika proporcji"
+- Poprawiono bÅ‚Ä™dnÄ… Å›cieÅ¼kÄ™ w skrypcie do skÃ³rki BlackBoxVFD.dsf
+- Zmieniono domyÅ›lne ustawienia proporcji obrazu na "ZmieÅ„ rozmiar okna przy zachowaniu wspÃ³Å‚czynnika proporcji"
 
 Wersja 1.2.6 - 23.06.2014
 ===========================
-- Naprawiono b³êdne wykrywanie OpenCodec dla profili CUDA i QSYNC
+- Naprawiono bÅ‚Ä™dne wykrywanie OpenCodec dla profili CUDA i QSYNC
 - Zaktualizowano FFmpeg.dll, FFmpegMininum.dll, Libav.dll 
 
 Wersja 1.2.4 - 21.06.2014
 ===========================
 + Dodano DXVA Checker v3.0.1
 + Dodano ustawienie Direct3D Presentation na Direct3D 11.1 Flip Mode Present (tylko w Windows 8/8.1)
-+ Dodano do skryptu mo¿liwoœæ wykrycia, pobrania/lub nie i cichej instalacji/lub nie .NET Framework 4.5.2 (potrzebne do poprawnego dzia³ania SVP 3.1.6 i odtwarzacza)
-+ Dodano do skryptu mo¿liwoœæ wykrycia, pobrania/lub nie i cichej instalacji/lub nie Visual C++ 2010 Redistributable (potrzebne do poprawnego dzia³ania SVP 3.1.6)
-- Zmieniono ustawienia madVR; teraz ustwienia "uniwersalne" s¹ domyœlnymi
++ Dodano do skryptu moÅ¼liwoÅ›Ä‡ wykrycia, pobrania/lub nie i cichej instalacji/lub nie .NET Framework 4.5.2 (potrzebne do poprawnego dziaÅ‚ania SVP 3.1.6 i odtwarzacza)
++ Dodano do skryptu moÅ¼liwoÅ›Ä‡ wykrycia, pobrania/lub nie i cichej instalacji/lub nie Visual C++ 2010 Redistributable (potrzebne do poprawnego dziaÅ‚ania SVP 3.1.6)
+- Zmieniono ustawienia madVR; teraz ustwienia "uniwersalne" sÄ… domyÅ›lnymi
  
 Wersja 1.2.0 - 20.06.2014
 ===========================
-+ Dodano Lentoid HEVC Decoder OpenCL jako drug¹ opcjê wyboru do dekodowania plików HEVC (profile wbudowane i LAV)
-- Przepisano w ca³oœci skrypt dotycz¹cy profili i komponentów daj¹c dla u¿ytkownika mo¿liwoœæ wyboru instalacji (wymagane s¹ tylko ustawienia programowe)
-- Zaktualizowano plik jêzykowy dla SVP 3.1.6
++ Dodano Lentoid HEVC Decoder OpenCL jako drugÄ… opcjÄ™ wyboru do dekodowania plikÃ³w HEVC (profile wbudowane i LAV)
+- Przepisano w caÅ‚oÅ›ci skrypt dotyczÄ…cy profili i komponentÃ³w dajÄ…c dla uÅ¼ytkownika moÅ¼liwoÅ›Ä‡ wyboru instalacji (wymagane sÄ… tylko ustawienia programowe)
+- Zaktualizowano plik jÄ™zykowy dla SVP 3.1.6
 - Zaktualizowano LAV Filters (wersja beta z dn.19.06.14)
 
 Wersja 0.9.8 - 18.06.2014
 ===========================
-- Zmieniono zapis w rejestrze z LAV na LAV32 (umo¿liwia to równoleg³¹ instalacjê FanPacka64 dla PotPlayer x64)
+- Zmieniono zapis w rejestrze z LAV na LAV32 (umoÅ¼liwia to rÃ³wnolegÅ‚Ä… instalacjÄ™ FanPacka64 dla PotPlayer x64)
 
 Wersja 0.9.7 - 17.06.2014
 ===========================
-- Usuniêto ze skryptu okreœlenie wyboru wbudowanych dekoderów/enkoderów sprzêtowych (OpenCodec) pozostawiaj¹c to oryginalnemu instalatorowi
+- UsuniÄ™to ze skryptu okreÅ›lenie wyboru wbudowanych dekoderÃ³w/enkoderÃ³w sprzÄ™towych (OpenCodec) pozostawiajÄ…c to oryginalnemu instalatorowi
 
 Wersja 0.9.6 - 16.06.2014
 ===========================
 + Dodano plik Changelog.txt
-+ Dodano mo¿liwoœæ doinstalowania MPC FLV Splitter (HEVC) z ustawieniem go w profilach w Splitter -> FLV
-+ Dodano mo¿liwoœæ doinstalowania Lentoid HEVC Decoder z ustawieniem go w profilach do odtwarzania plików HEVC
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania MPC FLV Splitter (HEVC) z ustawieniem go w profilach w Splitter -> FLV
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania Lentoid HEVC Decoder z ustawieniem go w profilach do odtwarzania plikÃ³w HEVC
 + Dodano dtsdecoderdll.dll w ustawieniach audio dla wszystkich profili
-- Zmieniono po³o¿enie dtsdecoderdll.dll (teraz po instalacji znajduje siê w folderze Daum\PotPlayer\Module)
+- Zmieniono poÅ‚oÅ¼enie dtsdecoderdll.dll (teraz po instalacji znajduje siÄ™ w folderze Daum\PotPlayer\Module)
 - Zmieniono klucz rejestru do wykrywania przez instalator zainstalowania PotPlayer z HKEY_CURRENT_USER\Software\DAUM\PotPlayerMini na HKEY_CURRENT_USER\Software\DAUM\PotPlayer
-- Poprawiono b³êdne wykrywanie Lentoid HEVC Decoder
+- Poprawiono bÅ‚Ä™dne wykrywanie Lentoid HEVC Decoder
 
 Wersja 0.8.8 - 15.06.2014
 ===========================
-+ Dodano mo¿liwoœæ doinstalowania profilu Built-in Codec/Transform with SVP (v3.1.6) opartego na wbudowanych dekoderach z mo¿liwoœci¹ wyboru jednego z 4 profili:
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania profilu Built-in Codec/Transform with SVP (v3.1.6) opartego na wbudowanych dekoderach z moÅ¼liwoÅ›ciÄ… wyboru jednego z 4 profili:
   - Profil SW oparty na Built-in Video Codec/Transform (Wbudowany dekoder FFmpeg)
   - Profil HW DXVA2 Copy Back *AMD/nVidia oparty na Built-in Video Codec/Transform (DXVA Decoder(VLD - SliceShort))
   - Profil HW CUDA *nVidia oparty na Built-in Video Codec/Transform (OpenCodec(Nvidia CUDA Decoder))
   - Profil HW QuickSync *Intel HD Sandy/Ivy/Haswell oparty na Built-in Video Codec/Transform (OpenCodec(Intel QuickSync Decoder))
 + Dodano profil oparty na ArcSoft Video Decoder v2.28.510.141 (DXVA2)
-+ Dodano mo¿liwoœæ wykrywania przez instalator, czy na PC zainstalowany jest PotPlayer, a jeœli nie, to pobranie najnowszej wersji z serwera potplayer.pl i przeprowadzenie cichej instalacji przed instalacj¹ FanPacka.
++ Dodano moÅ¼liwoÅ›Ä‡ wykrywania przez instalator, czy na PC zainstalowany jest PotPlayer, a jeÅ›li nie, to pobranie najnowszej wersji z serwera potplayer.pl i przeprowadzenie cichej instalacji przed instalacjÄ… FanPacka.
 
 
 Wersja 0.7.0 - 14.06.2014
 ===========================
-+ Dodano 9 dodatkowych skórek (instalowane do Daum\PotPlayer\Skins)
-+ Dodano pe³ny pakiet OpenCodec (instalowany do Daum\PotPlayer\Module) 
++ Dodano 9 dodatkowych skÃ³rek (instalowane do Daum\PotPlayer\Skins)
++ Dodano peÅ‚ny pakiet OpenCodec (instalowany do Daum\PotPlayer\Module) 
 
 Wersja 0.6.5 - 13.06.2014
 ===========================
-+ Dodano profile oparte na LAV Video Decoder v0.62.0 (podczas instalacji mo¿na wybraæ jeden z piêciu profili):
++ Dodano profile oparte na LAV Video Decoder v0.62.0 (podczas instalacji moÅ¼na wybraÄ‡ jeden z piÄ™ciu profili):
   - Profil SOFT
   - Profil DXVA *dla GPU AMD - nVidia
   - Profil CUDA *dla GPU nVidia
   - Profil QSYN *dla GPU Intel HD Sandy - Ivy Bridge
   - Profil DXVA2 COPY-BACK *dla GPU AMD - nVidia
-+ Dodano madVR v0.87.10 z mo¿liwoœci¹ wyboru dwóch konfiguracji (uniwersalne i podrasowane)
-+ Dodano mo¿liwoœæ doinstalowania Icaros v2.2.5 Final
-+ Dodano mo¿liwoœæ doinstalowania SVPtube v1.1.5
-+ Dodano mo¿liwoœæ doinstalowania MetaFox v1.1.7 Final
-+ Dodano mo¿liwoœæ doinstalowania Haali Media Splitter v1.13.138.14 (wymagane, jeœli instalowany jest MetaFox)
++ Dodano madVR v0.87.10 z moÅ¼liwoÅ›ciÄ… wyboru dwÃ³ch konfiguracji (uniwersalne i podrasowane)
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania Icaros v2.2.5 Final
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania SVPtube v1.1.5
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania MetaFox v1.1.7 Final
++ Dodano moÅ¼liwoÅ›Ä‡ doinstalowania Haali Media Splitter v1.13.138.14 (wymagane, jeÅ›li instalowany jest MetaFox)
 
 Wersja 0.5.1 - 11.06.2014
 ===========================
-- Usuniêto z profili generator czcionek gdipp
-- Zmieniono œcie¿kê instalacyjn¹ pakietu 
+- UsuniÄ™to z profili generator czcionek gdipp
+- Zmieniono Å›cieÅ¼kÄ™ instalacyjnÄ… pakietu 
 
 Wersja 0.5.0 - 10.06.2014
 ===========================
-+ Rozpoczêto pisanie skryptu instalacyjnego do pierwszej wersji FanPacka
-+ Dodano profile oparte na wbudowanych dekoderach i filtrach (ka¿dy profil zosta³ skonfigurowany):
-  - Profil domyœlny (SOFT) oparty na Built-in Video Codec/Transform (Wbudowany dekoder FFmpeg)
++ RozpoczÄ™to pisanie skryptu instalacyjnego do pierwszej wersji FanPacka
++ Dodano profile oparte na wbudowanych dekoderach i filtrach (kaÅ¼dy profil zostaÅ‚ skonfigurowany):
+  - Profil domyÅ›lny (SOFT) oparty na Built-in Video Codec/Transform (Wbudowany dekoder FFmpeg)
   - Profil Built-in DXVA Decoder (natywne DXVA) oparty na Built-in Video Codec/Transform (DXVA Decoder(VLD - SliceShort))
   - Profil Built-in Self DXVA Decoder (DXVA-copy back) oparty na Built-in Video Codec/Transform (DXVA Decoder(VLD - SliceShort))
   - Profil Built-in OpenCodec CUDA Decoder oparty na Built-in Video Codec/Transform (OpenCodec(Nvidia CUDA Decoder))
