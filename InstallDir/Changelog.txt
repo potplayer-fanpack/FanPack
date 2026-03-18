@@ -1,10 +1,10 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.6997          [17.03.2026]
+Wersja 3.9.6999          [18.03.2026]
 =====================================
 = Zaktualizowano ustawienia przechwytywania wideo
-= Zaktualizowano Deno do wersji v2.7.5
-= Zaktualizowano yt-dlp do wersji v2026.03.13
+= Zaktualizowano Deno do wersji v2.7.6
+= Zaktualizowano yt-dlp do wersji v2026.03.17
 = Zaktualizowano TorrServer.Matrix do wersji v141
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v8.1
 
