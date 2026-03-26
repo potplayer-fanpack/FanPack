@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7000"
+#define MyAppVersion "3.9.7008"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 19.03.2026
+BeveledLabel= 26.03.2026
 
 
 [Tasks]
@@ -327,7 +327,7 @@ Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PxShader\*.*"" (MOVE /Y ""{a
 
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{tmp}\ffmpeg-8.0.1-essentials_build"
+Type: filesandordirs; Name: "{tmp}\ffmpeg-8.1-essentials_build"
 Type: filesandordirs; Name: "{app}"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\MI"
 Type: filesandordirs; Name: "{autopf}\madVR"; Components: "madvr"
@@ -339,7 +339,8 @@ Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Extension\Data"
 Type: filesandordirs; Name: "{userappdata}\PotPlayerMini64\Extension"
 Type: filesandordirs; Name: "{userappdata}\PotPlayerMini64\TorrServer"
 Type: filesandordirs; Name: "{userappdata}\.ACEStream" 
-Type: filesandordirs; Name: "{userappdata}\AceStream" 
+Type: filesandordirs; Name: "{userappdata}\AceStream"
+Type: filesandordirs; Name: "{localappdata}\deno" 
 Type: filesandordirs; Name: "C:\_acestream_cache_" 
 Type: filesandordirs; Name: "D:\_acestream_cache_"
 Type: files;          Name: "{autopf}\DAUM\PotPlayer\Module\LAV\LAVVideo.ax"
