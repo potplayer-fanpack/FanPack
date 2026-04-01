@@ -5,8 +5,8 @@ Wersja 3.9.7015          [1.04.2026]
 = Zaktualizowano ustawienia przechwytywania wideo
 = Zaktualizowano Icaros do wersji v3.3.4
 = Zaktualizowano MPC Video Renderer do wersji v0.10.1.253
-= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260331
-= Zaktualizowano Deno do wersji v2.7.10
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260401
+= Zaktualizowano Deno do wersji v2.7.11
 = Zaktualizowano yt-dlp do wersji v2026.03.17
 = Zaktualizowano TorrServer.Matrix do wersji v141
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v8.1

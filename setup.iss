@@ -159,7 +159,6 @@ Name: "Deno";                 Description: "{cm:comp_Deno}";    Types: tweak ful
 Name: "ACE";                  Description: "{cm:comp_ACE}";     Types: custom
 Name: "TOR";                  Description: "{cm:comp_TOR}";     Types: custom
 Name: "Icaros";               Description: "{cm:comp_icaros}";  Types: custom; Check: not IsUpdate and not IsIcarosInstalled
-; Check: not IsUpdate and not IsIcarosInstalled
 Name: "minfo";                Description: "{cm:comp_minfo}";   Types: custom
 #endif
 
@@ -492,16 +491,6 @@ begin
   else 
     Result := 'False';
 end;
-
-//function IsmadVRInstalled: Boolean;
-//begin
-//  Result :=
-//    RegKeyExists(HKCU, 'Software\madshi') or
-//    FileExists(ExpandConstant('{autopf}\madVR\madVR.ax')) or
-//    FileExists(ExpandConstant('{autopf}\madVR\madVR64.ax'));
-    
-//  Log('IsmadVRInstalled result: ' + BoolToString(Result)); 
-//end;
 
 function IsIcarosInstalled: Boolean;
 var

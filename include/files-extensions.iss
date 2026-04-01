@@ -18,4 +18,4 @@ Source: "src\Extension\Media\PlayParse\yt-dlp_default,1.ini"; DestName: "yt-dlp_
 Source: "src\Extension\Media\PlayParse\yt-dlp_default,2.ini"; DestName: "yt-dlp_default.ini"; DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion; Languages: "pl"
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio1.jpg";                                    DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
 Source: "src\Extension\Media\PlayParse\yt-dlp_radio2.jpg";                                    DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion
-
+Source: "src\Extension\Media\PlayParse\yt-dlp_playlist.jpg";                                  DestDir: "{autopf}\DAUM\PotPlayer\Extension\Media\PlayParse";    Components: "EXT"; Flags: ignoreversion

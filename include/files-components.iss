@@ -1,13 +1,13 @@
 ; Inne dodatkowe pliki [Files]
 ; Components Deno
-Source: "https://github.com/denoland/deno/releases/download/v2.7.9/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Module"; \
-Hash: "f2cb68a66bce2d4828429545ea7c2265b9f165e612629fc67e3dd39f13b87471"; ExternalSize: 49_459_200; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/denoland/deno/releases/download/v2.7.11/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Module"; \
+Hash: "8bd617ed5d999115eaa249edba493ab313afb32be94fcb2c71db1828a8376eb8"; ExternalSize: 49_496_064; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "https://github.com/GyanD/codexffmpeg/releases/download/8.1/ffmpeg-8.1-essentials_build.7z"; DestName: "ffmpeg-8.1-essentials_build.7z"; DestDir: "{tmp}"; ExternalSize: "33_546_240"; \
 Hash: "9b299a21fc1ca36ac22e4911f8958404c228e4059583c4651743122a8d0a7e56"; Components: "FFmpeg"; Flags: ignoreversion external download extractarchive recursesubdirs createallsubdirs
 ; Icaros
-Source: "https://github.com/Xanashi/Icaros/releases/download/v3.3.4b1/Icaros_v3.3.4_b1.exe"; DestName: "Icaros.exe"; DestDir: "{tmp}"; Hash: "608ff4b0508f31e3d85810141cbb56b57304a385fc26cce8a9b4b2ad95c99c64"; \
-ExternalSize: 13_201_408; Components: "Icaros"; Flags: external download ignoreversion
+Source: "https://github.com/Xanashi/Icaros/releases/download/v3.3.4/Icaros_v3.3.4.exe"; DestName: "Icaros.exe"; DestDir: "{tmp}"; Hash: "424b92bd231f54ddae6907708b9a1dc2252286fce55164f00d57b76d724fff42"; \
+ExternalSize: 13_365_248; Components: "Icaros"; Flags: external download ignoreversion
 Source: "InstallDir\uninstall_Icaros.bat";  DestDir: "{app}";                             Components: "Icaros"; Flags: ignoreversion
 Source: "InstallDir\reg\delete_icaros.reg"; DestDir: "{app}\reg";                         Components: "Icaros"; Flags: ignoreversion
 ; madVR
