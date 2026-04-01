@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7009"
+#define MyAppVersion "3.9.7015"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 27.03.2026
+BeveledLabel= 1.04.2026
 
 
 [Tasks]
@@ -158,7 +158,7 @@ Name: "EXT";                  Description: "{cm:comp_ext}";     Types: tweak ful
 Name: "Deno";                 Description: "{cm:comp_Deno}";    Types: tweak full custom
 Name: "ACE";                  Description: "{cm:comp_ACE}";     Types: custom
 Name: "TOR";                  Description: "{cm:comp_TOR}";     Types: custom
-Name: "Icaros";               Description: "{cm:comp_icaros}";  Types: custom
+Name: "Icaros";               Description: "{cm:comp_icaros}";  Types: custom; Check: not IsUpdate and not IsIcarosInstalled
 ; Check: not IsUpdate and not IsIcarosInstalled
 Name: "minfo";                Description: "{cm:comp_minfo}";   Types: custom
 #endif
@@ -503,16 +503,61 @@ end;
 //  Log('IsmadVRInstalled result: ' + BoolToString(Result)); 
 //end;
 
-//function IsIcarosInstalled: Boolean; 
-//begin 
-//  Result :=
-//    RegKeyExists(HKCU, 'SOFTWARE\Icaros') or 
-//    RegKeyExists(HKLM, 'SOFTWARE\Icaros') or 
-//    RegKeyExists(HKLM, 'SOFTWARE\WOW6432Node\Icaros') or 
-//    FileExists(ExpandConstant('{autopf}\Icaros\IcarosConfig.exe')); 
-    
-//  Log('IsIcarosInstalled result: ' + BoolToString(Result)); 
-//end;
+function IsIcarosInstalled: Boolean;
+var
+  Version: String;
+begin
+  // 1️. Sprawdzenie rejestru (najpewniejsze)
+  if RegQueryStringValue(
+       HKLM,
+       'SOFTWARE\Icaros',
+       'Version',
+       Version
+     ) then
+  begin
+    Log('Icaros detected via registry: ' + Version);
+    Result := True;
+    Exit;
+  end;
+
+  // 2️. 64-bit registry fallback
+  if RegQueryStringValue(
+       HKLM64,
+       'SOFTWARE\Icaros',
+       'Version',
+       Version
+     ) then
+  begin
+    Log('Icaros detected via HKLM64: ' + Version);
+    Result := True;
+    Exit;
+  end;
+  
+    // 3. HKCU registry fallback
+  if RegQueryStringValue(
+       HKCU,
+       'SOFTWARE\Icaros',
+       'Version',
+       Version
+     ) then
+  begin
+    Log('Icaros detected via HKCU: ' + Version);
+    Result := True;
+    Exit;
+  end;
+
+  // 4. Fallback – plik wykonywalny
+  if FileExists(ExpandConstant('{autopf}\Icaros\IcarosConfig.exe')) then
+  begin
+    Log('Icaros detected via file');
+    Result := True;
+    Exit;
+  end;
+
+  // ❌ brak instalacji
+  Log('Icaros not installed');
+  Result := False;
+end;
 
 function IsPotPlayerInstalled: Boolean;
 var
@@ -736,7 +781,7 @@ begin
     if PotPlayerDownloadNeeded then
     begin
       // Upewnij się, że link i hash są aktualne
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260114/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'A6D7ABB88966C51409962D689FB87313B282DBBC713A04321DA462C6E0DBB9DF');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260401/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'A0D532213657B13A9934210E8C7A3C2CBF78B643106EBD3C016F0729E428D129');
       HasDownloads := True;
     end;
 
