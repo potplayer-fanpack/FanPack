@@ -1,6 +1,6 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7016          [3.04.2026]
+Wersja 3.9.7017          [3.04.2026]
 =====================================
 = Zaktualizowano ustawienia przechwytywania wideo
 = Zaktualizowano Icaros do wersji v3.3.5
