@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7015"
+#define MyAppVersion "3.9.7016"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 1.04.2026
+BeveledLabel= 3.04.2026
 
 
 [Tasks]
@@ -290,8 +290,8 @@ Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa";  Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}";  Components: "ACE"
 
 ;----------------- Przenoszenie plików pakietu FFmpeg -----------------
-Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.0.1-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
-Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.0.1-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.1-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.1-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
 
 ;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe')); Components: "Icaros"
