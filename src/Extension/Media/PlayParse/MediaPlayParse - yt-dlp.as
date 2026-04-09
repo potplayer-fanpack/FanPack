@@ -5,7 +5,7 @@
   Placed in \PotPlayer\Extension\Media\PlayParse\
 *************************************************************/
 
-string SCRIPT_VERSION = "260331";
+string SCRIPT_VERSION = "260408";
 
 
 string YTDLP_EXE = "yt-dlp.exe";
@@ -26,8 +26,8 @@ string PLAYLIST_IMAGE = "yt-dlp_playlist.jpg";
 
 
 // Threshold time (milliseconds)
-uint DOUBLE_CALL_INTERVAL_1 = 2000;
-uint DOUBLE_CALL_INTERVAL_2 = 4000;
+uint DOUBLE_TRIGGER_INTERVAL_1 = 1200;
+uint DOUBLE_TRIGGER_INTERVAL_2 = 3000;
 
 
 
@@ -68,7 +68,7 @@ class FILE_CONFIG
 		return str;
 	}
 	
-	string _changeToUtf8Basic(string str, string &out code)
+	string changeToUtf8Basic(string str, string &out code)
 	{
 		// Change to utf8 without top BOM
 		if (str.find(BOM_UTF8) == 0)
@@ -91,7 +91,7 @@ class FILE_CONFIG
 		return str;
 	}
 	
-	string _changeFromUtf8Basic(string str, string code)
+	string changeFromUtf8Basic(string str, string code)
 	{
 		if (code == "utf8_bom")
 		{
@@ -143,7 +143,7 @@ class FILE_CONFIG
 			}
 			else
 			{
-				str = _changeToUtf8Basic(str, codeDef);
+				str = changeToUtf8Basic(str, codeDef);
 				if (!HostRegExpParse(str, "(?:^|\\n)\\w+=", {}))
 				{
 					msg =
@@ -226,7 +226,7 @@ class FILE_CONFIG
 		{
 			str = HostFileRead(fp, HostFileLength(fp));
 			string code;
-			str = _changeToUtf8Basic(str, code);
+			str = changeToUtf8Basic(str, code);
 			if (str.findFirstNotOf("\r\n") < 0) str = "";
 		}
 		return fp;
@@ -239,7 +239,7 @@ class FILE_CONFIG
 		{
 			if (write)
 			{
-				str = _changeFromUtf8Basic(str, codeDef);
+				str = changeFromUtf8Basic(str, codeDef);
 				if (HostFileSetLength(fp, 0) == 0)
 				{
 					if (HostFileWrite(fp, str) == int(str.length()))
@@ -1207,6 +1207,7 @@ class TEXT
 			// Prevent the end quote from being escaped by the back-slash
 			str += "\\";
 		}
+		str.replace("\"", "\\\"");
 		str = "\"" + str + "\"";
 		return str;
 	}
@@ -1853,6 +1854,88 @@ class POTPLAYER
 		return false;
 	}
 	
+	string getConfigData(string section, string key = "")
+	{
+		if (section.empty()) return "";
+		
+		string data;
+		if (!getPlayerExePath() || playerExePath.empty())
+		{
+			if (cfg.csl > 0)
+			{
+				HostPrintUTF8("[yt-dlp] Cannot find PotPlsyer's exe file name.\r\n");
+			}
+			return "";
+		}
+		
+		string exeName = HostRegExpParse(playerExePath, "\\\\([^\\\\]+)\\.exe$");
+		string iniFile = HostGetConfigFolder() + exeName + ".ini";
+//HostPrintUTF8("iniFile: " + iniFile);
+		if (HostFileExist(iniFile))
+		{
+			// INI file
+			// Not updated in real time.
+			uintptr fp = HostFileOpen(iniFile);
+			if (fp > 0)
+			{
+				string str = HostFileRead(fp, HostFileLength(fp));
+				string code;
+				str = fc.changeToUtf8Basic(str, code);
+				string _section = "\n[" + section + "]";
+				int pos1 = str.find(_section);
+				if (pos1 >= 0)
+				{
+					pos1 += _section.length();
+					int pos2 = str.find("\n[", pos1);
+					if (pos2 < 0) pos2 = str.length();
+					else pos2 += 1;
+					if (pos2 > pos1)
+					{
+						data = str.substr(pos1, pos2 - pos1);
+						if (!key.empty())
+						{
+							data = HostRegExpParse(data, "\n" + key + "=([^\r\n]+)\r\n");
+						}
+					}
+				}
+			}
+			HostFileClose(fp);
+		}
+		else
+		{
+			// Regstry data
+			string path = "HKCU:\\Software\\DAUM\\" + exeName + "\\" + section;
+			
+			string cmd = "powershell";
+			string para = "-NoProfile -Command ";
+			string cmd2 = "[Console]::OutputEncoding = [System.Text.Encoding]::UTF8; ";
+			cmd2 += "$p = '" + path + "'; ";
+			cmd2 += "if(Test-Path $p) { ";
+			if (!key.empty())
+			{
+				cmd2 += "(Get-ItemProperty -Path $p).'" + key + "'";
+			}
+			else
+			{
+				cmd2 += "$k = Get-Item $p; ";
+				cmd2 += "$k.GetValueNames() | ForEach-Object { \"$_=$($k.GetValue($_))\" }";
+			}
+			cmd2 += " }";
+			para += tx.qt(cmd2);
+			
+			data = HostExecuteProgram(cmd, para);
+			
+			if (!key.empty())
+			{
+				while (data.Right(2) == "\r\n")
+				{
+					data = data.Left(data.length() - 2);
+				}
+			}
+		}
+		return data;
+	}
+	
 	
 	bool playerAddList(string url, int playlistExpandMode = 0)
 	{
@@ -2197,19 +2280,19 @@ class SHOUTPL
 		for (uint i = 0; i < 20; i++)
 		{
 			array<dictionary> match;
-			pos = tx.regExpParse(data, "<track>(.+?)</track>", match, pos);
+			pos = tx.regExpParse(data, "<track>([^<]+)</track>", match, pos);
 			if (pos < 0) break;
 			
 			string s0 = string(match[0]["str"]);
 			pos += s0.length();
 			string track = string(match[1]["str"]);
-			string title = HostRegExpParse(track, "<title>(.+?)</title>");
+			string title = HostRegExpParse(track, "<title>([^<]+)</title>");
 			{
 				title = _reviseName(title);
 				if (i == 0) getTitle = title;
 				else if (title != getTitle) break;
 			}
-			string fmtUrl = HostRegExpParse(track, "<location>(.+?)</location>");
+			string fmtUrl = HostRegExpParse(track, "<location>([^<]+)</location>");
 			if (outUrl.empty()) outUrl = fmtUrl;
 			
 			if (@QualityList !is null)
@@ -2524,10 +2607,10 @@ class JSON
 		
 		key1 = tx.escapeReg(key1);
 		key2 = tx.escapeReg(key2);
-		string key1Area = HostRegExpParse(json, "\"" + key1 + "\":\\s?\\[(.+?)\\]");
+		string key1Area = HostRegExpParse(json, "\"" + key1 + "\":\\s?\\[([^\\]]+)\\]");
 		if (key1Area.empty())
 		{
-			key1Area = HostRegExpParse(json, "\"" + key1 + "\":\\s?\\{(.+?)\\}");
+			key1Area = HostRegExpParse(json, "\"" + key1 + "\":\\s?\\{([^}]+)\\}");
 		}
 		if (!key1Area.empty())
 		{
@@ -2536,7 +2619,7 @@ class JSON
 			int pos = 0;
 			while (true)
 			{
-				pos = tx.findRegExp(key1Area, "\"" + key2 + "\":\\s?\"(.+?)\"", _value, pos);
+				pos = tx.findRegExp(key1Area, "\"" + key2 + "\":\\s?\"([^\"]+)\"", _value, pos);
 				if (pos < 0) break;
 				value = _value;
 				pos += 1;
@@ -2836,7 +2919,11 @@ class CACHE
 				if (false)
 				{
 					string msg = "Cache size (temporary JSON): ";
-					msg += (size / 1024) + " / " + (totalSize / 1024) + " KB";
+					uint kSize = size / 1024;
+					if (kSize == 0) kSize = 1;
+					uint kTotalSize = totalSize / 1024;
+					if (kTotalSize == 0) kTotalSize = 1;
+					msg += kSize + " / " + kTotalSize + " KB";
 					msg += " - " + tx.qt(url) + "\r\n";
 					HostPrintUTF8(msg);
 				}
@@ -2893,7 +2980,11 @@ class CACHE
 				HostPrintUTF8("Compression rate (QualityList): " + compRate2 + "%");
 			}
 			string msg = "Cache size (MetaData & QualityList): ";
-			msg += (size / 1024) + " / " + (totalSize / 1024) + " KB";
+			uint kSize = size / 1024;
+			if (kSize == 0) kSize = 1;
+			uint kTotalSize = totalSize / 1024;
+			if (kTotalSize == 0) kTotalSize = 1;
+			msg += kSize + " / " + kTotalSize + " KB";
 			msg += " - " + tx.qt(url) + "\r\n";
 			HostPrintUTF8(msg);
 		}
@@ -2937,7 +3028,11 @@ class CACHE
 					HostPrintUTF8("Compression rate (MetaDataList): " + compRate + "%");
 				}
 				string msg = "Cache size (MetaDataList): ";
-				msg += (size / 1024) + " / " + (totalSize / 1024) + " KB";
+				uint kSize = size / 1024;
+				if (kSize == 0) kSize = 1;
+				uint kTotalSize = totalSize / 1024;
+				if (kTotalSize == 0) kTotalSize = 1;
+				msg += kSize + " / " + kTotalSize + " KB";
 				msg += " - " + tx.qt(url) + "\r\n";
 				HostPrintUTF8(msg);
 			}
@@ -3096,15 +3191,15 @@ class HIST
 		item.set("cancelTime", 0);
 		item.set("noSaveCache", false);
 		
-		int doubleCall = _judgeDoubleCall(path, toAlbum, startTime);
-		item.set("doubleCall", doubleCall);
+		int doubleTrigger = _judgeDoubleTrigger(path, toAlbum, startTime);
+		item.set("doubleTrigger", doubleTrigger);
 		
 		list.insertAt(0, item);
 	}
 	
 	void remove(string path, bool toAlbum, uint startTime)
 	{
-		uint idx = find(path, toAlbum, startTime, 0);
+		int idx = find(path, toAlbum, startTime, 0);
 		if (idx >= 0)
 		{
 			list[idx].set("finish", true);
@@ -3128,33 +3223,33 @@ class HIST
 		}
 	}
 	
-	int _judgeDoubleCall(string path, bool toAlbum, uint startTime)
+	int _judgeDoubleTrigger(string path, bool toAlbum, uint startTime)
 	{
-		int doubleCall = 0;
+		int doubleTrigger = 0;
 		if (list.length() > 0)
 		{
 			if (string(list[0]["path"]) == path)
 			{
 				if (bool(list[0]["toAlbum"]) == toAlbum)
 				{
-					if (int(list[0]["doubleCall"]) == 0)
+					if (int(list[0]["doubleTrigger"]) == 0)
 					{
 						uint prevStartTime = uint(list[0]["startTime"]);
 						if (startTime >= prevStartTime)
 						{
 							uint diffTime = startTime - prevStartTime;
-	//HostPrintUTF8("diffTime: " + diffTime);
-							if (diffTime < DOUBLE_CALL_INTERVAL_1)
+//HostPrintUTF8("diffTime: " + diffTime);
+							if (diffTime < DOUBLE_TRIGGER_INTERVAL_1)
 							{
-								doubleCall = 1;
+								doubleTrigger = 1;
 							}
-							else if (diffTime < DOUBLE_CALL_INTERVAL_2)
+							else if (diffTime < DOUBLE_TRIGGER_INTERVAL_2)
 							{
-								doubleCall = 2;
+								doubleTrigger = 2;
 							}
-							if (doubleCall > 0)
+							if (doubleTrigger > 0)
 							{
-								list[0]["doubleCall"] = -1;
+								list[0]["doubleTrigger"] = -1;
 								list[0]["noSaveCache"] = false;
 							}
 						}
@@ -3162,18 +3257,18 @@ class HIST
 				}
 			}
 		}
-		return doubleCall;
+		return doubleTrigger;
 	}
 	
-	int getDoubleCall(string path, bool toAlbum, uint startTime)
+	int getDoubleTrigger(string path, bool toAlbum, uint startTime)
 	{
 		int idx = find(path, toAlbum, startTime, 0);
-		return int(list[idx]["doubleCall"]);
+		return int(list[idx]["doubleTrigger"]);
 	}
 	
 	void blockSaveCache(string path, bool toAlbum, uint startTime)
 	{
-		uint idx = find(path, toAlbum, startTime, 0);
+		int idx = find(path, toAlbum, startTime, 0);
 		if (idx >= 0)
 		{
 			uint cancelTime = HostGetTickCount();
@@ -3192,7 +3287,7 @@ class HIST
 							}
 							if (!bool(list[i]["noSaveCache"]))
 							{
-								if (int(list[i]["doubleCall"]) == 0)
+								if (int(list[i]["doubleTrigger"]) == 0)
 								{
 									list[i]["noSaveCache"] = true;
 								}
@@ -3225,7 +3320,7 @@ class HIST
 				}
 				if (!bool(list[i]["noSaveCache"]))
 				{
-					if (int(list[i]["doubleCall"]) == 0)
+					if (int(list[i]["doubleTrigger"]) == 0)
 					{
 						uint startTime = uint(list[i]["startTime"]);
 						if (cancelTime >= startTime)
@@ -3252,8 +3347,8 @@ class HIST
 			uint cancelTime = uint(list[idx]["cancelTime"]);
 			if (cancelTime > 0 && cancelTime >= startTime)
 			{
-				int doubleCall = int(list[idx]["doubleCall"]);
-				if (showMsg && doubleCall >= 0)
+				int doubleTrigger = int(list[idx]["doubleTrigger"]);
+				if (showMsg && doubleTrigger >= 0)
 				{
 					HostPrintUTF8("[yt-dlp] Canceled - " + tx.qt(inUrl) + "\r\n");
 				}
@@ -3281,7 +3376,8 @@ class YTDLP
 	string version;
 	string tmpHash;
 	uint updateCheckTime = 0;	// milliseconds
-	uint UPDATE_CHECK_INTERVAL = 7200000;	// milliseconds
+	uint UPDATE_CHECK_INTERVAL = 7200000;	// milliseconds (2 hours)
+	string DUMMY_REFERER = "https://referer.example";
 	
 	array<string> errors = {"(OK)", "(NOT FOUND)", "(LOOKS INVALID)", "(CRITICAL ERROR!)"};
 	int error = 0;
@@ -3444,23 +3540,19 @@ class YTDLP
 		cfg.deleteKey("MAINTENANCE", "update_ytdlp");
 		string msg = "\"yt-dlp.exe\" did not work as expected.\r\n";
 		//HostPrintUTF8("\r\n[yt-dlp] CRITICAL ERROR! " + msg);
-		msg += "If there are no problems, set [critical_error] to 0 in the config file and reload the script.";
+		msg += "If there are no problems, set 'critical_error' to 0 in the config file and reload the script.";
 		HostMessageBox(msg, "[yt-dlp] CRITICAL ERROR", 3, 2);
 	}
 	
 	bool _fileCopy(string srcPath, string dstPath)
 	{
-		// Hidden files are not supported.
-		string cmd = "cmd.exe";
-		string para = "/c copy /y /b /v";
-		para += " " + tx.qt("\\\\?\\" + srcPath);
-		para += " " + tx.qt("\\\\?\\" + dstPath);
+		string cmd = "powershell";
+		string para = "-NoProfile -Command ";
+		string cmd2 = "(Copy-Item '" + srcPath + "' '" + dstPath + "' -PassThru).Count";
+		para += tx.qt(cmd2);
+		
 		string ret = HostExecuteProgram(cmd, para);
-//HostPrintUTF8("File Copy: " + ret);
-		if (ret.find("1 file(s) copied") >= 0)
-		{
-			return true;
-		}
+		if (parseInt(ret) == 1) return true;
 		return false;
 	}
 	
@@ -3550,13 +3642,14 @@ class YTDLP
 		if (output.find("ERROR:") >= 0)
 		{
 			output += "\r\n\r\n";
-			output += "If the folder is not writable, you can change the [ytdlp_location] setting.";
+			output += "If the folder is not writable, you can change the 'ytdlp_location' setting.";
 		}
 		HostMessageBox(output, "[yt-dlp] INFO: Update yt-dlp.exe", 2, 1);
 		
 		if (checkFileInfo() > 0)
 		{
 			restoreExe();
+			
 			if (checkFileInfo() > 0)
 			{
 				string msg =
@@ -3591,9 +3684,9 @@ class YTDLP
 						"Unable to overwrite:\r\n";
 					msg += exePath + "\r\n"
 						"\r\n"
-						"You can change the [ytdlp_location] setting to a location with write permission.\r\n"
+						"You can change the 'ytdlp_location' setting to a location with write permission.\r\n"
 						"\r\n"
-						"The [update_ytdlp] setting has been reset.";
+						"The 'update_ytdlp' setting has been reset.";
 					HostMessageBox(msg, "[yt-dlp] ALERT: Auto Update", 0, 0);
 					return -1;
 				}
@@ -3609,7 +3702,7 @@ class YTDLP
 					string msg =
 						"Automatic update seems to have failed.\r\n"
 						"\r\n"
-						"The [update_ytdlp] setting has been reset.\r\n";
+						"The 'update_ytdlp' setting has been reset.\r\n";
 					
 					if (checkFileInfo() > 0)	// fialed to restore
 					{
@@ -3619,7 +3712,7 @@ class YTDLP
 					}
 					else
 					{
-						msg += "Set [update_ytdlp] back to 1 to retry, or try setting it to 2.";
+						msg += "Try setting it to 2, or set it back to 1 to retry.";
 						HostMessageBox(msg, "[yt-dlp] ERROR: Auto Update", 0, 0);
 						return -1;
 					}
@@ -3687,11 +3780,11 @@ class YTDLP
 	bool _checkLogBrowser(string log)
 	{
 		bool check = false;
-		if (tx.findRegExp(log, "(?i)\\nERROR: Could not [^\r\n]+? cookies? database") >= 0) check = true;
+		if (tx.findRegExp(log, "(?i)\\nERROR: Could not [^\r\n]+ cookies? database") >= 0) check = true;
 		if (tx.findRegExp(log, "(?i)\\nERROR: Failed to decrypt with DPAPI") >= 0) check = true;
 		if (check)
 		{
-			string msg = "Check your [cookie_browser] setting.";
+			string msg = "Check your 'cookie_browser' setting.";
 			if (cfg.csl > 0) HostPrintUTF8("[yt-dlp] ERROR! " + msg + "\r\n");
 			msg += "\r\nIt will be commented out.";
 			HostMessageBox(msg, "[yt-dlp] ERROR: Cookie Browser", 0, 0);
@@ -3706,7 +3799,7 @@ class YTDLP
 		int pos1 = tx.findRegExp(log, "(?i)\nERROR: \\[youtube\\] [^\r\n]*(Unsupported language code:)");
 		if (pos1 >= 0)
 		{
-			if (cfg.csl > 0) HostPrintUTF8("[yt-dlp] ERROR! Your language code [base_lang] is not supported for the menu label on YouTube.\r\n");
+			if (cfg.csl > 0) HostPrintUTF8("[yt-dlp] ERROR! Your language code 'base_lang' is not supported for the menu label on YouTube.\r\n");
 			int pos2 = tx.findEol(log, pos1);
 			string msg = log.substr(pos1, pos2 - pos1);
 			int pos = tx.findRegExp(msg, ". Supported language codes");
@@ -3810,36 +3903,32 @@ class YTDLP
 	{
 		// Server error 403 or 404
 		int pos = tx.findRegExp(log, "(?i)\\nERROR: [^\r\n]*HTTP Error 40[34]");
-		if (pos >= 0)
+		if (pos < 0) return 0;
+		
+		if (!referer.empty())
 		{
-			if (referer.empty())
-			{
-				string line = tx.getLine(log, pos + 1);
-				if (tx.findI(line, "Cloudflare anti-bot") >= 0)
-				{
-					return -2;
-				}
-				else
-				{
-					referer = cfg.getStr("NETWORK", "referer");
-					if (!referer.empty())
-					{
-						if (referer.find("http") == 0)
-						{
-							return -1;
-						}
-						referer = "";
-						cfg.cmtoutKey("NETWORK", "referer");
-					}
-				}
-			}
 			string msg = "Access forbidden or not found.";
 			if (cfg.csl > 0) HostPrintUTF8("[yt-dlp] " + msg + " - " + tx.qt(url) + "\r\n");
-			//msg += "\r\nIf you have a valid referer, set the referer option in the [NETWORK] section and try again.\r\n";
 			HostMessageBox(msg + "\r\n" + url, "[yt-dlp] INFO: Access Forbidden", 2, 1);
 			return 1;
 		}
-		return 0;
+		
+		referer = cfg.getStr("NETWORK", "referer");
+		if (!referer.empty())
+		{
+			if (referer.find("http") != 0)
+			{
+				cfg.cmtoutKey("NETWORK", "referer");
+				referer = "";
+			}
+		}
+		
+		if (referer.empty())
+		{
+			referer = DUMMY_REFERER;
+		}
+		
+		return -1;
 	}
 	
 	void _printNoEntries(string log, string url)
@@ -3920,7 +4009,7 @@ class YTDLP
 	bool _removeMetadata(string &inout log)
 	{
 		// Remove the metadata area that cannot be used for judgment.
-		string reg = "(?i)(\\n\\[debug\\] ffmpeg command line:.+?)\\n(?:\\[|error:|warning:)";
+		string reg = "(?i)(\\n\\[debug\\] ffmpeg command line:[^\r\n]+)\\n(?:\\[|error:|warning:)";
 		string _s;
 		int pos = tx.findRegExp(log, reg, _s);
 		if (pos >= 0)
@@ -3931,66 +4020,66 @@ class YTDLP
 		return false;
 	}
 	
-	array<string> _getJsonList(string str, uint &out logPos)
+	array<string> _getJsonList(string data, uint &out logPos)
 	{
 		array<string> jsonList = {};
 		logPos = 0;
 		
 		int pos1;
-		if (str.Left(1) == "{")
+		if (data.Left(1) == "{")
 		{
 			pos1 = 0;
 		}
 		else
 		{
-			pos1 = str.find("\n{", 0);
+			pos1 = data.find("\n{", 0);
 			if (pos1 >= 0) pos1 += 1;
 		}
 		
 		if (pos1 >= 0)
 		{
-			int top0;
+			int pos0;
 			do {
-				top0 = pos1;
-				int pos2 = str.find("}\n", pos1);
+				pos0 = pos1;
+				int pos2 = data.find("}\n", pos1);
 				if (pos2 < 0) break;
 				pos2 += 1;
-				string json = str.substr(pos1, pos2 - pos1);
+				string json = data.substr(pos1, pos2 - pos1);
 				jsonList.insertLast(json);
 				logPos = pos2 + 1;
-				pos1 = str.find("\n{", pos2);
+				pos1 = data.find("\n{", pos2);
 				if (pos1 < 0) break;
 				pos1 += 1;
-			} while (pos1 > top0);
+			} while (pos1 > pos0);
 		}
 		
 		return jsonList;
 	}
 	
-	array<string> _getJsonList(string str)
+	array<string> _getJsonList(string data)
 	{
 		uint logPos;
-		return _getJsonList(str, logPos);
+		return _getJsonList(data, logPos);
 	}
 	
-	array<string> _getJsonList2(string str, uint &out logPos)
+	array<string> _getJsonList2(string data, uint &out logPos)
 	{
 		// Too slow to handle a large playlist
 		
 		array<string> jsonList;
 		logPos = 0;
-		str = "\n" + str;
+		data = "\n" + data;
 		
 		int pos1 = 0;
 		int pos0;
 		do {
 			pos0 = pos1;
 			
-			pos1 = str.find("\n{", pos1);
+			pos1 = data.find("\n{", pos1);
 			if (pos1 >= 0)
 			{
 				pos1 += 1;
-				string json = tx.getLine(str, pos1);
+				string json = tx.getLine(data, pos1);
 				if (json.Right(1) == "}")
 				{
 					jsonList.insertLast(json);
@@ -4021,7 +4110,7 @@ class YTDLP
 			}
 			if (retry.find("http") == 0)
 			{
-				msg += " (Retry wtih referer)";
+				msg += " (with Referer)";
 			}
 			else if (!retry.empty())
 			{
@@ -4124,13 +4213,8 @@ class YTDLP
 		options += " --encoding \"utf8\"";	// prevent garbled text
 		
 		_addOptionsNetwork(options);
-		if (retry == "with impersonation")
-		{
-			string impersonate = cfg.getStr("NETWORK", "impersonate");
-			impersonate.replace(" ", "");
-			options += " --extractor-args " + tx.qt("generic:impersonate=" + impersonate);
-		}
-		else if (retry.find("http") == 0)	// referer
+		
+		if (retry.find("http") == 0)	// referer
 		{
 			options += " --add-headers " + tx.qt("Referer: " + retry);
 		}
@@ -4228,11 +4312,12 @@ class YTDLP
 					}
 				}
 			}
-			if (_checkLogLiveOffline(log, url)) return {};
 			
+			if (_checkLogLiveOffline(log, url)) return {};
 			if (_checkLogServerBlock(log, url)) return {};
 			if (_checkLogGeoRestriction(log, url)) return {};
 			if (_checkLogRegisteredOnly(log, url)) return {};
+			
 			int forbidden = _checkLogForbidden(log, url, retry);
 			if (forbidden != 0)
 			{
@@ -4240,10 +4325,6 @@ class YTDLP
 				{
 					// Retry with referer(=retry)
 					return exec1(url, playlistMode, retry);
-				}
-				else if (forbidden == -2)
-				{
-					return exec1(url, playlistMode, "with impersonation");
 				}
 				return {};
 			}
@@ -4478,8 +4559,45 @@ class YTDLP
 		}
 	}
 	
-	uint _countJson(string &inout data, bool eraseMessage)
+	uint _countJson(string &inout data, bool eraseMsg)
 	{
+		uint cnt = 0;
+		int pos1 = 0;
+		int pos2 = 0;
+		
+		if (data.Left(1) != "{")
+		{
+			pos1 = data.find("\n{", pos2);
+		}
+		
+		while (pos1 >= 0)
+		{
+			if (eraseMsg && pos1 > pos2)
+			{
+				data.erase(pos2, pos1 - pos2);
+				pos1 = pos2;
+			}
+			pos2 = data.find("}\n", pos1);
+			if (pos2 < 0) break;
+			pos2 += 1;
+			cnt++;
+			
+			pos1 = data.find("\n{", pos2);
+			if (pos1 < 0) break;
+		}
+		
+		if (eraseMsg && pos1 < 0)
+		{
+			data = data.Left(pos2);
+		}
+		
+		return cnt;
+	}
+	
+	uint _countJson2(string &inout data, bool eraseMsg)
+	{
+		// Too slow to handle a large playlist
+		
 		uint cnt = 0;
 		int pos = 0;
 		do {
@@ -4489,7 +4607,7 @@ class YTDLP
 				cnt++;
 				pos = tx.findNextLineTop(data, pos);
 			}
-			else if (eraseMessage)
+			else if (eraseMsg)
 			{
 				tx.eraseLine(data, pos);
 			}
@@ -4525,12 +4643,13 @@ class YTDLP
 	{
 		if (url.empty()) return "";
 		string output;
-		int waitTime = cfg.getInt("TARGET", "playlist_items_timeout");
-		if (waitTime < 0)
+		int PlaylistItemsTimeout = cfg.getInt("TARGET", "playlist_items_timeout");
+		if (PlaylistItemsTimeout < 0)
 		{
 			cfg.setInt("TARGET", "playlist_items_timeout", 0);
-			waitTime = 0;
+			PlaylistItemsTimeout = 0;
 		}
+		uint waitTime = uint(PlaylistItemsTimeout);
 		
 		if (waitTime == 0)
 		{
@@ -4541,8 +4660,7 @@ class YTDLP
 			if (cfg.csl > 0)
 			{
 				uint cnt = _countJson(output, false);
-				int elapsedTime = (HostGetTickCount() - startTime)/1000;
-				if (elapsedTime < 0) elapsedTime = -1;
+				uint elapsedTime = (HostGetTickCount() - startTime)/1000;
 				string msg;
 				msg = "  Count: " + cnt;
 				msg += "\t\tTime: " + elapsedTime + " sec";
@@ -4587,8 +4705,7 @@ class YTDLP
 				cnt += addCnt;
 				if (addCnt > 0)
 				{
-					int elapsedTime = (HostGetTickCount() - startTime)/1000;
-					if (elapsedTime < 0) elapsedTime = -1;
+					uint elapsedTime = (HostGetTickCount() - startTime)/1000;
 					if (cfg.csl > 0)
 					{
 						string msg = "  Count: " + cnt;
@@ -4600,7 +4717,7 @@ class YTDLP
 						complete = 1;
 						break;
 					}
-					if (elapsedTime < 0 || elapsedTime >= waitTime)
+					if (elapsedTime >= waitTime)
 					{
 						break;
 					}
@@ -4631,7 +4748,7 @@ class YTDLP
 		string joinedUrls = "";
 		for (uint i = 0; i < urls.length(); i++) joinedUrls += " " + urls[i];
 		
-		int waitTime = cfg.getInt("TARGET", "playlist_items_timeout");
+		uint waitTime = uint(cfg.getInt("TARGET", "playlist_items_timeout"));
 		if (waitTime == 0)
 		{
 			HostIncTimeOut(2000000);
@@ -4641,8 +4758,7 @@ class YTDLP
 			if (cfg.csl > 0)
 			{
 				uint cnt = _countJson(output, false);
-				int elapsedTime = (HostGetTickCount() - startTime)/1000;
-				if (elapsedTime < 0) elapsedTime = -1;
+				uint elapsedTime = (HostGetTickCount() - startTime)/1000;
 				string msg;
 				{
 					msg += "  Count: " + cnt;
@@ -4672,8 +4788,7 @@ class YTDLP
 				options += " -I " + i + ":" + (i + unitIdx - 1);
 				string addOutput = HostExecuteProgram(tx.qt(exePath), options + " --" + joinedUrls);
 				uint addCnt = _countJson(addOutput, false);
-				int elapsedTime = (HostGetTickCount() - startTime)/1000;
-				if (elapsedTime < 0) elapsedTime = -1;
+				uint elapsedTime = (HostGetTickCount() - startTime)/1000;
 				if (addCnt > 0)
 				{
 					output += addOutput;
@@ -4686,7 +4801,7 @@ class YTDLP
 					}
 				}
 				if (addCnt < unitIdx) break;
-				if (elapsedTime < 0 || elapsedTime >= waitTime)
+				if (elapsedTime >= waitTime)
 				{
 					timeout = true;
 					break;
@@ -4710,19 +4825,20 @@ class YTDLP
 		if (urls.length() == 0) return "";
 		string output;
 		
-		int waitTime;
+		uint waitTime;
 		if (isResponsive)
 		{
-			waitTime = cfg.getInt("TARGET", "playlist_items_timeout");
+			waitTime = uint(cfg.getInt("TARGET", "playlist_items_timeout"));
 		}
 		else
 		{
-			waitTime = cfg.getInt("TARGET", "playlist_metadata_timeout");
-			if (waitTime < 0)
+			int PlaylistMetadataTimeout = cfg.getInt("TARGET", "playlist_metadata_timeout");
+			if (PlaylistMetadataTimeout < 0)
 			{
 				cfg.setInt("TARGET", "playlist_metadata_timeout", 0);
-				waitTime = 0;
+				PlaylistMetadataTimeout = 0;
 			}
+			waitTime = uint(PlaylistMetadataTimeout);
 		}
 		
 		uint unitIdx = 10;
@@ -4738,8 +4854,7 @@ class YTDLP
 			if (cfg.csl > 0)
 			{
 				uint cnt = _countJson(output, false);
-				int elapsedTime = (HostGetTickCount() - startTime)/1000;
-				if (elapsedTime < 0) elapsedTime = -1;
+				uint elapsedTime = (HostGetTickCount() - startTime)/1000;
 				string msg = "";
 				{
 					msg += "  Count: " + cnt;
@@ -4773,8 +4888,7 @@ class YTDLP
 				}
 				string addOutput = HostExecuteProgram(tx.qt(exePath), options + " --" + joinedUrls);
 				uint addCnt = _countJson(addOutput, false);
-				int elapsedTime = (HostGetTickCount() - startTime)/1000;
-				if (elapsedTime < 0) elapsedTime = -1;
+				uint elapsedTime = (HostGetTickCount() - startTime)/1000;
 				if (addCnt > 0)
 				{
 					output += addOutput;
@@ -4787,7 +4901,7 @@ class YTDLP
 					}
 				}
 				if (complete) break;
-				if (elapsedTime < 0 || elapsedTime >= waitTime) break;
+				if (elapsedTime >= waitTime) break;
 			}
 			if (cfg.csl > 0)
 			{
@@ -4970,19 +5084,19 @@ string GetDesc()
 			case 1:
 				info += "\r\n\r\n"
 				"| Cannot find \"yt-dlp.exe\".\r\n"
-				"| Place \"yt-dlp.exe\" in [ytdlp_location]\r\n"
-				"| or check the [ytdlp_location] setting.\r\n";
+				"| Place \"yt-dlp.exe\" in 'ytdlp_location'\r\n"
+				"| or check the 'ytdlp_location' setting.\r\n";
 				break;
 			case 2:
 				info += "\r\n\r\n"
 				"| Your \"yt-dlp.exe\" may not be valid.\r\n"
 				"| Replace it with a proper one or\r\n"
-				"| check the [ytdlp_location] folder.\r\n";
+				"| check the 'ytdlp_location' folder.\r\n";
 				break;
 			case 3:
 				info += "\r\n\r\n"
 				"| Your \"yt-dlp.exe\" did not work as expected.\r\n"
-				"| After checking, set [critical_error] to 0\r\n"
+				"| After checking, set 'critical_error' to 0\r\n"
 				"| in the config file and reload the script.\r\n";
 				break;
 		}
@@ -4999,56 +5113,67 @@ bool _IsExtType(string ext, int type)
 	if (ext.Left(1) == ".") ext = ext.substr(1);
 	ext.MakeLower();
 	
-	array<string> exts;
+	array<string> extList;
 	{
 		if (type & 0x1 > 0)	// image
 		{
-			array<string> extsImage = {"jpg", "jpeg", "png", "gif", "webp"};
-			exts.insertAt(exts.length(), extsImage);
+			array<string> imageExtList = {"jpg", "jpeg", "png", "gif", "webp"};
+			extList.insertAt(extList.length(), imageExtList);
 		}
 		if (type & 0x10 > 0)	// video
 		{
-			array<string> extsVideo = {"avi", "wmv", "wmp", "wm", "asf", "mpg", "mpeg", "mpe", "m1v", "m2v", "mpv2", "mp2v", "ts", "tp", "tpr", "trp", "vob", "ifo", "ogm", "ogv", "mp4", "m4v", "m4p", "m4b", "3gp", "3gpp", "3g2", "3gp2", "mkv", "rm", "ram", "rmvb", "rpm", "flv", "swf", "mov", "qt", "amr", "nsv", "dpg", "m2ts", "m2t", "mts", "dvr-ms", "k3g", "skm", "evo", "nsr", "amv", "divx", "webm", "wtv", "f4v", "mxf"};
-			exts.insertAt(exts.length(), extsVideo);
+			array<string> videoExtList = {"avi", "wmv", "wmp", "wm", "asf", "mpg", "mpeg", "mpe", "m1v", "m2v", "mpv2", "mp2v", "ts", "tp", "tpr", "trp", "vob", "ifo", "ogm", "ogv", "mp4", "m4v", "m4p", "m4b", "3gp", "3gpp", "3g2", "3gp2", "mkv", "rm", "ram", "rmvb", "rpm", "flv", "swf", "mov", "qt", "amr", "nsv", "dpg", "m2ts", "m2t", "mts", "dvr-ms", "k3g", "skm", "evo", "nsr", "amv", "divx", "webm", "wtv", "f4v", "mxf"};
+			extList.insertAt(extList.length(), videoExtList);
 		}
 		if (type & 0x100 > 0)	// audio
 		{
-			array<string> extsAudio = {"wav", "wma", "mpa", "mp2", "m1a", "m2a", "mp3", "ogg", "m4a", "aac", "mka", "ra", "flac", "ape", "mpc", "mod", "ac3", "eac3", "dts", "dtshd", "wv", "tak", "cda", "dsf", "tta", "aiff", "aif", "aifc" "opus", "amr"};
-			exts.insertAt(exts.length(), extsAudio);
+			array<string> audioExtList = {"wav", "wma", "mpa", "mp2", "m1a", "m2a", "mp3", "ogg", "m4a", "aac", "mka", "ra", "flac", "ape", "mpc", "mod", "ac3", "eac3", "dts", "dtshd", "wv", "tak", "cda", "dsf", "tta", "aiff", "aif", "aifc" "opus", "amr"};
+			extList.insertAt(extList.length(), audioExtList);
 		}
 		if (type & 0x1000 > 0)	// playlist
 		{
-			array<string> extsPlaylist = {"m3u8", "m3u", "asx", "pls", "wvx", "wax", "wmx", "cue", "mpls", "mpl", "xspf", "mpd", "dpl"};
+			array<string> playlistExtList = {"m3u8", "m3u", "asx", "pls", "wvx", "wax", "wmx", "cue", "mpls", "mpl", "xspf", "mpd", "dpl"};
 				// exclude "xml", "rss"
-			exts.insertAt(exts.length(), extsPlaylist);
+			extList.insertAt(extList.length(), playlistExtList);
 		}
 		if (type & 0x10000 > 0)	// subtitles
 		{
-			array<string> extsSubtitles = {"smi", "srt", "idx", "sub", "sup", "psb", "ssa", "ass", "txt", "usf", "xss.*.ssf", "rt", "lrc", "sbv", "vtt", "ttml", "srv"};
-			exts.insertAt(exts.length(), extsSubtitles);
+			array<string> subtitleExtList = {"smi", "srt", "idx", "sub", "sup", "psb", "ssa", "ass", "txt", "usf", "xss.*.ssf", "rt", "lrc", "sbv", "vtt", "ttml", "srv"};
+			extList.insertAt(extList.length(), subtitleExtList);
 		}
 		if (type & 0x100000 > 0)	// compressed
 		{
-			array<string> extsCompressed = {"zip", "rar", "tar", "7z", "gz", "xz", "cab", "bz2", "lzma", "rpm"};
-			exts.insertAt(exts.length(), extsCompressed);
+			array<string> compressedExtList = {"zip", "rar", "tar", "7z", "gz", "xz", "cab", "bz2", "lzma", "rpm"};
+			extList.insertAt(extList.length(), compressedExtList);
 		}
 		if (type & 0x1000000 > 0)	// xml, rss
 		{
-			array<string> extsXml = {"xml", "rss"};
-			exts.insertAt(exts.length(), extsXml);
+			array<string> xmlExtList = {"xml", "rss"};
+			extList.insertAt(extList.length(), xmlExtList);
 		}
 	}
 	
-	if (exts.find(ext) >= 0) return true;
+	if (extList.find(ext) >= 0) return true;
 	return false;
 }
 
-bool _IsTypicalMediaExt(string path)
+bool _IsBasicMediaExt(string path)
 {
 	string ext = HostGetExtension(path);
-	if (_IsExtType(ext, 0x1111))
+	if (!ext.empty())
 	{
-		return true;
+		if (ext.Left(1) == ".") ext = ext.substr(1);
+		ext.MakeLower();
+		
+		array<string> extList = {
+			"mp4", "mkv", "ts", "wmv", "webm", 
+			"mp3", "flac", "m4a",
+			"jpg", "png", "gif", "webp"
+		};
+		if (extList.find(ext) >= 0)
+		{
+			return true;
+		}
 	}
 	return false;
 }
@@ -5074,7 +5199,7 @@ bool _IsUrlSite(string url, string website)
 	}
 	else if (website == "kakao")
 	{
-		if (HostRegExpParse(url, "//(?:[-\\w.]+\\.)?kakao\\.com(?:[/?#].*)?$", {})) return false;
+		if (HostRegExpParse(url, "//(?:[-\\w.]+\\.)?kakao\\.com(?:[/?#].*)?$", {})) return true;
 	}
 	else if (website == "shoutcast")
 	{
@@ -5287,7 +5412,7 @@ string _GetChatUrl(string url)
 string _GetUrlExtension(string url)
 {
 	url.MakeLower();
-	string ext = HostRegExpParse(url, "^https?://[^\\?#]+/[^/?#]+\\.(\\w+)(?:[?#].+)?$");
+	string ext = HostRegExpParse(url, "^https?://[^\\\\?#]+/[^/?#]+\\.(\\w+)(?:[?#].+)?$");
 	return ext;
 }
 
@@ -5368,12 +5493,6 @@ bool PlaylistCheck(const string &in path)
 	
 	if (!_PlayitemCheckBase(url))
 	{
-		if (_IsTypicalMediaExt(url))
-		{
-			// Only if local content is being opened
-			hist.add(path, true, HostGetTickCount(), true);
-			hist.cancelAll();
-		}
 		return false;
 	}
 	
@@ -5492,7 +5611,7 @@ bool _CheckRss(string url, string &out imgUrl)
 					string chHead = data.substr(pos1, pos2 - pos1);
 					
 					// Get the channel image, if available
-					string imgTag = HostRegExpParse(chHead, "<(?:\\w+:)?image(?:Link)?>(.+?)</(?:\\w+:)?image(?:Link)?>");
+					string imgTag = HostRegExpParse(chHead, "<(?:\\w+:)?image(?:Link)?>([^<]+)</(?:\\w+:)?image(?:Link)?>");
 					if (!imgTag.empty())
 					{
 						imgUrl = HostRegExpParse(imgTag, "\\b(http[^<\n]+\\.(?:jpg|png|gif))[<\n]");
@@ -5759,7 +5878,7 @@ int _PlaylistParseDirect(string inUrl, array<dictionary> &MetaDataList)
 			shoutpl.passPlaylist(inUrl, MetaDataList);
 			if (cfg.csl > 0)
 			{
-				HostPrintUTF8("[yt-dlp] Shoutcast playlist was not expanded according to the [shoutcast_playlist] setting. - " + tx.qt(inUrl) + "\r\n\r\n");
+				HostPrintUTF8("[yt-dlp] Shoutcast playlist was not expanded according to the 'shoutcast_playlist' setting. - " + tx.qt(inUrl) + "\r\n\r\n");
 			}
 		}
 		else
@@ -5841,25 +5960,22 @@ array<dictionary> _PlaylistParse(const string &in path, uint startTime, int play
 		int prevIdx = hist.findPrev(path, true, startTime, 0);
 		if (prevIdx < 0)
 		{
-//HostPrintUTF8("pl loop.1");
 			break;
 		}
 		
 		if (playlistForceExpand == 2)
 		{
 			hist.blockSaveCache(path, true, startTime);
-//HostPrintUTF8("pl loop.2");
 			break;
 		}
 		
 		// previous processing is still working
 //HostPrintUTF8("waiting...");
-		HostIncTimeOut(4000);
-		HostSleep(4000);
+		HostIncTimeOut(3000);
+		HostSleep(3000);
 		
 		if (hist.checkCancel(path, true, startTime, false) > 0)
 		{
-//HostPrintUTF8("pl loop.3");
 			return {};
 		}
 	}
@@ -5958,7 +6074,7 @@ array<dictionary> _PlaylistParse(const string &in path, uint startTime, int play
 	uint parseTime = (parseTime2 - parseTime1)/1000;
 	if (cfg.csl > 1 && parseTime > 4)
 	{
-		HostPrintUTF8("JSON list parsing time: " + parseTime + "sec");
+		HostPrintUTF8("JSON list parsing time: " + parseTime + " sec\r\n");
 	}
 	
 	if (MetaDataList.length() == 0) return {};
@@ -6222,8 +6338,7 @@ array<dictionary> _PlaylistParse(const string &in path, uint startTime, int play
 			MetaData["title"] = title;
 			
 			string thumb = string(MetaData0["thumbnail"]);
-			//if (thumb.empty())
-			if (true)
+			if (thumb.empty())
 			{
 				thumb = _GetPlaylistThumb();
 			}
@@ -6272,9 +6387,10 @@ array<dictionary> _PlaylistParse(const string &in path, uint startTime, int play
 		ytd.backupExe();
 		
 		if (hist.checkCancel(path, true, startTime) == 2) return {};
+		
 		if (MetaDataList.length() == 1)
 		{
-			if (!isWholePlaylist)	// not a playlist
+			if (!isWholePlaylist)	// not a playlist, just an item
 			{
 				cache.addJson(inUrl, jsonList[0], string(MetaDataList[0]["thumbnail"]));
 			}
@@ -6282,8 +6398,12 @@ array<dictionary> _PlaylistParse(const string &in path, uint startTime, int play
 			{
 				cache.addItem(inUrl, MetaDataList[0], {});
 			}
+			else	// playlist including only one item
+			{
+				cache.addPlaylist(inUrl, MetaDataList);
+			}
 		}
-		else
+		else	// playlist including multiple items
 		{
 			cache.addPlaylist(inUrl, MetaDataList);
 		}
@@ -6351,7 +6471,7 @@ array<dictionary> PlaylistParse(const string &in path)
 		// apply for the new PotPlayer window
 		playlistExpandMode = 10;
 		cfg.setInt("TARGET", "playlist_expand_mode", playlistExpandMode, true);
-		playlistForceExpand = 2;
+		playlistForceExpand = 1;
 	}
 	
 	array<dictionary> MetaDataList = {};
@@ -6363,57 +6483,78 @@ array<dictionary> PlaylistParse(const string &in path)
 	}
 	hist.remove(path, true, startTime);
 	
-	if (playlistExpandMode == 1 || playlistExpandMode == 2)
-	{
-		_BlockAutoRestore(MetaDataList, path, startTime, playlistExpandMode);
-	}
+	_BlockAutoRestore(MetaDataList, path, startTime, playlistExpandMode);
+	
 	return MetaDataList;
 }
 
 
 bool _BlockAutoRestore(array<dictionary> &MetaDataList, string path, uint startTime, int playlistExpandMode)
 {
+	if (playlistExpandMode != 1 && playlistExpandMode != 2) return false;
+	if (MetaDataList.length() == 0) return false;
+	
 	string prevPath = __BlockAutoRestoreAlbum(path, startTime);
 	if (!prevPath.empty())
 	{
 		string prevUrl = _ReviseUrl(prevPath);
-		int insertIdx = -1;
-		for (uint i = 0; i < MetaDataList.length(); i++)
-		{
-			if (string(MetaDataList[i]["webUrl"]) == prevUrl)
-			{
-				insertIdx = i;
-				break;
-			}
-		}
-		if (insertIdx >= 0)
+		if (prevPath == path)
 		{
 			array<dictionary> insertList;
-			for (uint i = 0; i < 20; i++)
+			for (uint i = 0; i < 3; i++)
 			{
 				insertList = cache.getPlaylist(prevUrl);
 				if (insertList.length() > 0) break;
-				HostSleep(2000);
+				HostSleep(3000);
 			}
+//HostPrintUTF8("insertList.length: " + insertList.length());
 			if (insertList.length() > 0)
 			{
 				MetaDataList.resize(0);
-				MetaDataList = insertList;
-				
-				/*
-				if (playlistExpandMode == 1)
-				{
-					insertIdx += MetaDataList.length();
-				}
-				else if (playlistExpandMode == 2)
-				{
-					insertIdx += 1;
-				}
-				MetaDataList.insertAt(insertIdx, insertList);
-				cache.addPlaylist(_ReviseUrl(path), MetaDataList, true);
-				*/
-				
+				MetaDataList.insertAt(0, insertList);
 				return true;
+			}
+		}
+		else
+		{
+			int insertIdx = -1;
+			for (uint i = 0; i < MetaDataList.length(); i++)
+			{
+				if (string(MetaDataList[i]["webUrl"]) == prevUrl)
+				{
+					insertIdx = i;
+					break;
+				}
+			}
+			if (insertIdx >= 0)
+			{
+				array<dictionary> insertList;
+				for (uint i = 0; i < 3; i++)
+				{
+					insertList = cache.getPlaylist(prevUrl);
+					if (insertList.length() > 0) break;
+					HostSleep(3000);
+				}
+				if (insertList.length() > 0)
+				{
+					MetaDataList.resize(0);
+					MetaDataList.insertAt(0, insertList);
+					
+					/*
+					if (playlistExpandMode == 1)
+					{
+						insertIdx += MetaDataList.length();
+					}
+					else if (playlistExpandMode == 2)
+					{
+						insertIdx += 1;
+					}
+					MetaDataList.insertAt(insertIdx, insertList);
+					cache.addPlaylist(_ReviseUrl(path), MetaDataList, true);
+					*/
+					
+					return true;
+				}
 			}
 		}
 	}
@@ -6428,6 +6569,25 @@ string __BlockAutoRestoreAlbum(string path, uint startTime)
 	
 	string prevPath = "";
 	bool block = false;
+	
+	{
+		// When expanding a playlist by double trigger
+		int curIdx = hist.find(path, true, startTime);
+		for (uint i = curIdx + 1; i < hist.list.length(); i++)
+		{
+			prevPath = string(hist.list[i]["path"]);
+			if (prevPath == path)
+			{
+				//if (bool(hist.list[i]["toAlbum"]))
+				{
+					if (___BlockAutoRestoreAlbum(i, startTime))
+					{
+						return prevPath;
+					}
+				}
+			}
+		}
+	}
 	
 	string inUrl = _ReviseUrl(path);
 	if (_IsYoutubeTabPlaylistType(inUrl))
@@ -6475,14 +6635,14 @@ bool ___BlockAutoRestoreAlbum(uint prevIdx, uint startTime)
 		uint prevFinishTime = uint(hist.list[prevIdx]["finishTime"]);
 		if (prevFinishTime == 0)
 		{
+//HostPrintUTF8("finishTime: 0");
 			return true;
 		}
-		if (prevFinishTime > 0)
+		else
 		{
 			if (startTime < prevFinishTime + 100)
 			{
-int diffTime = int(startTime) - int(prevFinishTime);
-//HostPrintUTF8("diffTime: " + diffTime);
+//HostPrintUTF8("diffTime: " + (int(startTime) - int(prevFinishTime)));
 				return true;
 			}
 		}
@@ -6500,11 +6660,15 @@ bool PlayitemCheck(const string &in path)
 	
 	if (!_PlayitemCheckBase(url))
 	{
-		if (_IsTypicalMediaExt(url))
+		if (false)
 		{
-			// Only if local content is being opened
-			hist.add(path, false, HostGetTickCount(), false);
-			hist.cancelAll();
+			if (_IsBasicMediaExt(url))
+			{
+				// Only if local content is being opened
+//HostPrintUTF8("local item: " + path);
+				hist.add(path, false, HostGetTickCount(), false);
+				hist.cancelAll();
+			}
 		}
 		return false;
 	}
@@ -6627,6 +6791,32 @@ string _GetUrlDomain(string url)
 }
 
 
+string _GetUrlDomain2(string url)
+{
+	// Get domain literally
+	int pos1 = url.find("://");
+	if (pos1 > 0)
+	{
+		pos1 += 3;
+		int pos2 = url.find("/", pos1);
+		if (pos2 > pos1)
+		{
+			return url.substr(pos1, pos2 - pos1);
+		}
+	}
+	return "";
+}
+
+
+string _GetRefererFromPotHist(string url)
+{
+	if (url.empty()) return "";
+	string domain = _GetUrlDomain2(url);
+	string referer = pot.getConfigData("_UrlReferer", domain);
+	return referer;
+}
+
+
 string _ReviseWebString(string desc)
 {
 	desc.replace("\\r\\n", "\n");
@@ -6738,17 +6928,14 @@ string _SupposeLangName(string note)
 	}
 	else
 	{
-		array<string> qualities = {"low", "medium", "large"};
-		array<string> words = note.split(",");
+		array<string> qualities = {"low", "medium", "high"};
+		array<string> words = tx.trimSplit(note, ",");
 		if (words.length() > 2)
 		{
 //HostPrintUTF8("Menu Word: " + words[1]);
-			for (uint i = 0; i < qualities.length(); i++)
+			if (qualities.find(words[1]) >= 0)
 			{
-				if (words[1] == " " + qualities[i])
-				{
-					return words[0];
-				}
+				return words[0];
 			}
 		}
 	}
@@ -7297,6 +7484,8 @@ string _ReviseCookie(string cookie)
 string _SetRequestHeader(string url, JsonValue jFormat)
 {
 	string reqHeader;
+	string referer;
+	string cookie;
 	
 	JsonValue jHeaders = jFormat["http_headers"];
 	if (jHeaders.isObject())
@@ -7310,7 +7499,6 @@ string _SetRequestHeader(string url, JsonValue jFormat)
 			//HostSetUrlUserAgentHTTP(url, userAgent);
 		}
 		
-		string referer;
 		jsn.getValueString(jHeaders, "Referer", referer);
 		if (!referer.empty())
 		{
@@ -7342,7 +7530,6 @@ string _SetRequestHeader(string url, JsonValue jFormat)
 		}
 	}
 	
-	string cookie;
 	jsn.getValueString(jFormat, "cookies", cookie);
 	if (!cookie.empty())
 	{
@@ -7353,13 +7540,10 @@ string _SetRequestHeader(string url, JsonValue jFormat)
 		HostSetUrlCookieHTTP(url, cookie);
 	}
 	
-	/*
-	// HostSetUrlHeaderHTTP is called in PlaylistParse
-	if (!reqHeader.empty())
+	if (!referer.empty() || !cookie.empty())
 	{
 		HostSetUrlHeaderHTTP(url, reqHeader);
 	}
-	*/
 	
 	return reqHeader;
 }
@@ -7371,7 +7555,7 @@ bool _CheckLiveThrough(dictionary &MetaData, string url)
 	{
 		if (cfg.csl > 0)
 		{
-			HostPrintUTF8("[yt-dlp] YouTube Live was passed through according to the [youtube_live] setting. - " + tx.qt(url) +"\r\n");
+			HostPrintUTF8("[yt-dlp] YouTube Live was passed through according to the 'youtube_live' setting. - " + tx.qt(url) +"\r\n");
 		}
 		return true;
 	}
@@ -8117,12 +8301,12 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 	string inUrl = _ReviseUrl(path);
 	string outUrl;
 	
-	int doubleCall = hist.getDoubleCall(path, false, startTime);
-	if (doubleCall == 1)
+	int doubleTrigger = hist.getDoubleTrigger(path, false, startTime);
+	if (doubleTrigger == 1)
 	{
 		if (cfg.csl > 0)
 		{
-			HostPrintUTF8("\r\nDouble Call - " + tx.qt(inUrl) + "\r\n");
+			HostPrintUTF8("\r\n[yt-dlp] Double Trigger - " + tx.qt(inUrl) + "\r\n");
 		}
 	}
 	
@@ -8134,10 +8318,10 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 			break;
 		}
 		
-		if (doubleCall > 0)
+		if (doubleTrigger > 0)
 		{
 			uint prevStartTime = uint(hist.list[prevIdx]["startTime"]);
-			if (startTime >= prevStartTime && startTime - prevStartTime  >= DOUBLE_CALL_INTERVAL_2)
+			if (startTime >= prevStartTime && startTime - prevStartTime  >= DOUBLE_TRIGGER_INTERVAL_2)
 			{
 				hist.blockSaveCache(path, false, startTime);
 				break;
@@ -8146,8 +8330,8 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		
 		// previous processing is still working
 //HostPrintUTF8("waiting...");
-		HostIncTimeOut(4000);
-		HostSleep(4000);
+		HostIncTimeOut(3000);
+		HostSleep(3000);
 		
 		if (hist.checkCancel(path, false, startTime, false) > 0) return "";
 	}
@@ -8157,43 +8341,41 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 	{
 		if (_CheckLiveThrough(MetaData, inUrl))
 		{
-//HostPrintUTF8("MetaData cache.0");
 			return "";
 		}
 		
 		outUrl = string(MetaData["playUrl"]);
 		
-		if (doubleCall <= 0)
+		if (doubleTrigger <= 0)
 		{
-//HostPrintUTF8("MetaData cache.1");
 			if (cfg.csl > 0)
 			{
 				HostPrintUTF8("[yt-dlp] Used cache to play - " + tx.qt(inUrl) + "\r\n");
 			}
-			HostSleep(DOUBLE_CALL_INTERVAL_1);	// for waiting double call
+			HostSleep(DOUBLE_TRIGGER_INTERVAL_1);	// for waiting Double Trigger
 			return outUrl;
 		}
 		
 		if (int(MetaData["playlistSelfCount"]) > 0)
 		{
-			if (doubleCall == 1)
+			if (doubleTrigger == 1)
 			{
-//HostPrintUTF8("MetaData cache.2");
 				if (cfg.csl > 0)
 				{
 					HostPrintUTF8("[yt-dlp] Used cache to play - " + tx.qt(inUrl) + "\r\n");
+					HostPrintUTF8("[yt-dlp] Expanding playlist... - " + tx.qt(inUrl) + "\r\n");
 				}
 				return outUrl;
 			}
-			else	// doubleCall == 2
+			else if (doubleTrigger == 2)
 			{
 				if (cfg.csl > 0)
 				{
-					HostPrintUTF8("\r\nDouble Call (slow) - " + tx.qt(inUrl) + "\r\n");
+					HostPrintUTF8("\r\n[yt-dlp] Delayed Double Trigger: Expanding playlist via Force Reload... - " + tx.qt(inUrl) + "\r\n");
 				}
 			}
 		}
-		else if (doubleCall == 2)
+		else if (doubleTrigger == 2)
 		{
 			if (cfg.csl > 0)
 			{
@@ -8203,15 +8385,13 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		}
 		
 		uint cacheTime = cache.getTime(inUrl, "MetaData");
-		if (cacheTime > startTime - DOUBLE_CALL_INTERVAL_2)
+		if (cacheTime > startTime - DOUBLE_TRIGGER_INTERVAL_2)
 		{
 			// new cache
-//HostPrintUTF8("MetaData cache.3");
 			return outUrl;
 		}
 		
 		// reload without old cache
-//HostPrintUTF8("MetaData cache.4");
 		MetaData.deleteAll();
 		QualityList.resize(0);
 		outUrl = "";
@@ -8222,10 +8402,10 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 	string json = cache.getJson(inUrl, imgUrl);
 	if (!json.empty())
 	{
-		if (doubleCall == 2 || doubleCall == 1 && jsn.getDirectValueInt(json, "playlist_index") == 0)
+		if (doubleTrigger == 2 || doubleTrigger == 1 && jsn.getDirectValueInt(json, "playlist_index") == 0)
 		{
 			uint cacheTime = cache.getTime(inUrl, "json");
-			if (cacheTime < startTime - DOUBLE_CALL_INTERVAL_2)
+			if (cacheTime < startTime - DOUBLE_TRIGGER_INTERVAL_2)
 			{
 				json = "";
 				cache.remove(inUrl, "json");
@@ -8245,12 +8425,18 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		outUrl = _PlayitemParseDirect(inUrl, MetaData, QualityList);
 		if (!outUrl.empty())
 		{
-//HostPrintUTF8("direct");
+			// Direct link without yt-dlp.exe
 			return outUrl;
 		}
 		
 		// Execute yt-dlp
-		array<string> jsonList = ytd.exec1(inUrl, 0);
+		string referer = "";
+		if (doubleTrigger <= 0)
+		{
+			referer = _GetRefererFromPotHist(inUrl);
+			// Available only if the URL is a direct link (outUrl == inUrl).
+		}
+		array<string> jsonList = ytd.exec1(inUrl, 0, referer);
 		if (jsonList.length() == 0) return "";
 		json = jsonList[0];
 		
@@ -8260,7 +8446,7 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		if (cancelMode == 1) return "";
 	}
 	
-//HostPrintUTF8("json parse start");
+	// JSON parsing start
 	JsonReader reader;
 	JsonValue root;
 	if (!reader.parse(json, root) || !root.isObject())
@@ -8320,8 +8506,7 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		{
 			thumb = ytd.getThumbnail(inUrl);
 		}
-		//if (!thumb.empty())
-		if (false)
+		if (!thumb.empty())
 		{
 			thumb = _ReviseThumbnail(thumb);
 			outUrl = thumb;
@@ -8345,12 +8530,27 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 	
 	if (cfg.csl > 0)
 	{
-		HostPrintUTF8("\r\n");
+		string msg;
 		string title = string(MetaData["title"]);
-		HostPrintUTF8("Title: " + title + "\r\n");
-		//string desc = string(MetaData["content"]);
-		//HostPrintUTF8("\r\nDescription:\r\n" + desc + "\r\n");
-		HostPrintUTF8("\r\n");
+		if (!title.empty())
+		{
+			msg += "\r\nTitle: " + title + "\r\n";
+		}
+		if (false && cfg.csl > 1)
+		{
+			string desc = string(MetaData["content"]);
+			if (!desc.empty())
+			{
+				msg += "\r\nDescription Start >>>>>>>>>>>>>>>>\r\n\r\n";
+				msg += desc;
+				msg += "\r\n\r\n<<<<<<<<<<<<<< Description End\r\n";
+			}
+		}
+		if (!msg.empty())
+		{
+			msg += "\r\n";
+			HostPrintUTF8(msg);
+		}
 	}
 	
 	string extractor = string(MetaData["extractor"]);
@@ -8362,10 +8562,11 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 	jsn.getValueInt(root, "duration", secDuration);
 	
 	
+	string AllReqHeader;
 	string reqHeader;
 	string resolution;
 	
-	// Exist a format in the top level of root directly
+	// The stream has a format in the top level of root directly
 	jsn.getValueString(root, "url", outUrl);
 	if (!outUrl.empty())
 	{
@@ -8378,6 +8579,8 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		else
 		{
 			reqHeader = _SetRequestHeader(outUrl, root);
+			MetaData["reqHeader"] = reqHeader;
+			AllReqHeader = reqHeader;
 			jsn.getValueString(root, "resolution", resolution);
 		}
 	}
@@ -8749,9 +8952,9 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 			
 			string fmtReqHeader = _SetRequestHeader(fmtUrl, jFormat);
 			Quality["reqHeader"] = fmtReqHeader;
-			if (fmtReqHeader.length() > reqHeader.length())
+			if (AllReqHeader.empty())
 			{
-				reqHeader = fmtReqHeader;
+				AllReqHeader = fmtReqHeader;
 			}
 			
 			if (cfg.csl > 1)
@@ -8891,18 +9094,16 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 		}
 	}
 	
-	if (!reqHeader.empty())
+	if (!AllReqHeader.empty())
 	{
-		MetaData["reqHeader"] = reqHeader;
-		
 		if (cfg.csl > 1)
 		{
-			bool existReferer = (tx.findRegExp(reqHeader, "(?:^|\\n)Referer: ") >= 0);
-			bool existCookie = (tx.findRegExp(reqHeader, "(?:^|\\n)Cookie: ") >= 0);
+			bool existReferer = (tx.findRegExp(AllReqHeader, "(?:^|\\n)Referer: ") >= 0);
+			bool existCookie = (tx.findRegExp(AllReqHeader, "(?:^|\\n)Cookie: ") >= 0);
 			if (existReferer || existCookie)
 			{
 				// for Windows PowerShell
-				string reqHeader2 = reqHeader;
+				string reqHeader2 = AllReqHeader;
 				reqHeader2.replace("\r", "`r");
 				reqHeader2.replace("\n", "`n");
 				
@@ -9206,7 +9407,7 @@ string _PlayitemParse(const string &in path, dictionary &MetaData, array<diction
 	{
 		HostPrintUTF8("[yt-dlp] Parsing complete (" + extractor + "). - " + tx.qt(inUrl) +"\r\n");
 		
-		if (tx.findRegExp(reqHeader, "(?:^|\\n)Cookie: ") >= 0)
+		if (tx.findRegExp(AllReqHeader, "(?:^|\\n)Cookie: ") >= 0)
 		{
 			string msg = "[yt-dlp] PotPlayer might fail to play this stream due to its lack of cookie support.";
 			msg += " - " + tx.qt(inUrl) + "\r\n";
@@ -9236,26 +9437,20 @@ string PlayitemParse(const string &in path, dictionary &MetaData, array<dictiona
 	
 	string outUrl = _PlayitemParse(path, MetaData, QualityList, startTime);
 	
-	string reqHeader = string(MetaData["reqHeader"]);
+	int doubleTrigger = hist.getDoubleTrigger(path, false, startTime);
+	if (doubleTrigger > 0 && int(MetaData["playlistSelfCount"]) > 0)
 	{
-		if (!reqHeader.empty())
+		_PlayerAddList(path, doubleTrigger == 2);
+	}
+	
+	if (false)
+	{
+		if (bool(hist.list[0]["local"]) && !bool(hist.list[0]["toAlbum"]))
 		{
-			HostSetUrlHeaderHTTP(_ReviseUrl(path), reqHeader);
+			// Mitigate an issue if the latter local file has been opened.
+			HostMessageBox("[yt-dlp] Reopen the current file.\r\nPrevious URL session is conflicting.");
+			outUrl = string(hist.list[0]["path"]);
 		}
-	}
-	
-	int doubleCall = hist.getDoubleCall(path, false, startTime);
-	if (doubleCall > 0 && int(MetaData["playlistSelfCount"]) > 0)
-	{
-//HostPrintUTF8("AddList start");
-		_PlayerAddList(path, doubleCall == 2);
-	}
-	
-	if (bool(hist.list[0]["local"]) && !bool(hist.list[0]["toAlbum"]))
-	{
-		// Mitigate an issue if the latter local file has been opened.
-		HostMessageBox("[yt-dlp] Reopen the current file.\r\nPrevious URL session is conflicting.");
-		outUrl = string(hist.list[0]["path"]);
 	}
 	
 	hist.remove(path, false, startTime);

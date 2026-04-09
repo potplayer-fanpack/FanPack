@@ -1,5 +1,9 @@
 ﻿Dziennik zmian w FanPack64
 
+Wersja 3.9.7025          [9.04.2026]
+=====================================
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260408
+
 Wersja 3.9.7017          [3.04.2026]
 =====================================
 = Zaktualizowano ustawienia przechwytywania wideo
