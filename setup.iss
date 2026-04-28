@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7026"
+#define MyAppVersion "3.9.7028"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 10.04.2026
+BeveledLabel= 28.04.2026
 
 
 [Tasks]
@@ -770,7 +770,7 @@ begin
     if PotPlayerDownloadNeeded then
     begin
       // Upewnij się, że link i hash są aktualne
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260401/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', 'A0D532213657B13A9934210E8C7A3C2CBF78B643106EBD3C016F0729E428D129');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260401/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '');
       HasDownloads := True;
     end;
 
