@@ -1,9 +1,9 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7044          [09.06.2026]
+Wersja 3.9.7045          [10.06.2026]
 =====================================
 = Zaktualizowano MPC Video Renderer do wersji v0.10.3.2545
-= Zaktualizowano LAVFilters do wersji v0.81.0-29
+= Zaktualizowano LAVFilters do wersji v0.82
 = Zaktualizowano Deno do wersji v2.8.2
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260606
 = Zaktualizowano 7za.exe do wersji v7z2601
