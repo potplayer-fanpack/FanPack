@@ -1,7 +1,8 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7047          [11.06.2026]
+Wersja 3.9.7048          [18.06.2026]
 =====================================
+= Zaktualizowano Icaros do wersji v3.3.6
 = Zaktualizowano yt-dlp do wersji v2026.06.09
 = Zaktualizowano MPC Video Renderer do wersji v0.10.3.2545
 = Zaktualizowano LAVFilters do wersji v0.82

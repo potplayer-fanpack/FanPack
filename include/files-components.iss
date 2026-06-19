@@ -6,8 +6,8 @@ Hash: "7fdd1f42e6b0855421ecf27bb406e2492ade1087c85e30ebf0deab6280ea743c"; Extern
 Source: "https://github.com/GyanD/codexffmpeg/releases/download/8.1.1/ffmpeg-8.1.1-essentials_build.7z"; DestName: "ffmpeg-8.1.1-essentials_build.7z"; DestDir: "{tmp}"; ExternalSize: "33_669_120"; \
 Hash: "23ad8969fbe701d44e6e7e2b97c5fae4a71224fc33a2560a9034e5110d029d15"; Components: "FFmpeg"; Flags: ignoreversion external download extractarchive recursesubdirs createallsubdirs
 ; Icaros
-Source: "https://github.com/Xanashi/Icaros/releases/download/v3.3.5/Icaros_v3.3.5.exe"; DestName: "Icaros.exe"; DestDir: "{tmp}"; Hash: "399b6f0788cff4b66687c620d0be81dd6d507a7815f5a0900bd3c477635bd57b"; \
-ExternalSize: 13_365_248; Components: "Icaros"; Flags: external download ignoreversion
+Source: "https://github.com/Xanashi/Icaros/releases/download/v3.3.6/Icaros_v3.3.6.exe"; DestName: "Icaros.exe"; DestDir: "{tmp}"; Hash: "22e4d58e1c92aa48e11738d29c43fb6cdd80bdbce835f7029a46e91aa04fe8fd"; \
+ExternalSize: 13_406_208; Components: "Icaros"; Flags: external download ignoreversion
 Source: "InstallDir\uninstall_Icaros.bat";  DestDir: "{app}";                             Components: "Icaros"; Flags: ignoreversion
 Source: "InstallDir\reg\delete_icaros.reg"; DestDir: "{app}\reg";                         Components: "Icaros"; Flags: ignoreversion
 ; madVR
