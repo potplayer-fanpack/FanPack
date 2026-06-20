@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 18.06.2026
+BeveledLabel= 20.06.2026
 
 
 [Tasks]
