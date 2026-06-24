@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 22.06.2026
+BeveledLabel= 24.06.2026
 
 
 [Tasks]
@@ -770,7 +770,7 @@ begin
     if PotPlayerDownloadNeeded then
     begin
       // Upewnij się, że link i hash są aktualne
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260401/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '');
+      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260622/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '');
       HasDownloads := True;
     end;
 
@@ -821,7 +821,7 @@ begin
   TempFiles[4] := ExpandConstant('{tmp}\yt-dlp.exe');
   TempFiles[5] := ExpandConstant('{tmp}\ffmpeg.7z');
   TempFiles[6] := ExpandConstant('{tmp}\deno-x86_64-pc-windows-msvc.zip');
-  TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-8.0.1-essentials_build.7z');
+  TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-8.1.1-essentials_build.7z');
   TempFiles[8] := ExpandConstant('{tmp}\lib.7z');
 
   for I := 0 to GetArrayLength(TempFiles) - 1 do

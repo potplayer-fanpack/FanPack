@@ -3,6 +3,19 @@ Historia wersji PotPlayer
 
 
 ----------------------------------------------------------
+[260622]
+----------------------------------------------------------
+* Usunięto Kakao TV
+
++ Dodano funkcję wstrzymywania nawigacji podczas poruszania się po pasku nawigacyjnym
+
+- Znacznie poprawiono stabilność wewnętrzną
+- Naprawiono problem z dziwnym wyświetlaniem kolorów podczas przetwarzania RGB24
+- Ulepszono odtwarzanie niektórych strumieni HTTP
+- Ulepszono zarządzanie synchronizacją dla wbudowanego renderera audio
+- Naprawiono problem z nieprawidłowym odtwarzaniem niektórych plików MP4
+
+----------------------------------------------------------
 [260331]
 ----------------------------------------------------------
 + Dodano możliwość wyświetlania napisów przy użyciu biblioteki libass

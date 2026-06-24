@@ -1,6 +1,6 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7056          [22.06.2026]
+Wersja 3.9.7056          [24.06.2026]
 =====================================
 = Zaktualizowano Icaros do wersji v3.3.6
 = Zaktualizowano yt-dlp do wersji v2026.06.09
