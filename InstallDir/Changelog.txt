@@ -1,11 +1,14 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7067          [28.06.2026]
+Wersja 3.9.7079          [8.07.2026]
 =====================================
+= Zaktualizowano yt-dlp do wersji v2026.07.04
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260703
+= Zaktualizowano 7za.exe do wersji v26.2
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v8.1.2
-= Zaktualizowano TorrServer.Matrix do wersji v141.9
+= Zaktualizowano TorrServer.Matrix do wersji v142
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.9.0
-= Zaktualizowano Deno do wersji v2.9.0
+= Zaktualizowano Deno do wersji v2.9.2
 
 Wersja 3.9.7056          [24.06.2026]
 =====================================
@@ -15,7 +18,7 @@ Wersja 3.9.7056          [24.06.2026]
 = Zaktualizowano LAV Filters do wersji v0.82
 = Zaktualizowano Deno do wersji v2.8.3
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260622
-= Zaktualizowano 7za.exe do wersji v7z2601
+= Zaktualizowano 7za.exe do wersji v26.2
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v8.1.1
 = Zaktualizowano TorrServer.Matrix do wersji v141.5
 
