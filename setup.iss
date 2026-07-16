@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7079"
+#define MyAppVersion "3.9.7081"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 8.07.2026
+BeveledLabel= 16.07.2026
 
 
 [Tasks]
@@ -200,9 +200,10 @@ Source: "src\History\Polish.txt";                     DestDir: "{autopf}\DAUM\Po
 Source: "src\Language\Polish.ini";                    DestDir: "{autopf}\DAUM\PotPlayer\Language";           Components: "program"; Flags: ignoreversion uninsneveruninstall; Languages: "pl"
 ; OpenCodec
 Source: "src\Module\libmfxsw64.dll";                  DestDir: "{autopf}\DAUM\PotPlayer\Module";             Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "src\Module\QuickSync64.dll";                 DestDir: "{autopf}\DAUM\PotPlayer\Module";             Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
 Source: "src\Module\OpenCodec\OpenCodecUnity64.dll";  DestDir: "{autopf}\DAUM\PotPlayer\Module\OpenCodec";   Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "src\Module\FFmpeg62\FFmpeg64.dll";           DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62";    Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
-Source: "src\Module\FFmpeg62\FFmpegMininum64.dll";    DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62";    Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "src\Module\FFmpeg63\FFmpeg64.dll";           DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg63";    Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
+Source: "src\Module\FFmpeg63\FFmpegMininum64.dll";    DestDir: "{autopf}\DAUM\PotPlayer\Module\FFmpeg63";    Components: "program"; Flags: onlyifdoesntexist uninsneveruninstall
 Source: "{tmp}\Module64.7z";                          DestDir: "{tmp}";                                      Components: "program"; Flags: deleteafterinstall
 ; Listy
 Source: "src\UrlList\Radio.asx";                      DestDir: "{autopf}\DAUM\PotPlayer\UrlList";            Components: "program"; Flags: ignoreversion uninsneveruninstall
@@ -275,6 +276,7 @@ Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\PxShader\*"
 ;----------------- Usuwanie zbędnych folderów poinstalacyjnych -----------------
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Html"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\FFmpeg4"
+Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\FFmpeg62"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Extension\Data\yt-dlp_win"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Extension\Data"
 
