@@ -1,13 +1,13 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7081          [16.07.2026]
+Wersja 3.9.7081          [20.07.2026]
 =====================================
 = Zaktualizowano OpenCodec64 do wersji v5
 = Zaktualizowano yt-dlp do wersji v2026.07.04
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260703
 = Zaktualizowano 7za.exe do wersji v26.2
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v8.1.2
-= Zaktualizowano TorrServer.Matrix do wersji v142.1
+= Zaktualizowano TorrServer.Matrix do wersji v142.2
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.9.0
 = Zaktualizowano Deno do wersji v2.9.3
 
