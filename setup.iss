@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7081"
+#define MyAppVersion "3.9.7085"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 24.07.2026
+BeveledLabel= 6.08.2026
 
 
 [Tasks]
@@ -292,8 +292,8 @@ Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa";  Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}";  Components: "ACE"
 
 ;----------------- Przenoszenie plików pakietu FFmpeg -----------------
-Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.1.2-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
-Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-8.1.2-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-9.0-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-9.0-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
 
 ;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe')); Components: "Icaros"
@@ -328,7 +328,7 @@ Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PxShader\*.*"" (MOVE /Y ""{a
 
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{tmp}\ffmpeg-8.1.2-essentials_build"
+Type: filesandordirs; Name: "{tmp}\ffmpeg-9.0-essentials_build"
 Type: filesandordirs; Name: "{app}"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\MI"
 Type: filesandordirs; Name: "{autopf}\madVR"; Components: "madvr"
@@ -823,7 +823,7 @@ begin
   TempFiles[4] := ExpandConstant('{tmp}\yt-dlp.exe');
   TempFiles[5] := ExpandConstant('{tmp}\ffmpeg.7z');
   TempFiles[6] := ExpandConstant('{tmp}\deno-x86_64-pc-windows-msvc.zip');
-  TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-8.1.2-essentials_build.7z');
+  TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-9.0-essentials_build.7z');
   TempFiles[8] := ExpandConstant('{tmp}\lib.7z');
 
   for I := 0 to GetArrayLength(TempFiles) - 1 do
