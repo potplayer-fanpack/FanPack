@@ -1,7 +1,9 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7085          [6.08.2026]
+Wersja 3.9.7102          [8.08.2026]
 =====================================
+= Zaktualizowano LAV Filters do wersji v0.82.0-5
+= Zaktualizowano MPC-BE Standalone Filters do wersji v1.9.1
 = Zaktualizowano MPC Video Renderer do wersji v0.10.7.2560
 = Zaktualizowano OpenCodec64 do wersji v5
 = Zaktualizowano yt-dlp do wersji v2026.07.04
