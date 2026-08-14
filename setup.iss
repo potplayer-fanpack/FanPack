@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 8.08.2026
+BeveledLabel= 14.08.2026
 
 
 [Tasks]
@@ -174,7 +174,7 @@ Name: "{group}\FanPack64 w sieci";                    Filename: "{#MyAppURL}"
 Name: "{group}\{cm:UninstallProgram,{#MyBrandName}}"; Filename: "{uninstallexe}"
 Name: "{group}\TorrServer Launcher";                  Filename: "{userappdata}\TorrServer\tsl.exe"; Comment: "{cm:msg_streamtor}";                             Components: "TOR"
 Name: "{group}\TorrServer\Rozszerzenie dla Firefox";  Filename: "https://addons.mozilla.org/pl/firefox/addon/torrserver-adder/";                               Components: "TOR" 
-Name: "{group}\TorrServer\Rozszerzenie dla Chrome";   Filename: "https://chrome.google.com/webstore/detail/torrserver-adder/ihphookhabmjbgccflngglmidjloeefg"; Components: "TOR"
+Name: "{group}\TorrServer\Rozszerzenie dla Chrome";   Filename: "https://chromewebstore.google.com/detail/torrserver-adder/ihphookhabmjbgccflngglmidjloeefg";  Components: "TOR"
 Name: "{group}\AceStream\AceStream Engine";           Filename: "{userappdata}\AceStream\engine\ace_engine.exe"; Parameters: "--live-cache-type memory --live-mem-cache-size 268435456"; IconFilename: "{userappdata}\AceStream\engine\data\images\engine.ico"; Comment: "Streaming torrent-tv przez HTTP"; Components: "ACE" 
 Name: "{group}\AceStream\Reset ustawień...";          Filename: "{userappdata}\AceStream\ResetSettings.vbs"; IconFilename: "{userappdata}\AceStream\engine\data\images\engine.ico"; Comment: "Streaming torrent-tv przez HTTP";               Components: "ACE"  
 Name: "{group}\Download Video";                       Filename: "{autopf}\DAUM\PotPlayer\Module\yt-dlp.bat"; IconFilename: "{autopf}\DAUM\PotPlayer\Module\yt-dlp.exe"; Comment: "{cm:msg_downvideos}"; Components: "YTDLP"
@@ -292,8 +292,8 @@ Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\madVR.7z"" -o""{autopf}\madVR"
 Filename: "{tmp}\7za.exe"; Parameters: "x ""{tmp}\lib.7z"" -o""{userappdata}\AceStream\engine\lib"" * -r -aoa";  Flags: runhidden; StatusMsg: "{cm:msg_extAceLib}";  Components: "ACE"
 
 ;----------------- Przenoszenie plików pakietu FFmpeg -----------------
-Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-9.0-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
-Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-9.0-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-9.0.1-essentials_build\bin\ffmpeg.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffmpeg.exe""";   Components: "FFmpeg"; Flags: runhidden
+Filename: "{cmd}"; Parameters: "/C move ""{tmp}\ffmpeg-9.0.1-essentials_build\bin\ffprobe.exe"" ""{autopf}\DAUM\PotPlayer\Module\ffprobe.exe"""; Components: "FFmpeg"; Flags: runhidden
 
 ;----------------- Instalacja Icaros -----------------
 Filename: "{tmp}\Icaros.exe"; Parameters: "/VERYSILENT"; WorkingDir: "{tmp}"; Description: "{cm:msg_install_icaros}"; StatusMsg: "{cm:msg_install_icaros}"; Check: FileExists(ExpandConstant('{tmp}\Icaros.exe')); Components: "Icaros"
@@ -328,7 +328,7 @@ Filename: "{cmd}"; Parameters: "/C IF EXIST ""{app}\PxShader\*.*"" (MOVE /Y ""{a
 
 
 [UninstallDelete]
-Type: filesandordirs; Name: "{tmp}\ffmpeg-9.0-essentials_build"
+Type: filesandordirs; Name: "{tmp}\ffmpeg-9.0.1-essentials_build"
 Type: filesandordirs; Name: "{app}"
 Type: filesandordirs; Name: "{autopf}\DAUM\PotPlayer\Module\MI"
 Type: filesandordirs; Name: "{autopf}\madVR"; Components: "madvr"
@@ -823,7 +823,7 @@ begin
   TempFiles[4] := ExpandConstant('{tmp}\yt-dlp.exe');
   TempFiles[5] := ExpandConstant('{tmp}\ffmpeg.7z');
   TempFiles[6] := ExpandConstant('{tmp}\deno-x86_64-pc-windows-msvc.zip');
-  TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-9.0-essentials_build.7z');
+  TempFiles[7] := ExpandConstant('{tmp}\ffmpeg-9.0.1-essentials_build.7z');
   TempFiles[8] := ExpandConstant('{tmp}\lib.7z');
 
   for I := 0 to GetArrayLength(TempFiles) - 1 do
