@@ -1,7 +1,8 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7115          [18.08.2026]
+Wersja 3.9.7116          [19.08.2026]
 =====================================
+= Zaktualizowano łącze do PotPlayer64.exe do wersji stabilnej 26.8.19
 = Zaktualizowano LAV Filters do wersji v0.83
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.9.1
 = Zaktualizowano MPC Video Renderer do wersji v0.10.7.2560
