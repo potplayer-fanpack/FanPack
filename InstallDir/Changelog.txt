@@ -1,14 +1,14 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7116          [19.08.2026]
+Wersja 3.9.7117          [20.08.2026]
 =====================================
 = Zaktualizowano łącze do PotPlayer64.exe do wersji stabilnej 26.8.19
 = Zaktualizowano LAV Filters do wersji v0.83
 = Zaktualizowano MPC-BE Standalone Filters do wersji v1.9.1
 = Zaktualizowano MPC Video Renderer do wersji v0.10.7.2560
 = Zaktualizowano OpenCodec64 do wersji v5
-= Zaktualizowano yt-dlp do wersji v2026.07.04
-= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260703
+= Zaktualizowano yt-dlp do wersji v2026.08.19
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260818
 = Zaktualizowano 7za.exe do wersji v26.2
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v9.0.1
 = Zaktualizowano TorrServer.Matrix do wersji v143
