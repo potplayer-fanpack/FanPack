@@ -1,5 +1,11 @@
 ﻿Dziennik zmian w FanPack64
 
+Wersja 3.9.7136          [18.09.2026]
+=====================================
+= Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260906
+= Zaktualizowano TorrServer.Matrix do wersji v145
+= Zaktualizowano Deno do wersji v2.9.7
+
 Wersja 3.9.7117          [20.08.2026]
 =====================================
 = Zaktualizowano łącze do PotPlayer64.exe do wersji stabilnej 26.8.19

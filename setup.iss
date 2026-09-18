@@ -5,7 +5,7 @@
 
 #define MyAppName "FanPack64"
 #define MyBrandName "FanPack64"
-#define MyAppVersion "3.9.7117"
+#define MyAppVersion "3.9.7136"
 #define MyAppPublisher "PotPlayer Club"
 #define MyAppURL "https://github.com/potplayer-fanpack/FanPack"
 #define MyAppExeName "MyProg-x64.exe"
@@ -71,7 +71,7 @@ DialogFontBaseScaleWidth=6
 
 
 [Messages]
-BeveledLabel= 20.08.2026
+BeveledLabel= 18.09.2026
 
 
 [Tasks]
@@ -252,7 +252,10 @@ Source: "src\Logos\PotPlayer2.png";                   DestDir: "{autopf}\DAUM\Po
 ;
 Source: "7za.exe";                                    DestDir: "{tmp}";                                      Flags: deleteafterinstall
 ;
-Source: "{fonts}\Oswald-Regular.ttf";                 DestDir: "{autofonts}"; FontInstall: "Oswald Regular"; Flags: onlyifdoesntexist uninsneveruninstall   
+Source: "{fonts}\Oswald-Regular.ttf";                 DestDir: "{autofonts}"; FontInstall: "Oswald Regular"; Flags: onlyifdoesntexist uninsneveruninstall
+;
+;Source: "InstallDir\Updater.exe";                     DestDir: "{app}";                                      Components: "program"; Flags: ignoreversion
+;Source: "InstallDir\Updater.ini";                     DestDir: "{app}";                                      Components: "program"; Flags: ignoreversion   
 
 #include "include/files-acestream.iss"
 #include "include/files-components.iss"
