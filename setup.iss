@@ -775,7 +775,7 @@ begin
     if PotPlayerDownloadNeeded then
     begin
       // Upewnij się, że link i hash są aktualne
-      DownloadPage.Add('https://t1.daumcdn.net/potplayer/PotPlayer/Version/260819/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '');
+      DownloadPage.Add('https://t1.kakaocdn.net/potplayer/PotPlayer/Version/260819/PotPlayerSetup64.exe', 'PotPlayerSetup64.exe', '');
       HasDownloads := True;
     end;
 
