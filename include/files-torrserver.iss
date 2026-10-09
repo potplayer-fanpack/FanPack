@@ -8,5 +8,5 @@ Source: "{userappdata}\TorrServer\config.db";                                  D
 Source: "{userappdata}\TorrServer\msvcr100.dll";                               DestDir: "{userappdata}\TorrServer";                             Components: "TOR"; Flags: ignoreversion
 Source: "{userappdata}\TorrServer\tsl.exe";                                    DestDir: "{userappdata}\TorrServer";                             Components: "TOR"; Flags:ignoreversion
 Source: "{userappdata}\PotPlayerMini64\Playlist\Torrent.dpl";                  DestDir: "{userappdata}\PotPlayerMini64\Playlist";               Components: "TOR"; Flags: ignoreversion 
-Source: "https://github.com/YouROK/TorrServer/releases/download/MatriX.145/TorrServer-windows-amd64.exe"; DestName: "TorrServer-windows-amd64.exe"; DestDir: "{userappdata}\TorrServer"; Hash: "407532e5da6e7676ad274489b322d28f8f1ae7d2e12032e9d6acfadd9b945006"; \
-Components: "TOR"; ExternalSize: 63_545_344; Flags: external download ignoreversion  
+Source: "https://github.com/YouROK/TorrServer/releases/download/MatriX.146/TorrServer-windows-amd64.exe"; DestName: "TorrServer-windows-amd64.exe"; DestDir: "{userappdata}\TorrServer"; Hash: "e6da1a3268350fc719a0a086c8c8d7307a02992eb757e5785d73849eab9a55ba"; \
+Components: "TOR"; ExternalSize: 63_692_800; Flags: external download ignoreversion  
