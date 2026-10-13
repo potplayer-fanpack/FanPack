@@ -1,7 +1,9 @@
 ﻿Dziennik zmian w FanPack64
 
-Wersja 3.9.7139          [9.10.2026]
+Wersja 3.9.7143          [13.10.2026]
 =====================================
+= Zaktualizowano MPC-BE Standalone Filters do wersji v1.9.2
+= Zaktualizowano MPC Video Renderer do wersji v0.10.9.2605
 = Zaktualizowano komponenty FFmpeg i FFprobe do wersji v9.0.2
 = Zaktualizowano PotPlayer-Extension_yt-dlp do wersji 260906
 = Zaktualizowano TorrServer.Matrix do wersji v146
