@@ -1,9 +1,39 @@
 ﻿
 Historia wersji PotPlayer
 
+----------------------------------------------------------
+[261021]
+----------------------------------------------------------
+* Zmieniono domyślne moduły renderujące (D3D11 dla wideo, WASAPI dla audio)
+
++ Dodano obsługę MPEG4 DXVA
++ Dodano możliwość odtwarzania strumieni HLS/DASH z plików lokalnych
++ Dodano możliwość konfiguracji przez użytkownika sposobu przeszukiwania list odtwarzania
++ Dodano możliwość odtwarzania wideo 180 stopni
++ Dodano obsługę Replay Gain
+
+- Naprawiono problem z niską prędkością kodowania plików WebP
+- Naprawiono problem uniemożliwiający odtwarzanie niektórych plików MPEG TS
+- Poprawiono jakość obrazu w trybie podwajania liczby klatek (double-frame)
+- Naprawiono błąd występujący podczas odtwarzania niektórych plików MP4
 
 ----------------------------------------------------------
-[260622]
+[260819]
+----------------------------------------------------------
+* Wydano kompilację ARM64
+  https://t1.kakaocdn.net/potplayer/PotPlayer/Version/Latest/PotPlayerSetupARM64.exe
+
++ Dodano funkcję umożliwiającą indywidualne ustawienie działań dla lewego/prawego obszaru po dwukrotnym kliknięciu myszką
++ Dodano funkcję umożliwiającą użytkownikom ustawienie adresu listy broadcast
++ Dodano możliwość sortowania list odtwarzania według daty premiery
+
+- Naprawiono problem z odtwarzaniem filmów w ultrawysokiej rozdzielczości
+- Naprawiono problem z brakiem synchronizacji wbudowanego renderera audio w niektórych przypadkach
+- Wprowadzono poprawkę umożliwiającą wyświetlanie kolorowych emotikonów w napisach
+- Zmieniono funkcję wyszukiwania w listach odtwarzania na tryb filtrowania
+
+----------------------------------------------------------
+[260618]
 ----------------------------------------------------------
 * Usunięto Kakao TV
 
@@ -16,7 +46,7 @@ Historia wersji PotPlayer
 - Naprawiono problem z nieprawidłowym odtwarzaniem niektórych plików MP4
 
 ----------------------------------------------------------
-[260331]
+[260401]
 ----------------------------------------------------------
 + Dodano możliwość wyświetlania napisów przy użyciu biblioteki libass
 + Dodano możliwość obsługi odtwarzania HLS/Dash za pomocą wbudowanych modułów

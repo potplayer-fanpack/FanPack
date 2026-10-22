@@ -1,7 +1,7 @@
 ; Inne dodatkowe pliki [Files]
 ; Components Deno
-Source: "https://github.com/denoland/deno/releases/download/v2.9.7/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Module"; \
-Hash: "a0c3101b4158d1dfb7d6a78a7bf0f3de80c96bb423c152beec8beb22786f2238"; ExternalSize: 42_635_264; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
+Source: "https://github.com/denoland/deno/releases/download/v2.9.8/deno-x86_64-pc-windows-msvc.zip"; DestName: "deno-x86_64-pc-windows-msvc.zip"; DestDir: "{autopf}\DAUM\PotPlayer\Module"; \
+Hash: "cba84b26e0df5ae7f74fc66b86a95b866872a86292ebd84fa1e959927edd93bf"; ExternalSize: 42_921_984; Components: "Deno"; Flags: external download extractarchive recursesubdirs ignoreversion
 ; Components FFmpeg
 Source: "https://github.com/GyanD/codexffmpeg/releases/download/9.0.2/ffmpeg-9.0.2-essentials_build.7z"; DestName: "ffmpeg-9.0.2-essentials_build.7z"; DestDir: "{tmp}"; ExternalSize: "35_438_592"; \
 Hash: "4705843ccaaf54257c16ad90f3e952ece33c17df964ecf7bfdbb0f49c7171077"; Components: "FFmpeg"; Flags: ignoreversion external download extractarchive recursesubdirs createallsubdirs
